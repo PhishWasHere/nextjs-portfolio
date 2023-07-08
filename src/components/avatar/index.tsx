@@ -3,8 +3,8 @@ import Image from "next/image"
 
 export default function Avatar(){
     return (
-        <section id="avatar" className="flex justify-center my-1 hover:bg-gray-200 cursor-pointer p-2 text-gray-700 hover:text-blue-400">
-            <div className="text-center">
+        <section id="avatar" className="flex container justify-center  rounded-md hover:bg-gray-200 cursor-pointer p-2 text-gray-700 hover:text-blue-400">
+            <div className="m-5 p-5 text-center">
                 <Image
                     className="mx-auto"
                     src="next.svg"

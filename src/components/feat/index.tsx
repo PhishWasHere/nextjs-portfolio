@@ -19,13 +19,13 @@ export default function Feat() {
 
     return (
         <section id="featured" className="">
-        <div className="text-center">
+        <div className="text-center p-4">
           <h3 className="text-xl font-bold">Featured Repositories</h3>
         </div>
-        <div className="flex flex-wrap justify-center">
+        <div className="sm:grid grid-cols-2 gap-4 justify-center items-center mx-2">
           {featRepo.map((repo) => (
             <div className="p-4" key={repo.id}>
-              <div className="bg-gray-200 rounded p-4">
+              <div className="bg-gray-200 rounded p-4 h-36">
                 <h4 className="text-lg font-bold">{repo.name}</h4>
                 <p className="text-sm">{repo.description}</p>
                 <a

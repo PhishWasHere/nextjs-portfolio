@@ -27,9 +27,9 @@ export default function Repos() {
         <div className="text-center">
           <h3 className="text-3xl font-bold">My most recent repos</h3>
         </div>
-        <div className="flex flex-wrap justify-center">
+        <div className="sm:grid grid-cols-2 gap-4 justify-center items-center ">
           {repos.map((repo) => (
-            <div className="p-4" key={repo._id}>
+            <div className="rounded-lg h-44 w-5/6 mx-auto" key={repo._id}>
               <div className="bg-gray-200 rounded p-4">
                 {!repo.image ? (
                   <Image

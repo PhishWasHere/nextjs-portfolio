@@ -19,7 +19,7 @@ export default function Stack() {
         <section id="stack" className="flex justify-center my-1 hover:bg-gray-200 cursor-pointer p-2 text-gray-700 hover:text-blue-400">
         <div className="text-center">
           <h3 className="text-xl font-bold">My Tech Stack</h3>
-          <div className="flex flex-wrap justify-center">
+          <div className="flex flex-wrap justify-center p-5">
             {stack.map((tech) => (
               <div className="p-2" key={tech}>
                 <div className="bg-gray-200 rounded p-2">
