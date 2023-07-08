@@ -16,7 +16,7 @@ export default function Stack() {
     ]
 
     return (
-        <section id="stack" className="w-1/3">
+        <section id="stack" className="flex justify-center my-1 hover:bg-gray-200 cursor-pointer p-2 text-gray-700 hover:text-blue-400">
         <div className="text-center">
           <h3 className="text-xl font-bold">My Tech Stack</h3>
           <div className="flex flex-wrap justify-center">

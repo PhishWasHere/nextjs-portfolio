@@ -23,7 +23,7 @@ export default function Repos() {
     }, []);
 
     return (
-        <section id="repos" className="w-2/3">
+        <section id="repos" className="">
         <div className="text-center">
           <h3 className="text-3xl font-bold">My most recent repos</h3>
         </div>

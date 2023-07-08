@@ -18,7 +18,7 @@ export default function Feat() {
     ]
 
     return (
-        <section id="featured" className="w-2/3">
+        <section id="featured" className="">
         <div className="text-center">
           <h3 className="text-xl font-bold">Featured Repositories</h3>
         </div>

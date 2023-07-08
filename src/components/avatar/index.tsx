@@ -3,7 +3,7 @@ import Image from "next/image"
 
 export default function Avatar(){
     return (
-        <section id="avatar" className="w-1/3">
+        <section id="avatar" className="flex justify-center my-1 hover:bg-gray-200 cursor-pointer p-2 text-gray-700 hover:text-blue-400">
             <div className="text-center">
                 <Image
                     className="mx-auto"
