@@ -1,17 +1,16 @@
 import Image from 'next/image'
 
-import Avatar from '../components/avatar'
-import Stack from '../components/stack'
 
-import Feat from '../components/feat'
-import Repos from '../components/repos'
+import NavBar from '@/components/nav'
+import Home from '@/components/home'
+
 
 import Seed from '../utils/seed'
 import ConnectDB from '../config'
 
 
 
-export default function Home() {
+export default function Portfolio() {
 
   const db = async () => {
     await ConnectDB();
@@ -22,19 +21,9 @@ export default function Home() {
 
   return (
     <>
-    <div className="lg:flex min-h-screen justify-center">
-      <aside className='px-3 py-1 border lg:max-w-lg '>
-        <div className='md:min-w-full'>
-          <Avatar />
-          <Stack />
-        </div>
-      </aside>
-      
-      <main className='container w-full border max-w-7xl'>
-        <Feat />
-        <Repos />
-      </main>
-    </div>
+    <NavBar />
+
+    <Home />
     </>
   )
 }
