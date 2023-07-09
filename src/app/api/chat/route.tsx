@@ -83,14 +83,16 @@ export async function POST(req: Request, res: Response) { //need to do fetch thi
           role: message.role
         }))]
     })
+    console.log(response, 'response', messages, 'messages');
+    
 
-    const stream = OpenAIStream(response, { //vercel ai sdk response
+
+    const stream = await OpenAIStream(response, { //vercel ai sdk response
         onCompletion: async (completion: any) => { //on completion of the ai response does a thing
-            console.log('completion', completion);
-
         }
     })
 
+    
     return new StreamingTextResponse(stream)
     
 } 
