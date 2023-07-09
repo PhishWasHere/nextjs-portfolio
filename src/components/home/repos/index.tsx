@@ -7,7 +7,7 @@ export default function Repos() {
 
     const [repos, setRepos] = useState([]);
 
-    useEffect(() => {
+    useEffect(() => { // fetch repos from api
         fetch('/api/repo')
         .then(response => {
             if(!response.ok) {
@@ -28,16 +28,16 @@ export default function Repos() {
           <h3 className="text-3xl font-bold mb-4">My most recent repos</h3>
         </div>
         <div className="sm:grid grid-cols-2 gap-4 justify-center items-center">
-          {repos.map((repo) => (
+          {repos.map((repo) => ( // map over repos and display them
             <div id="card" className="flex rounded-lg h-44 w-5/6 mx-auto bg-red-950 mb-2" key={repo._id}>
               <div className="bg-gray-700 rounded p-4">   
     
                 <div id="text" className="flex flex-col flex-grow ml-4">
                   <div className="justify-between items-end"> 
                     <h4 className="text-lg font-bold">{repo.name}</h4>
-                    {!repo.description ? (
+                    {!repo.description ? ( // if no description, display this
                       <p className="text-sm">No description provided.</p>
-                      ) : (
+                      ) : ( // if there is a description, display it
                         <p className="text-sm">{repo.description}</p>
                         )}
                     <a
@@ -51,7 +51,7 @@ export default function Repos() {
                   </div>
                 </div>
                 
-                {repo.primaryLanguage && (
+                {repo.primaryLanguage && ( // displays the primary language of the repo 
                   <div className="text-center">
                     <span
                       className="inline-block w-3 h-3 rounded-full mr-1"
@@ -63,7 +63,7 @@ export default function Repos() {
 
               <div className="flex ml-auto">
               <div className="items-center justify-center bg-stone-300">
-                {!repo.image ? (
+                {!repo.image ? ( // if no image, display this
                   <Image
                     className="h-full w-full object-cover overflow-hidden rounded-full"
                     src="/angry.jpg"
@@ -71,7 +71,7 @@ export default function Repos() {
                     height={128}
                     alt="placeholder"
                   />
-                ) : (
+                ) : ( // if there is an image, display it
                   <Image
                     className="h-full w-full object-cover overflow-hidden rounded-full"
                     src={repo.image}

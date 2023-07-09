@@ -17,5 +17,5 @@ const RepoSchema = new mongoose.Schema({
     },
     updated_at: Date
 });
-
+// repo schema
 export default mongoose.models.Repo || mongoose.model('Repo', RepoSchema);
