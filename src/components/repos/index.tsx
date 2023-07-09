@@ -25,47 +25,32 @@ export default function Repos() {
     return (
         <section id="repos" className="">
         <div className="text-center">
-          <h3 className="text-3xl font-bold">My most recent repos</h3>
+          <h3 className="text-3xl font-bold mb-4">My most recent repos</h3>
         </div>
-        <div className="sm:grid grid-cols-2 gap-4 justify-center items-center ">
+        <div className="sm:grid grid-cols-2 gap-4 justify-center items-center">
           {repos.map((repo) => (
-            <div className="rounded-lg h-44 w-5/6 mx-auto" key={repo._id}>
-              <div className="bg-gray-200 rounded p-4">
-                {!repo.image ? (
-                  <Image
-                    className="mx-auto"
-                    src="next.svg"
-                    width={128}
-                    height={128}
-                    alt="placeholder"
-                  />
-                ) : (
-                  <Image
-                    className="mx-auto"
-                    src={repo.image}
-                    width={128}
-                    height={128}
-                    alt={repo.alt}
-                  />
-                )}
+            <div id="card" className="flex rounded-lg h-44 w-5/6 mx-auto bg-red-950 mb-2" key={repo._id}>
+              <div className="bg-gray-700 rounded p-4">   
     
-                <div className="text-center">
-                  <h4 className="text-lg font-bold">{repo.name}</h4>
-                  {!repo.description ? (
-                    <p className="text-sm">No description provided.</p>
-                  ) : (
-                    <p className="text-sm">{repo.description}</p>
-                  )}
-                  <a
-                    className="text-blue-500 text-sm underline"
-                    href={repo.html_url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View Repository
-                  </a>
+                <div id="text" className="flex flex-col flex-grow ml-4">
+                  <div className="justify-between items-end"> 
+                    <h4 className="text-lg font-bold">{repo.name}</h4>
+                    {!repo.description ? (
+                      <p className="text-sm">No description provided.</p>
+                      ) : (
+                        <p className="text-sm">{repo.description}</p>
+                        )}
+                    <a
+                      className="text-blue-500 text-sm underline"
+                      href={repo.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >
+                      View Repository
+                    </a>
+                  </div>
                 </div>
-    
+                
                 {repo.primaryLanguage && (
                   <div className="text-center">
                     <span
@@ -75,6 +60,29 @@ export default function Repos() {
                   </div>
                 )}
               </div>
+
+              <div className="flex ml-auto">
+              <div className="items-center justify-center bg-stone-300">
+                {!repo.image ? (
+                  <Image
+                    className="h-full w-full object-cover overflow-hidden rounded-full"
+                    src="/angry.jpg"
+                    width={128}
+                    height={128}
+                    alt="placeholder"
+                  />
+                ) : (
+                  <Image
+                    className="h-full w-full object-cover overflow-hidden rounded-full"
+                    src={repo.image}
+                    width={128}
+                    height={128}
+                    alt={repo.alt}
+                  />
+                )}
+                </div>
+              </div>
+
             </div>
           ))}
         </div>

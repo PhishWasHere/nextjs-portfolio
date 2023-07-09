@@ -10,7 +10,7 @@ const config = new Configuration({ //openai config
 
 const openai = new OpenAIApi(config);
 
-export const runtime = 'edge' 
+export const runtime = 'edge'
 
 
 export async function POST(req: Request, res: Response) { //need to do fetch this way or it breaks
@@ -90,7 +90,7 @@ export async function POST(req: Request, res: Response) { //need to do fetch thi
 
         }
     })
-    
+
     return new StreamingTextResponse(stream)
     
 } 

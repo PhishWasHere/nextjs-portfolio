@@ -29,6 +29,7 @@ export default function Home() {
           <Stack />
         </div>
       </aside>
+      
       <main className='container w-full border max-w-7xl'>
         <Feat />
         <Repos />
