@@ -17,12 +17,12 @@ export default function GPT() {
     // }, [messages]);
 
     return(
-        <div className="w-5/6 bg-zinc-800/90 rounded-lg mx-auto">
-            <div className="max-h-96 overflow-y-auto text-teal-500">
+        <div className=" bg-white mx-auto rounded-b-md">
+            <div className="max-h-96 overflow-y-auto ">
             {messages.length > 0
                 ? messages.map(m => (
-                    <div key={m.id} className="ml-2">
-                      {m.role === 'user' ? 'User: ' : 'GPT: '}
+                    <div key={m.id} className="mx-2 mt-2 border-2 ">
+                      {m.role === 'user' ? 'User: ' : 'Miran*: '}
                       {m.content}
                     </div>
                   ))
@@ -31,12 +31,13 @@ export default function GPT() {
 
             <form onSubmit={handleSubmit}>
                 <input
-                  className="rounded-b-md border border-gray-300 px-4 py-2 w-full"
+                  className="rounded-b-md border border-gray-400 px-4 py-2 w-full "
                   value={input}
                   placeholder="Say something..."
                   onChange={handleInputChange}
-                />
+                  />
             </form>
         </div>
+
     );
 }

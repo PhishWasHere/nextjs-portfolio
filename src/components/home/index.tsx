@@ -24,14 +24,14 @@ export default function Home() {
               <Avatar />
               <div className='flex my-4 flex-col justify-center'>
                 {!gpt && ( 
-                  <h3 className='text-lg mx-auto px-4 p-2  bg-white '>
-                    Have a live <button onClick={showChat} className='px-1.5 font-semibold transition rounded-full shadow-lg hover:text-teal-500 hover:bg-zinc-700 text-slate-900 ring-1 bg-teal-500 ring-white '>chat</button> with me*
+                  <h3 className='text-lg mx-auto px-4 p-2 bg-white '>
+                    Have a live <button onClick={showChat} className='px-1.5 font-semibold transition shadow-lg hover:text-teal-500 hover:bg-zinc-950/90 text-slate-900 ring-1 bg-teal-500 ring-white '>chat</button> with me*
                   </h3>
                 )}
                 {gpt && (
                   <>
                   <div className='mx-auto text-lg px-4 p-2'>
-                    <button onClick={closeChat} className='px-4 py-1 mb-2 transition rounded-full shadow-lg hover:text-teal-500 shadow-zinc-800/5 ring-1 backdrop-blur bg-zinc-800/90 text-zinc-200 ring-white/10'>Close chat</button>
+                    <button onClick={closeChat} className='px-4 py-1 mb-2 font-semibold transition shadow-lg hover:text-teal-500 hover:bg-zinc-950/90 ring-1 backdrop-blur bg-white ring-white/10'>Close chat</button>
                   </div>
                   <h3 className='mx-auto w-full'>
                     <GPT />

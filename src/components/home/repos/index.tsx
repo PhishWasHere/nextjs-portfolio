@@ -27,63 +27,55 @@ export default function Repos() {
         <div className="text-center">
           <h3 className="text-3xl font-bold mb-4">My most recent repos</h3>
         </div>
+
         <div className="sm:grid grid-cols-2 gap-4 justify-center items-center">
           {repos.map((repo) => ( // map over repos and display them
-            <div id="card" className="flex rounded-lg h-44 w-5/6 mx-auto bg-red-950 mb-2" key={repo._id}>
-              <div className="bg-gray-700 rounded p-4">   
-    
-                <div id="text" className="flex flex-col flex-grow ml-4">
-                  <div className="justify-between items-end"> 
-                    <h4 className="text-lg font-bold">{repo.name}</h4>
-                    {!repo.description ? ( // if no description, display this
-                      <p className="text-sm">No description provided.</p>
-                      ) : ( // if there is a description, display it
-                        <p className="text-sm">{repo.description}</p>
-                        )}
-                    <a
-                      className="text-blue-500 text-sm underline"
-                      href={repo.html_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >
-                      View Repository
-                    </a>
-                  </div>
+            <div id="card" className="flex h-44 w-5/6 mx-auto bg-white mb-2" key={repo._id}>
+            <div className="p-4 flex flex-grow">
+              <div id="text" className="flex flex-col flex-grow justify-between">
+                <div>
+                  <h4 className="text-lg font-bold">{repo.name}</h4>
+                  {!repo.description ? (
+                    <p className="text-sm">No description provided.</p>
+                  ) : (
+                    <p className="text-sm">{repo.description}</p>
+                  )}
                 </div>
-                
-                {repo.primaryLanguage && ( // displays the primary language of the repo 
-                  <div className="text-center">
-                    <span
-                      className="inline-block w-3 h-3 rounded-full mr-1"
-                      title={repo.primaryLanguage.name}
-                    ></span>
-                  </div>
-                )}
+                <div className="mt-auto">
+                  <a
+                    className="bg-teal-500 text-black text-md p-1 px-2 hover:bg-zinc-950/90 hover:text-teal-500 transition"
+                    href={repo.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Repository
+                  </a>
+                </div>
               </div>
-
+          
               <div className="flex ml-auto">
-              <div className="items-center justify-center bg-stone-300">
-                {!repo.image ? ( // if no image, display this
-                  <Image
-                    className="h-full w-full object-cover overflow-hidden rounded-full"
-                    src="/angry.jpg"
-                    width={128}
-                    height={128}
-                    alt="placeholder"
-                  />
-                ) : ( // if there is an image, display it
-                  <Image
-                    className="h-full w-full object-cover overflow-hidden rounded-full"
-                    src={repo.image}
-                    width={128}
-                    height={128}
-                    alt={repo.alt}
-                  />
-                )}
+                <div className="items-center w-36 h-36 ml-auto">
+                  {!repo.image ? (
+                    <Image
+                      className="h-full w-full object-cover overflow-hidden rounded-lg"
+                      src="/angry.jpg"
+                      width={128}
+                      height={128}
+                      alt="placeholder"
+                    />
+                  ) : (
+                    <Image
+                      className="h-full w-full object-cover overflow-hidden rounded-lg"
+                      src={repo.image}
+                      width={128}
+                      height={128}
+                      alt={repo.alt}
+                    />
+                  )}
                 </div>
               </div>
-
             </div>
+          </div>          
           ))}
         </div>
       </section>
