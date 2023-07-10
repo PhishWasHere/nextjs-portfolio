@@ -3,19 +3,21 @@ import Image from "next/image"
 
 export default function Avatar(){
     return (
-        <section id="avatar" className="flex justify-center  rounded-md hover:bg-gray-200 cursor-pointer p-2 text-gray-700 hover:text-blue-400">
-            <div className="mt-5 pt-5 text-center">
+        <section id="avatar" className="flex justify-center">
+            <div className="mx-auto text-center bg-white p-3">
                 <Image
-                    className="mx-auto rounded-lg"
+                    className="mx-auto rounded-3xl object-scale-down"
                     src="/angry.jpg"
                     width={0}
                     height={0}
-                    sizes="100vw"
-                    style={{ width: '100%', height: 'auto' }}
+                    sizes="vw"
+                    style={{ width: '75%', height: 'auto' }}
                     alt="placeholder"
-                    />
-                <h3 className="text-xl font-bold">name name name</h3>
-                <p className="">No description provided.</p>
+                />
+                <div className="flex flex-col">
+                    <h3 className="text-xl font-bold hover:text-teal-500 shadow-zinc-800/5 ">name name name</h3>
+                    <p className="hover:text-teal-500 shadow-zinc-800/5 ">No description provided.</p>
+            </div>
             </div>
         </section>
     )

@@ -5,7 +5,7 @@ import Avatar from './avatar'
 import Stack from './stack'
 import Feat from './feat'
 import Repos from './repos'
-import GPT from '../gpt'
+import GPT from '../chat'
 
 export default function Home() {
   const [gpt, setGpt] = useState(false)
@@ -19,19 +19,19 @@ export default function Home() {
     return (
         <>
         <div className="lg:flex min-h-screen justify-center">
-          <aside className='px-3 py-1 border lg:max-w-lg '>
+          <aside className='px-3 py-1 lg:max-w-lg '>
             <div className='md:min-w-full'>
               <Avatar />
-              <div className='flex my-3 flex-col justify-center'>
-                {!gpt && (
-                  <h3 className='text-xl mx-auto'>
-                    <button onClick={showChat}>Have a live chat with me*</button>
+              <div className='flex my-4 flex-col justify-center'>
+                {!gpt && ( 
+                  <h3 className='text-lg mx-auto px-4 p-2  bg-white '>
+                    Have a live <button onClick={showChat} className='px-1.5 font-semibold transition rounded-full shadow-lg hover:text-teal-500 hover:bg-zinc-700 text-slate-900 ring-1 bg-teal-500 ring-white '>chat</button> with me*
                   </h3>
                 )}
                 {gpt && (
                   <>
-                  <div className='mx-auto'>
-                    <button onClick={closeChat}>Close chat</button>
+                  <div className='mx-auto text-lg px-4 p-2'>
+                    <button onClick={closeChat} className='px-4 py-1 mb-2 transition rounded-full shadow-lg hover:text-teal-500 shadow-zinc-800/5 ring-1 backdrop-blur bg-zinc-800/90 text-zinc-200 ring-white/10'>Close chat</button>
                   </div>
                   <h3 className='mx-auto w-full'>
                     <GPT />
@@ -43,7 +43,7 @@ export default function Home() {
             </div>
           </aside>
           
-          <main className='container w-full border max-w-7xl'>
+          <main className='container w-full max-w-7xl'>
             <Feat />
             <Repos />
           </main>
