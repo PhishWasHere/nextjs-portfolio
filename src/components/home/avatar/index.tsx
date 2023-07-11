@@ -15,8 +15,8 @@ export default function Avatar(){
                     alt="placeholder"
                 />
                 <div className="flex flex-col">
-                    <h3 className="text-xl font-bold hover:text-teal-500 shadow-zinc-800/5 ">name name name</h3>
-                    <p className="hover:text-teal-500 shadow-zinc-800/5 ">No description provided.</p>
+                    <h3 className="text-xl font-bold hover:text-teal-500 shadow-zinc-800/5 ">Miran Yasunori</h3>
+                    <p className="hover:text-teal-500 shadow-zinc-800/5 ">One of the web-developers of all time.</p>
             </div>
             </div>
         </section>

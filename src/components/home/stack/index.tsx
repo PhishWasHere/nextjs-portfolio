@@ -22,8 +22,8 @@ export default function Stack() {
     ]
 
     return (
-      <section id="stack" className={isActive ? 'flex flex-col max-w-lg mx-auto bg-white' : 'flex flex-col'}>
-          <button className={isActive ? "mx-auto p-3 mt-2 transition bg-teal-500 hover:bg-zinc-950/90 hover:text-teal-500" : 'mx-auto p-3 mt-2 transition bg-white hover:bg-zinc-950/90 hover:text-teal-500'} onClick={handleClick}>
+      <section id="stack" className={isActive ? 'flex flex-col max-w-lg mx-auto bg-white ' : 'flex flex-col'}>
+          <button className={isActive ? "mx-auto p-3 mt-2 transition bg-teal-500 hover:border-teal-500 border hover:bg-zinc-950/90  hover:text-teal-500" : 'mx-auto p-3 mt-2 transition bg-white hover:border-teal-500 border hover:bg-zinc-950/90 hover:text-teal-500'} onClick={handleClick}>
           <div  className="text-xl font-bold" >My Tech Stack</div>
           </button> 
           <div className={isActive ? 'flex flex-wrap justify-center py-2' : 'hidden'}>

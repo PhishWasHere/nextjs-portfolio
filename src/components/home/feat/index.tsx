@@ -19,8 +19,8 @@ export default function Feat() {
 
     return (
         <section id="featured" className="">
-        <div className="text-center p-4">
-          <h3 className="text-3xl font-bold">Featured Projects</h3>
+        <div className="text-center flex">
+          <h3 className="bg-white text-3xl font-bold mb- mx-auto p-2 mt-4">Featured Projects</h3>
         </div>
         <div className="sm:grid grid-cols-2 gap-4 justify-center items-center mx-2">
           {featRepo.map((repo) => (
@@ -33,7 +33,7 @@ export default function Feat() {
 
                 <div className="self-start mt-auto">
                   <a
-                    className=" bg-teal-500 text-black text-md p-1 px-2 hover:bg-zinc-950/90 hover:text-teal-500 transition"
+                    className=" bg-teal-500 text-black text-md p-1 px-2 hover:bg-zinc-950/90 hover:text-teal-500 transition hover:border-teal-500 border"
                     href={repo.url}
                     target="_blank"
                     rel="noopener noreferrer"

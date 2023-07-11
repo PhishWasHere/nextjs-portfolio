@@ -46,13 +46,13 @@ export default function ContactForm() {
   };
 
   return (
-    <div className='lg:order-first lg:row-span-2 mx-auto w-10/12 bg-blue-700 p-2 rounded-md'>
-      <h1>Contact Me</h1>
-      <form onSubmit={handleSubmit} className=''>
-        <div className='grid'> 
+    <div className='lg:order-first lg:row-span-2 mx-auto w-10/12 p-2 bg-white '>
+      <h1 className='text-3xl font-bold'></h1>
+      <form onSubmit={handleSubmit} className='flex flex-col'>
+        <div className='grid mt-2 text-lg'> 
           <label htmlFor="name">Name:</label>
           <input
-            className='bg-gray-600'
+            className='bg-gray-600 text-lg'
             type="text"
             id="name"
             name="name"
@@ -62,7 +62,7 @@ export default function ContactForm() {
             required
           />
         </div>
-        <div className='grid'>
+        <div className='grid mt-2'>
           <label htmlFor="email">Email:</label>
           <input
             className='bg-gray-600'
@@ -75,7 +75,7 @@ export default function ContactForm() {
             required
           />
         </div>
-        <div className='grid'>
+        <div className='grid mt-2'>
           <label htmlFor="phoneNumber">Phone Number:</label>
           <input
             className='bg-gray-600'
@@ -88,7 +88,7 @@ export default function ContactForm() {
             required
           />
         </div>
-        <div className='grid'>
+        <div className='grid mt-2'>
           <label htmlFor="message">Message:</label>
           <textarea
             className='bg-gray-600'
@@ -97,10 +97,11 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder={placeholder.message}
+            rows={5}
             required
           ></textarea>
         </div> 
-        <button type="submit" className='flex rounded-full mx-auto mt-2 bg-white/90 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5'>Submit</button>
+        <button type="submit" className='flex mx-auto mt-2 px-4 py-1 mb-2 transition shadow-lg hover:text-teal-500 hover:bg-zinc-950/90 hover:border-teal-500 border backdrop-blur text-black bg-teal-500 '>Submit</button>
       </form>
     </div>
   );

@@ -18,20 +18,20 @@ export default function Home() {
 
     return (
         <>
-        <div className="lg:flex min-h-screen justify-center">
+        <div className="lg:flex min-h-screen justify-center mb-5">
           <aside className='px-3 py-1 lg:max-w-lg '>
             <div className='md:min-w-full'>
               <Avatar />
               <div className='flex my-4 flex-col justify-center'>
                 {!gpt && ( 
                   <h3 className='text-lg mx-auto px-4 p-2 bg-white '>
-                    Have a live <button onClick={showChat} className='px-1.5 font-semibold transition shadow-lg hover:text-teal-500 hover:bg-zinc-950/90 text-slate-900 ring-1 bg-teal-500 ring-white '>chat</button> with me*
+                    Have a live <button onClick={showChat} className='px-1.5 font-semibold transition shadow-lg hover:text-teal-500 hover:bg-zinc-950/90 text-slate-900 ring-1 hover:border-teal-500 border bg-teal-500 ring-white '>chat</button> with me*
                   </h3>
                 )}
                 {gpt && (
                   <>
                   <div className='mx-auto text-lg px-4 p-2'>
-                    <button onClick={closeChat} className='px-4 py-1 mb-2 font-semibold transition shadow-lg hover:text-teal-500 hover:bg-zinc-950/90 ring-1 backdrop-blur bg-white ring-white/10'>Close chat</button>
+                    <button onClick={closeChat} className='px-4 py-1 mb-2 font-semibold transition shadow-lg hover:text-teal-500 hover:bg-zinc-950/90 ring-1 hover:border-teal-500 border backdrop-blur bg-white ring-white/10'>Close chat</button>
                   </div>
                   <h3 className='mx-auto w-full'>
                     <GPT />

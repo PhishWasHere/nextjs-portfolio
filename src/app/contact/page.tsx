@@ -20,7 +20,7 @@ export default function Contact() {
     <div className='mx-auto max-w-2xl lg:max-w-5xl mt-8 '>
         <div className='grid grid-cols-1 gap-y-16 lg:grid-cols-2 lg:gap-y-12'>
             <article className='flex flex-col justify-between space-y-4 mx-auto'>
-            <div className='max-w-md px-2.5 lg:max-w-none hover:text-teal-500 hover:bg-zinc-950/90 hover:border bg-white p-2 py-4'>
+            <div className='max-w-md px-2.5 lg:max-w-none bg-white p-2 py-4'>
                 <h2 className='text-3xl font-bold'>Contact Me</h2>
                 <p className='text-lg'>If you have any inquiries or would like to get in touch, feel free to reach out to me using the contact form.</p>
                 <p className='text-lg'>I look forward to hearing from you!</p>
@@ -32,7 +32,7 @@ export default function Contact() {
                 </h2>
                 <div className='flex flex-row space-x-4 justify-around py-4'>
                     {socials.map((social) => (
-                        <Link key={social.key} href={social.href} className='p-3 border-4 border-white transition rounded-xl hover:border-4 hover:border-teal-500'>
+                        <Link key={social.key} href={social.href} className='p-3 border-4 border-black transition rounded-xl hover:border-4 hover:border-teal-500'>
                             <Image
                                 src={social.icon}
                                 alt={social.name}

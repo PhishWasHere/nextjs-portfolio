@@ -24,8 +24,8 @@ export default function Repos() {
 
     return (
         <section id="repos" className="">
-        <div className="text-center">
-          <h3 className="text-3xl font-bold mb-4">My most recent repos</h3>
+        <div className="text-center flex">
+          <h3 className="bg-white text-3xl font-bold mb-4 mx-auto p-2 mt-3">My most recent repos</h3>
         </div>
 
         <div className="sm:grid grid-cols-2 gap-4 justify-center items-center">
@@ -43,7 +43,7 @@ export default function Repos() {
                 </div>
                 <div className="mt-auto">
                   <a
-                    className="bg-teal-500 text-black text-md p-1 px-2 hover:bg-zinc-950/90 hover:text-teal-500 transition"
+                    className="bg-teal-500 text-black text-md p-1 px-2 hover:bg-zinc-950/90 hover:text-teal-500 transition hover:border-teal-500 border"
                     href={repo.html_url}
                     target="_blank"
                     rel="noopener noreferrer"
