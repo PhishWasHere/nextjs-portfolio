@@ -10,7 +10,7 @@ export default function NavBar() {
         { href: '/', label: 'Home',}, 
         { href: '/about', label: 'About Me',},
         { href: '/contact', label: 'Contact',},
-        { href: '/resume', label: 'Resume',},
+        { href: '*', label: 'Resume',},
     ]; 
 
     const pathname = usePathname();
