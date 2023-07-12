@@ -1,4 +1,4 @@
-export default function Validator(name: string, email: string, phoneNumber: string, message: string) {
+export default function Validator(name: any, email: any, phoneNumber: any, message: any) {
     try {
       const emailRegex = /^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6})*$/;
       const numRegex = /^\({0,1}((0|\+61)(2|4|3|7|8)){0,1}\){0,1}(\ |-){0,1}[0-9]{2}(\ |-){0,1}[0-9]{2}(\ |-){0,1}[0-9]{1}(\ |-){0,1}[0-9]{3}$/;
