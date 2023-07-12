@@ -52,7 +52,7 @@ export default function ContactForm() {
         <div className='grid mt-2 text-lg'> 
           <label htmlFor="name">Name:</label>
           <input
-            className='bg-gray-600 text-lg'
+            className='bg-gray-600 text-lg text-white'
             type="text"
             id="name"
             name="name"
@@ -65,7 +65,7 @@ export default function ContactForm() {
         <div className='grid mt-2'>
           <label htmlFor="email">Email:</label>
           <input
-            className='bg-gray-600'
+            className='bg-gray-600 text-white'
             type="email"
             id="email"
             name="email"
@@ -75,7 +75,7 @@ export default function ContactForm() {
             required
           />
         </div>
-        <div className='grid mt-2'>
+        <div className='grid mt-2 text-white'>
           <label htmlFor="phoneNumber">Phone Number:</label>
           <input
             className='bg-gray-600'
@@ -88,7 +88,7 @@ export default function ContactForm() {
             required
           />
         </div>
-        <div className='grid mt-2'>
+        <div className='grid mt-2 text-white'>
           <label htmlFor="message">Message:</label>
           <textarea
             className='bg-gray-600'
