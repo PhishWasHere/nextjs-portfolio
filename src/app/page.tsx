@@ -7,11 +7,11 @@ import Seed from '../utils/seed'
 import ConnectDB from '../config'
 
 
-const db = async () => {
-  await ConnectDB();
-  await Seed();
-}
-db();
+// const db = async () => {
+//   await ConnectDB();
+//   await Seed();
+// }
+// db();
 
 
 
