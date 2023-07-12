@@ -19,7 +19,7 @@
   A portfolio made with Next.js, typescript, and tailwind 
 
   ## Installation
-  Find the .env.local.example and add a apenai API key, email address you want to send/recieve emails from, and a google app password
+  Find the .env.local.example and add a apenai API key, email address you want to send/recieve emails from, and a google app password to get the chat and contact form to work
 
   ## Usage
   Currently has a few bugs, but can be used as a normal site. (the Resume link leads to a 404, update that with a link to a pdf or external site)
