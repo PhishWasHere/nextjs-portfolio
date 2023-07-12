@@ -8,11 +8,14 @@ export default function Repos() {
     const [repos, setRepos] = useState([]);
 
     useEffect(() => { // fetch repos from api
-        fetch('/api/repo')
+        // fetch('/api/repo') not using mongo for this since i dont want to pay $70 for a heroku mongo db
+        fetch('https://api.github.com/users/PhishWasHere/repos?sort=updated&direction=desc&per_page=8')
         .then(response => {
             if(!response.ok) {
                 throw response;
             }
+            console.log(response);
+            
             return response.json();
         })
         .then(data => {
