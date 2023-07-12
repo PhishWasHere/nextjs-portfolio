@@ -9,6 +9,6 @@ export async function GET(){
         return NextResponse.json(data);
     } catch(err) {
         console.log(err);
-        return NextResponse.error(500, "Internal Server Error");
+        return NextResponse.error();
     }
 }
