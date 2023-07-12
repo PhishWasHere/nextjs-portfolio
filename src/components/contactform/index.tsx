@@ -75,10 +75,10 @@ export default function ContactForm() {
             required
           />
         </div>
-        <div className='grid mt-2 text-white'>
+        <div className='grid mt-2 '>
           <label htmlFor="phoneNumber">Phone Number:</label>
           <input
-            className='bg-gray-600'
+            className='bg-gray-600 text-white'
             type="tel"
             id="phoneNumber"
             name="phoneNumber"
@@ -88,10 +88,10 @@ export default function ContactForm() {
             required
           />
         </div>
-        <div className='grid mt-2 text-white'>
+        <div className='grid mt-2 '>
           <label htmlFor="message">Message:</label>
           <textarea
-            className='bg-gray-600'
+            className='bg-gray-600 text-white'
             id="message"
             name="message"
             value={formData.message}
