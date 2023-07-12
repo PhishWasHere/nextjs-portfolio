@@ -1,5 +1,5 @@
   
-export default async function Mailer(name, email, num, text) {
+export default async function Mailer(name: any, email: any, num: any, text: any) {
     try {
       const response = await fetch('/api/send', { 
         method: 'POST',

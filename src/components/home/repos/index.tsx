@@ -15,7 +15,7 @@ export default function Repos() {
                 throw response;
             }
             console.log(response);
-            
+
             return response.json();
         })
         .then(data => {
