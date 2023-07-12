@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 export default function Repos() {
 
-    const [repos, setRepos] = useState([]);
+    const [repos, setRepos] = useState<any[]>([]);
 
     useEffect(() => { // fetch repos from api
         // fetch('/api/repo') not using mongo for this since i dont want to pay $70 for a heroku mongo db
