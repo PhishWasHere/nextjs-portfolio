@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 export default function Repos() {
 
-    const [repos, setRepos] = useState([]);
+    const [repos, setRepos] = useState<any[]>([]);
 
     useEffect(() => { // fetch repos from api
         // fetch('/api/repo') not using mongo for this since i dont want to pay $70 for a heroku mongo db
@@ -15,7 +15,7 @@ export default function Repos() {
                 throw response;
             }
             console.log(response);
-            
+
             return response.json();
         })
         .then(data => {
@@ -33,7 +33,7 @@ export default function Repos() {
 
         <div className="sm:grid grid-cols-2 gap-4 justify-center items-center">
           {repos.map((repo) => ( // map over repos and display them
-            <div id="card" className="flex h-44 w-5/6 mx-auto bg-white mb-2" key={repo._id}>
+            <div id="card" className="flex h-44 w-5/6 mx-auto bg-white mb-2" key={repo.id}>
             <div className="p-4 flex flex-grow">
               <div id="text" className="flex flex-col flex-grow justify-between">
                 <div>

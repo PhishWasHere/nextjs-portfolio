@@ -3,8 +3,8 @@ import { useState } from 'react'
 import NavBar from '@/components/nav'
 import Home from '@/components/home'
 
-import Seed from '../utils/seed'
-import ConnectDB from '../config'
+// import Seed from '../utils/seed'
+// import ConnectDB from '../config'
 
 
 // const db = async () => {
