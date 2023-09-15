@@ -1,24 +1,17 @@
-import { useState } from 'react'
-
-import NavBar from '@/components/nav'
-import Home from '@/components/home'
-
-// import Seed from '../utils/seed'
-// import ConnectDB from '../config'
+import Image from 'next/image'
 
 
-// const db = async () => {
-//   await ConnectDB();
-//   await Seed();
-// }
-// db();
-
-
-
-export default function Portfolio() {
+export default function Home() {
+  
   return (
-    <>
-    <Home /> 
-    </>
+    <main className='h-screen'>
+      <section id="shadow" className="noise ">
+        <div id="bg" className="sm:border-[3rem] border-black">
+          <div className='border h-full'>
+            
+          </div>
+        </div>
+      </section>
+    </main>
   )
 }
