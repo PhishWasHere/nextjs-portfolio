@@ -13,9 +13,16 @@ export default function Sidebar({ searchParams, langParam }: {searchParams: {[ke
         <>
             <aside className='flex sm:flex-col'>
                 {language.map((i) => (
-                    <Link key={i.key} className={`m-1 mt-3 sm:text-3xl text-2xl ${locationParam === i.key? "text-cyan-300" : ''}`} href={`?${new URLSearchParams({...searchParams, location: i.key})}`}>
-                        <p className=''>{i.value}</p>
+                    <div key={i.key} className='mb-3'>
+                    <Link
+                        className={`sm:mr-0 mr-3 m-1 sm:text-3xl text-2xl ${
+                        locationParam === i.key ? "text-cyan-300" : ""
+                        }`}
+                        href={`?${new URLSearchParams({ ...searchParams, location: i.key })}`}
+                    >
+                        {i.value}
                     </Link>
+                    </div>
                 ))}
             </aside>
         </>

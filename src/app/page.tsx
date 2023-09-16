@@ -33,7 +33,7 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
   let displayComponent;
   switch (locationParam) {    
     case 'about':
-      displayComponent = <About/>
+      displayComponent = <About langParam={langParam}/>
     break;
   }
 
@@ -94,7 +94,9 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
               
             <Sidebar searchParams={searchParams} langParam={langParam}/>
             
-            {displayComponent}
+            <section className=''>
+             {displayComponent}
+            </section>
           </div>
         </div>
       </section>
