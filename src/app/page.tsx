@@ -2,10 +2,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { en, jp } from './language'
 import Sidebar from '@/components/sidebar';
+import About from '@/components/about';
 
 export default function Home({ searchParams }: {searchParams: {[key: string]: string | string[] | undefined}} ) {
   const langParam = (searchParams.lang || 'en') as string;
-  // const locationParam = (searchParams.location || 'home') as string;
+  const locationParam = (searchParams.location || 'about') as string;
   
   const lang = [
     'en', 'jp'
@@ -27,6 +28,13 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
   let language = en;
   if (langParam == 'jp') {
     language = jp
+  }
+
+  let displayComponent;
+  switch (locationParam) {    
+    case 'about':
+      displayComponent = <About/>
+    break;
   }
 
   return (
@@ -76,7 +84,7 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
 
                 <div className='flex'>
                   {lang.map((lang, i ) => (
-                    <Link key={i} className='m-1 mt-auto' href={`?${new URLSearchParams({lang})}`}>
+                    <Link key={i} className='m-1 mt-auto' href={`?${new URLSearchParams({lang, location: locationParam})}`}>
                       <p className=''>{lang === 'en' ? 'English' : '日本語'}</p>
                     </Link>
                   ))}
@@ -84,8 +92,9 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
               </section>
             </section>
               
-            <Sidebar searchParams={searchParams}/>
-
+            <Sidebar searchParams={searchParams} langParam={langParam}/>
+            
+            {displayComponent}
           </div>
         </div>
       </section>
