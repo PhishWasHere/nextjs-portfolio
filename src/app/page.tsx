@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { en, jp } from './language'
 import Sidebar from '@/components/sidebar';
 import About from '@/components/about';
+import Contact from '@/components/contact';
 
 export default function Home({ searchParams }: {searchParams: {[key: string]: string | string[] | undefined}} ) {
   const langParam = (searchParams.lang || 'en') as string;
@@ -35,15 +36,18 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
     case 'about':
       displayComponent = <About langParam={langParam}/>
     break;
+    case 'contact':
+      displayComponent = <Contact langParam={langParam}/>
+    break;
   }
 
   return (
-    <main id='bg' className='h-screen flex shadow font-thin italic'>
+    <main id='bg' className='h-screen flex shadow font-extralight italic '>
       <section id='noise' className='w-full sm:border-[3rem] border-black '>
         <div className='border border-gray-200/60 h-full'>
           <div className='sm:mx-10 sm:my-8 mx-4 my-2'>
 
-            <section className='flex flex-col'>
+            <section className='flex flex-col font-thin'>
               {langParam === 'en' ? (
                 <>
                 <section className='2xl:text-8xl sm:text-7xl text-6xl'>
@@ -78,7 +82,7 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
               <section className='flex '>
                 {socials.map((i) => (
                   <Link key={i.key} className='m-1' href={i.link}>
-                    <Image src={i.icon} width={32} height={32} alt={i.key} className='rounded-full fill-black'/>
+                    <Image src={i.icon} width={32} height={32} alt={i.key} className='rounded-full fill-black hover:border hover:border-neon-blue transition duration-100'/>
                   </Link>
                 ))}
 
@@ -92,11 +96,15 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
               </section>
             </section>
               
-            <Sidebar searchParams={searchParams} langParam={langParam}/>
-            
-            <section className=''>
-             {displayComponent}
-            </section>
+            <div className='sm:flex'>
+              <Sidebar searchParams={searchParams} langParam={langParam}/>
+
+              <section id='aside' className='ml-auto transition sm:order-2'>
+                <div className=''>
+                  {displayComponent}
+                </div>
+              </section>
+            </div>
           </div>
         </div>
       </section>

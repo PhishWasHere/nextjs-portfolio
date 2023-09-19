@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { en, jp } from './language';
 
 export default function Sidebar({ searchParams, langParam }: {searchParams: {[key: string]: string | string[] | undefined}, langParam: string } ) {
-    const locationParam = (searchParams.location || 'home') as string;
+    const locationParam = (searchParams.location || 'about') as string;
     
     let language = en;
     if (langParam == 'jp') {
@@ -15,8 +15,8 @@ export default function Sidebar({ searchParams, langParam }: {searchParams: {[ke
                 {language.map((i) => (
                     <div key={i.key} className='mb-3'>
                     <Link
-                        className={`sm:mr-0 mr-3 m-1 sm:text-3xl text-2xl ${
-                        locationParam === i.key ? "text-cyan-300" : ""
+                        className={`mr-3 m-1 sm:text-3xl hover:text-neon-blue transition duration-100 ${langParam === 'en'?  'text-2xl' : 'text-sm'} ${
+                        locationParam === i.key ? "text-neon-blue" : ""
                         }`}
                         href={`?${new URLSearchParams({ ...searchParams, location: i.key })}`}
                     >

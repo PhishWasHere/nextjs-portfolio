@@ -9,6 +9,14 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      dropShadow: {
+        'outline': '0 1.5px 1.5px rgba(0, 0, 0, 1)',
+      },
+      colors:{
+        'neon-blue': '#00F1FF',
+        'error': '#FF3131',
+        'gray': '#e5e7eb'
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
