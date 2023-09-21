@@ -8,7 +8,7 @@ import Loading from '@/components/common/loading'
 import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Contact({langParam}: {langParam: string}) {
-    const regex = /^^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const router = useRouter();
     const searchParams = useSearchParams();
     const search = searchParams.toString();
@@ -32,14 +32,17 @@ export default function Contact({langParam}: {langParam: string}) {
         error: false,
         success: false,
     });
-
+    const [isDisabled, setIsDisabled] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         e.preventDefault();
         setFormData((prevData) => ({
           ...prevData,
           [e.target.name]: e.target.value,
-        }));        
+        }));
+        if (!regex.test(formData.email) || !formData.email || !formData.name || !formData.message) { // if any of the fields are empty or email is invalid, disable send button
+            setIsDisabled(true);
+        } else { setIsDisabled(false); }        
     };
 
     const handleSend = (async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -116,7 +119,7 @@ export default function Contact({langParam}: {langParam: string}) {
                         />
                     </div>
                     <div className='grid mt-2'>
-                        <label htmlFor="email" className='flex'>{language.email}{!formData.email || regex.test(formData.email) ? (<p className='text-error font-semibold text-2xl'>*</p>) : null}</label>
+                        <label htmlFor="email" className='flex'>{language.email}{!formData.email || !regex.test(formData.email) ? (<p className='text-error font-semibold text-2xl'>*</p>) : null}</label>
                         <input
                             className='bg-transparent border border-gray-200/60 text-lg text-white'
                             type="email"
@@ -145,19 +148,13 @@ export default function Contact({langParam}: {langParam: string}) {
                         <div className='flex mx-auto justify-center mt-3'>
                             <Loading langParam={langParam}/>
                         </div>
-                    ) : (
+                    ) : ( 
                         <button type="submit" 
-                            disabled={!regex.test(formData.email) || !formData.email || !formData.name || !formData.message} 
+                            disabled={!isDisabled} 
                             onClick={(e) => handleSend(e)} 
-                            className={`flex mx-auto mt-3 px-2 py-1 transition duration-100 ${!loading? 'border border-gray-200/60 hover:border-neon-blue hover:text-neon-blue' : ''} ${(!formData.email || !formData.name || !formData.message) ? 'border-gray-200/40 text-gray-200/40' : ''}`}
+                            className={`flex mx-auto mt-3 px-2 py-1 transition duration-100 border border-gray-200/60 ${!isDisabled? 'hover:border-neon-blue hover:text-neon-blue' : 'hover:border-error hover:text-red-400'} `}
                             >
-                            {
-                            mailerRes.error
-                                ? ( <div className='border-error font-light text-error drop-shadow-outline'>{language.error}</div>)
-                                : mailerRes.success
-                                ? (<div className='text-neon-blue font-light drop-shadow-outline'>{language.success}</div>)
-                                : (`${language.send}`)
-                            }
+                            {language.send}
                         </button>
                         )
                     }

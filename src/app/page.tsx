@@ -118,8 +118,7 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
             <div className='sm:flex'>
               <Sidebar searchParams={searchParams} langParam={langParam}/>
 
-              <section id='aside' className='ml-auto transition sm:order-2'>
-                
+              <section className='ml-auto transition sm:order-2'>
                 <div className=''>
                   {displayComponent}
                 </div>
