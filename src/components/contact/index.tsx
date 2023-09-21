@@ -5,9 +5,13 @@ import { en, jp } from './language'
 import axios from 'axios';
 import getError from '@/utils/get_error';
 import Loading from '@/components/common/loading'
+import { useRouter, useSearchParams } from 'next/navigation';
 
 export default function Contact({langParam}: {langParam: string}) {
     const regex = /^^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const search = searchParams.toString();
 
     let language = en;
     if (langParam == 'jp') {
@@ -42,7 +46,7 @@ export default function Contact({langParam}: {langParam: string}) {
         e.preventDefault();
 
         try {
-            setLoading(true);
+            setLoading(true); // set loading to true to display loading component
             const res = await axios.post('/api/send', { ...formData});
             
             if (!res.data.body.id) {
@@ -51,13 +55,15 @@ export default function Contact({langParam}: {langParam: string}) {
                     error: true,
                     success: false,
                 });
-                return; //error component
+                router.push(`?${search}&error=true`, {scroll: false}); // if error search param is true, display error component from app/page.tsx
+                return;
             }
 
             setMailerRes({
                 error: false,
                 success: true,
             });
+            router.push(`?${search}&success=true`, {scroll: false}); // if success search param is true, display success component from app/page.tsx
 
             setLoading(false);
 
@@ -76,6 +82,7 @@ export default function Contact({langParam}: {langParam: string}) {
     return(
         <>
             <section className='sm:flex p-4 border border-gray-200/60 ml-auto'>
+                
                 <section className='flex flex-col sm:mr-3 sm:mb-0 mb-2 sm:w-3/6'>
                     <h2 className='sm:text-3xl text-2xl'>
                         {language.title}

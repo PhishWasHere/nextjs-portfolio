@@ -1,0 +1,17 @@
+
+.float{
+    animation-name: animate-float;
+    animation-duration: .3s;
+    animation-timing-function: ease;
+}
+
+@keyframes animate-float {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

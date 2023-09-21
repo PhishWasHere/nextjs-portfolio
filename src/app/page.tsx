@@ -5,6 +5,8 @@ import Sidebar from '@/components/sidebar';
 import About from '@/components/about';
 import Contact from '@/components/contact';
 
+import Status from '@/components/common/status-modal';
+// using query params to keep track of language and location. keeping as server component to use SSR
 export default function Home({ searchParams }: {searchParams: {[key: string]: string | string[] | undefined}} ) {
   const langParam = (searchParams.lang || 'en') as string;
   const locationParam = (searchParams.location || 'about') as string;
@@ -41,10 +43,27 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
     break;
   }
 
+  let showStatus = false;
+  let statusParam;
+  if (searchParams.error === 'true') { // if statememt to determine whether to display error or success message. error message is displayed if error param is true
+    showStatus = true;
+    statusParam = true;
+  } else if (searchParams.success === 'true') {    
+    showStatus = true;
+    statusParam = false;
+  } 
+
   return (
-    <main id='bg' className='h-screen flex shadow font-extralight italic '>
-      <section id='noise' className='w-full sm:border-[3rem] border-black '>
+    <main id='bg' className='h-screen flex shadow font-extralight italic'>
+      <section id='noise' className='w-full sm:border-[3rem] border-black flex flex-col relative'>
         <div className='border border-gray-200/60 h-full'>
+
+          {showStatus ? (
+            <section className='flex absolute top-[1rem] left-1/2 transform -translate-x-1/2'>
+              <Status langParam={langParam} statusParam={statusParam} />
+            </section>
+          ) : null}
+
           <div className='sm:mx-10 sm:my-8 mx-4 my-2'>
 
             <section className='flex flex-col font-thin'>
@@ -95,11 +114,12 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
                 </div>
               </section>
             </section>
-              
+
             <div className='sm:flex'>
               <Sidebar searchParams={searchParams} langParam={langParam}/>
 
               <section id='aside' className='ml-auto transition sm:order-2'>
+                
                 <div className=''>
                   {displayComponent}
                 </div>
