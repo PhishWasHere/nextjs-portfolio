@@ -84,7 +84,7 @@ export default function Contact({langParam}: {langParam: string}) {
 
     return(
         <>
-            <section className='sm:flex p-4 border border-gray-200/60 ml-auto'>
+            <section className='sm:flex p-4 ml-auto'>
                 <section className='flex flex-col sm:mr-3 sm:mb-0 mb-2 sm:w-3/6'>
                     <h2 className='sm:text-3xl text-2xl'>
                         {language.title}
@@ -103,7 +103,7 @@ export default function Contact({langParam}: {langParam: string}) {
                     </section>
                 </section>
 
-                <form className='sm:w-4/6'>
+                <form className='sm:w-4/6 border border-gray-200/60 p-3'>
                     <div className='grid text-lg'> 
                         <label htmlFor="name" className='flex'>{language.name} {!formData.name? (<p className='text-error font-semibold text-2xl'>*</p>) : null}</label>
                         <input

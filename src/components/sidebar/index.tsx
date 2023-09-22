@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { en, jp } from './language';
 
 export default function Sidebar({ searchParams, langParam }: {searchParams: {[key: string]: string | string[] | undefined}, langParam: string } ) {
-    const locationParam = (searchParams.location || 'about') as string;
+    const locationParam = (searchParams.location || 'home') as string;
     
     let language = en;
     if (langParam == 'jp') {

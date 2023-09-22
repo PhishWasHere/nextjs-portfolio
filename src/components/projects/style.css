@@ -1,0 +1,23 @@
+#proj-container {
+    position: absolute;
+    top: 60%;
+    right: 0;
+    overflow: visible;
+    transform: translateY(-50%);
+}
+#proj-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+#proj-wrapper {
+    position: relative;
+    overflow: scroll; /* Make the wrapper scrollable */
+    height: 70vh;
+    max-height: 1000px;
+    /* Add any additional styles for the wrapper here */
+}
+
+#proj-content {
+    position: sticky; /* Make the content inside sticky */
+    top: 0; /* Stick to the top of the wrapper */
+}

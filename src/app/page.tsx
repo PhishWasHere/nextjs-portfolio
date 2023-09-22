@@ -4,10 +4,10 @@ import { en, jp } from './language'
 import Sidebar from '@/components/sidebar';
 import About from '@/components/about';
 import Contact from '@/components/contact';
-import Skills from '@/components/skills';
+import Projects from '@/components/projects';
 
 import Status from '@/components/common/status-modal';
-// using query params to keep track of language and location. keeping as server component to use SSR
+// using query params to keep track of language and location so i can keep as server component and use SSR
 export default function Home({ searchParams }: {searchParams: {[key: string]: string | string[] | undefined}} ) {
   const langParam = (searchParams.lang || 'en') as string;
   const locationParam = (searchParams.location || 'about') as string;
@@ -36,14 +36,14 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
 
   let displayComponent;
   switch (locationParam) {    
+    case 'home':
+      displayComponent = null
+    break;
     case 'about':
       displayComponent = <About langParam={langParam}/>
     break;
-    case 'skills':
-      displayComponent = <Skills langParam={langParam}/>
-    break;
     case 'projects':
-
+      displayComponent = <Projects langParam={langParam}/>
     break;
     case 'contact':
       displayComponent = <Contact langParam={langParam}/>

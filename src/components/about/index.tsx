@@ -24,7 +24,7 @@ export default function About({langParam}: {langParam: string}) {
             icon: 'css.svg',
         },
         {
-            name: 'tailwind',
+            name: 'tailwind.css',
             icon: 'tailwindcss.svg',
         },
         {
@@ -32,15 +32,15 @@ export default function About({langParam}: {langParam: string}) {
             icon: 'react.svg',
         },
         {
-            name: 'next',
+            name: 'next.js',
             icon: 'nextjs.svg',
         },
         {
-            name: 'node',
+            name: 'node.js',
             icon: 'nodejs.svg',
         },
         {
-            name: 'express',
+            name: 'express.js',
             icon: 'express.svg',
         },
         {
@@ -54,7 +54,7 @@ export default function About({langParam}: {langParam: string}) {
     ]
     return(
         <>
-            <section className='flex flex-col p-4 border border-gray-200/60 md:w-10/12 sm:w-8/12 ml-auto'>
+            <section className='flex flex-col p-4 md:w-10/12 sm:w-8/12 ml-auto'>
                 <article className=''>
                     <h2 className='sm:text-3xl text-2xl'>{language.title}</h2>
                     <p className='text-lg'>{language.description}</p>
