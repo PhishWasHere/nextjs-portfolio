@@ -4,6 +4,7 @@ import { en, jp } from './language'
 import Sidebar from '@/components/sidebar';
 import About from '@/components/about';
 import Contact from '@/components/contact';
+import Skills from '@/components/skills';
 
 import Status from '@/components/common/status-modal';
 // using query params to keep track of language and location. keeping as server component to use SSR
@@ -38,6 +39,12 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
     case 'about':
       displayComponent = <About langParam={langParam}/>
     break;
+    case 'skills':
+      displayComponent = <Skills langParam={langParam}/>
+    break;
+    case 'projects':
+
+    break;
     case 'contact':
       displayComponent = <Contact langParam={langParam}/>
     break;
@@ -51,10 +58,10 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
   } else if (searchParams.success === 'true') {    
     showStatus = true;
     statusParam = false;
-  } 
+  }
 
   return (
-    <main id='bg' className='h-screen flex shadow font-extralight italic'>
+    <main id='bg' className='h-screen flex shadow font-extralight italic '>
       <section id='noise' className='w-full sm:border-[3rem] border-black flex flex-col relative'>
         <div className='border border-gray-200/60 h-full'>
 

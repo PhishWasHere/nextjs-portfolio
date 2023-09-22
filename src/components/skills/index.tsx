@@ -1,7 +1,7 @@
 import { en, jp } from './language'
 import Image from 'next/image'
 
-export default function About({langParam}: {langParam: string}) {
+export default function Skills({ langParam }: {langParam: string}) {
     let language = en;
     if (langParam == 'jp') {
         language = jp
@@ -53,26 +53,16 @@ export default function About({langParam}: {langParam: string}) {
         }
     ]
     return(
-        <>
-            <section className='flex flex-col p-4 border border-gray-200/60 md:w-10/12 sm:w-8/12 ml-auto'>
-                <article className=''>
-                    <h2 className='sm:text-3xl text-2xl'>{language.title}</h2>
-                    <p className='text-lg'>{language.description}</p>
-                </article>
-
-                <section className="flex flex-col mt-4">
-                    <h2 className="sm:text-3xl text-2xl mb-2">{language.skills}</h2>
-                    <ul className="flex flex-wrap">
-                        {skills.map((i) => (
-                            <li key={i.name} className='flex mx-1'>
-                                <Image src={`${i.icon}`} className='ml-1.5 relative' alt={i.name} width={30} height={30}/>
-                                <p className='my-auto text-2xl'>{i.name}</p>
-                            </li>
-                        ))}
-                    </ul>
-                </section>
-            </section>
-            
-        </>
+        <section className="border flex flex-col p-5">
+            <h2 className="sm:text-3xl text-2xl mb-2">{language.title}</h2>
+            <ul className="flex max-w-xl flex-wrap">
+                {skills.map((i) => (
+                    <li key={i.name} className='flex mx-1'>
+                        <Image src={`${i.icon}`} className='ml-1.5 relative' alt={i.name} width={30} height={30}/>
+                        <p className='my-auto text-lg'>{i.name}</p>
+                    </li>
+                ))}
+            </ul>
+        </section>
     )
 }
