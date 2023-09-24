@@ -14,10 +14,69 @@
     overflow: scroll; /* Make the wrapper scrollable */
     height: 70vh;
     max-height: 1000px;
-    /* Add any additional styles for the wrapper here */
 }
 
 #proj-content {
     position: sticky; /* Make the content inside sticky */
     top: 0; /* Stick to the top of the wrapper */
+}
+
+
+/* on render animation */
+.fade-in {
+    animation: fadeIn 0.4s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0%);
+    }
+}
+
+
+/* logo fade in animations */
+.logo-fade {
+    animation: logoFade 0.4s ease-in-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes logoFade {
+    0% {
+        opacity: 0;
+        filter: blur(10px);
+        transform: translateX(100%);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0px);
+        transform: translateX(0%);
+    }
+}
+
+.logo-fade:nth-child(1) {
+  animation-delay: 400ms;  
+}
+
+.logo-fade:nth-child(2) {
+  animation-delay: 500ms;  
+}
+
+.logo-fade:nth-child(3) {
+  animation-delay: 600ms;  
+}
+
+.logo-fade:nth-child(4) {
+  animation-delay: 700ms;  
+}
+
+.logo-fade:nth-child(5) {
+  animation-delay: 800ms;  
 }
