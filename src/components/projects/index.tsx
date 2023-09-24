@@ -10,91 +10,13 @@ export default function Projects({langParam}: {langParam: string}) {
     if (langParam == 'jp') {
         language = jp
     }
-    const projects = [
-        {
-            name: 'ikHoneybee',
-            description: 'Website for NDIS startup',
-            type: 'Freelance (full-stack)',
-            icon: [
-                {
-                    name: 'typescript.svg'
-                },
-                {
-                    name: 'next.svg', 
-                },
-                {
-                    name: 'bootstrap.svg', 
-                }
-            ],
-            link: '',
-        },
-        {
-            name: 'Portfolio',
-            description: 'Portfolio website',
-            type: 'Personal project (full-stack)',
-            icon: [
-                {
-                    name: 'typescript.svg'
-                },
-                {
-                    name: 'next.svg', 
-                },
-                {
-                    name: 'tailwindcss.svg', 
-                }
-            ],
-            link: 'https://github.com/PhishWasHere/nextjs-portfolio',
-        },
-        {
-            name: 'The Hostile Bot',
-            description: 'Discord bot partially powered by GPT-3 (currently in development).', 
-            type: 'Personal project (full-stack)',
-            icon:[
-                {
-                    name: 'typescript.svg'
-                },
-                {
-                    name: 'nodejs.svg'
-                },
-                {
-                    name: 'express.svg'
-                },
-                {
-                    name: 'mongodb.svg'
-                },
-                {
-                    name: 'next.svg'
-                }
-            ],
-            link: 'https://github.com/PhishWasHere/The-Hostile-Bot',
-        },
-        {
-            name: 'BetterReads',
-            description: 'Book review app, that lets users search for books and leave reviews.',
-            type: 'Group project (backend)',
-            icon:[
-                {
-                    name: 'javascript.svg'
-                },
-                {
-                    name: 'nodejs.svg'
-                },
-                {
-                    name: 'express.svg'
-                },
-                {
-                    name: 'mysql.svg'
-                }
-            ],
-            link: 'https://github.com/TamaraDawg/BookReviewApp',
-        },
-    ]
+ 
     return(
         <section id='proj-container' className='p-4 ml-auto'>
             <div id='proj-wrapper' className=''>
                 <div id='proj-content'>
 
-                {projects.map((i) => (
+                {language.map((i) => (
                     <article key={i.name} className='sm:m-1 my-5'>
                         <div className='grid md:flex md:flex-row-reverse'>
                             <h2 className='sm:text-5xl text-4xl text-end hover:text-neon-blue transition duration-100'>
