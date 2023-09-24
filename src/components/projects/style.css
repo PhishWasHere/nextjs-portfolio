@@ -21,27 +21,6 @@
     top: 0; /* Stick to the top of the wrapper */
 }
 
-
-/* on render animation */
-.fade-in {
-    animation: fadeIn 0.4s ease-in-out;
-    animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        filter: blur(10px);
-        transform: translateX(100%);
-    }
-    100% {
-        opacity: 1;
-        filter: blur(0px);
-        transform: translateX(0%);
-    }
-}
-
-
 /* logo fade in animations */
 .logo-fade {
     animation: logoFade 0.4s ease-in-out;

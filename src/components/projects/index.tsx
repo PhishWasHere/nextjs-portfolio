@@ -17,7 +17,7 @@ export default function Projects({langParam}: {langParam: string}) {
                 <div id='proj-content'>
 
                 {language.map((i) => (
-                    <article key={i.name} className='sm:m-1 my-5 fade-in'>
+                    <article key={i.name} className='sm:m-1 my-5 fade-in-left'>
                         <div className='grid md:flex md:flex-row-reverse'>
                             <h2 className='sm:text-5xl text-4xl text-end hover:text-neon-blue transition duration-100'>
                                 <Link href={i.link} className=''> 
@@ -27,7 +27,7 @@ export default function Projects({langParam}: {langParam: string}) {
                             <p className='mt-auto mr-2 text-end font-medium'>{i.type}</p>
                         </div>
                         <p className='text-lg flex flex-col justify-end text-end'>{i.description}</p>
-                        <span className='flex flex-wrap justify-end logo'>
+                        <span className='flex flex-wrap justify-end'>
                             {i.icon.map((i) =>(
                                 <Image key={i.name} src={`${i.name}`} width={32} height={32} alt={i.name} className='ml-2 logo-fade'/>
                             ))}

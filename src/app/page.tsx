@@ -63,7 +63,7 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
   return (
     <main id='bg' className='h-screen flex shadow font-extralight italic '>
       <section id='noise' className='w-full sm:border-[3rem] border-black flex flex-col relative'>
-        <div className='border border-gray-200/60 h-full'>
+        <div className='border border-gray-200/60 h-full fade-in'>
 
           {showStatus ? (
             <section className='flex absolute top-[1rem] left-1/2 transform -translate-x-1/2'>

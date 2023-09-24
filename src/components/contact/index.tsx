@@ -84,7 +84,7 @@ export default function Contact({langParam}: {langParam: string}) {
 
     return(
         <>
-            <section className='sm:flex p-4 ml-auto'>
+            <section className='sm:flex p-4 ml-auto fade-in-left'>
                 <section className='flex flex-col sm:mr-3 sm:mb-0 mb-2 sm:w-3/6'>
                     <h2 className='sm:text-3xl text-2xl'>
                         {language.title}

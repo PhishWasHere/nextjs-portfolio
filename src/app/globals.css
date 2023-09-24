@@ -28,7 +28,24 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-#bg { /* background animation div*/
+/* initial fade-in animation */
+.fade-in{
+  animation: fadeIn 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0;
+      filter: blur(10px);
+  }
+  100% {
+      opacity: 1;
+      filter: blur(0px);
+  }
+}
+
+#bg { /* background animation*/
   background: linear-gradient(-45deg, #7b5985, #443C68, #7f0847, #060047);
   background-size: 500% 500%;
   animation: gradient 13s ease infinite;
@@ -62,7 +79,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: -1;
 }
 
 #noise::before { /* noise/static overlay*/
@@ -75,4 +91,23 @@ body {
   opacity: 0.1;
   background: url('https://media.giphy.com/media/3o6vXRxrhj7Ov94Gbu/giphy.gif');
   pointer-events: none;
+}
+
+/* on render animation */
+.fade-in-left {
+  animation: fadeInLeft 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInLeft {
+  0% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateX(100%);
+  }
+  100% {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateX(0%);
+  }
 }
