@@ -10,7 +10,7 @@ import Status from '@/components/common/status-modal';
 // using query params to keep track of language and location so i can keep as server component and use SSR
 export default function Home({ searchParams }: {searchParams: {[key: string]: string | string[] | undefined}} ) {
   const langParam = (searchParams.lang || 'en') as string;
-  const locationParam = (searchParams.location || 'about') as string;
+  const locationParam = (searchParams.location || 'home') as string;
   
   const lang = [
     'en', 'jp'
@@ -62,8 +62,9 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
 
   return (
     <main id='bg' className='h-screen flex shadow font-extralight italic '>
+      <span id='fade-in' className='flex justify-center items-center h-screen font-medium font-sans not-italic text-2xl'>hello world<span id='blink' className='ml-1'>.</span></span>
       <section id='noise' className='w-full sm:border-[3rem] border-black flex flex-col relative'>
-        <div className='border border-gray-200/60 h-full fade-in'>
+        <div className='border border-gray-200/60 h-full'>
 
           {showStatus ? (
             <section className='flex absolute top-[1rem] left-1/2 transform -translate-x-1/2'>
