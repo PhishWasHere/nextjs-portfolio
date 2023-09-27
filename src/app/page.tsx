@@ -6,6 +6,8 @@ import About from '@/components/about';
 import Contact from '@/components/contact';
 import Projects from '@/components/projects';
 
+import './style.css'
+
 import Status from '@/components/common/status-modal';
 // using query params to keep track of language and location so i can keep as server component and use SSR
 export default function Home({ searchParams }: {searchParams: {[key: string]: string | string[] | undefined}} ) {
@@ -77,7 +79,7 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
             <section className='flex flex-col font-thin'>
               {langParam === 'en' ? (
                 <>
-                <section className='2xl:text-8xl sm:text-7xl text-6xl'>
+                <section id='name-size' className='2xl:text-8xl sm:text-7xl text-6xl'>
                   <h1 className=''>
                     {language.first}
                   </h1>

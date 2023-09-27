@@ -7,8 +7,8 @@ export const en = {
 }
 
 export const jp = {
-    first: '弥嵐',
-    first_alt: 'みらん',
-    last: '安則',
-    last_alt: 'やすのり',
+    first: '安則', // last name first, first name last thanks japan
+    first_alt: 'やすのり',
+    last: '弥嵐',
+    last_alt: 'みらん',
 }

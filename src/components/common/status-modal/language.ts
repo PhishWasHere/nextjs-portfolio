@@ -5,7 +5,7 @@ export const en = {
 }
 
 export const jp = {
-    error: '',
-    success: '',
-    close: ''
+    error: 'エラーが発生しました',
+    success: '成功！',
+    close: '閉じる'
 }

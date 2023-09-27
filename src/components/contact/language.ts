@@ -15,17 +15,17 @@ export const en = {
 
 
 export const jp = {
-    title: '',
-    description: ``,
-    subtitle: '',
-    link: '',
+    title: 'お問い合わせ',
+    description: `フォームよりご連絡ください。速やかな対応を心がけています。`,
+    subtitle: 'で、繋がりましょう',
+    link: 'お名前',
 
-    name: '',
-    email: '',
-    message: '',
-    send: '',
+    name: 'お名前',
+    email: 'メールアドレス',
+    message: 'メッセージ',
+    send: '送信',
 
-    error: '',
-    success: '',
+    error: 'エラーが発生しました',
+    success: '送信完了',
 }
 

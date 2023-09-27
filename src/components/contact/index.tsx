@@ -95,10 +95,21 @@ export default function Contact({langParam}: {langParam: string}) {
 
                     <section className='mt-auto'>
                         <p className='mt-auto flex items-center'>
+                        {langParam === 'en' ? (
+                            <>
                             {language.subtitle}
                             <Link href='https://www.linkedin.com/in/miran-yasunori-880207265/' className='border ml-1.5 transition duration-100 px-2 py-1 border-gray-200/60 hover:border-neon-blue hover:text-neon-blue'>
                                 LinkedIn
                             </Link>
+                            </>
+                        ) : (
+                            <>
+                            <Link href='https://www.linkedin.com/in/miran-yasunori-880207265/' className='border ml-1.5 transition duration-100 px-2 py-1 border-gray-200/60 hover:border-neon-blue hover:text-neon-blue'>
+                                LinkedIn
+                            </Link>
+                            {language.subtitle}
+                            </>
+                        )}
                         </p>
                     </section>
                 </section>

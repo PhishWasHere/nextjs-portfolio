@@ -19,8 +19,8 @@ export default function Projects({langParam}: {langParam: string}) {
                 {language.map((i) => (
                     <article key={i.name} className='sm:m-1 my-5 fade-in-left'>
                         <div className='grid md:flex md:flex-row-reverse'>
-                            <h2 className='sm:text-5xl text-4xl text-end hover:text-neon-blue transition duration-100'>
-                                <Link href={i.link} className=''> 
+                            <h2 className='sm:text-5xl text-4xl text-end '>
+                                <Link href={i.link} className=' inline-block hover:text-neon-blue transition duration-100'> 
                                     {i.name}
                                 </Link>
                             </h2>

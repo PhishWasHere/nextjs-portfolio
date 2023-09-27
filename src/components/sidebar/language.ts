@@ -15,6 +15,10 @@ export const en = [
         key: 'contact',
         value: 'Contact'
     },
+    {
+        key: 'source',
+        value: 'Source Code'
+    }
 ]
 
 export const jp = [
@@ -24,7 +28,7 @@ export const jp = [
     },
     {
         key: 'about',
-        value: '自己紹介'
+        value: 'プロフィール'
     },
     {
         key: 'projects',
@@ -34,4 +38,8 @@ export const jp = [
         key: 'contact',
         value: 'コンタクト'
     },
+    {
+        key: 'source',
+        value: 'ソースコード'
+    }
 ]

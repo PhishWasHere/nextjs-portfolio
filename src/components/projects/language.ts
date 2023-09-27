@@ -14,7 +14,7 @@ export const en = [
                 name: 'bootstrap.svg', 
             }
         ],
-        link: '',
+        link: 'https://www.ikhoneybee.com',
     },
     {
         name: 'Portfolio',
@@ -81,8 +81,8 @@ export const en = [
 export const jp = [
     {
         name: 'ikHoneybee',
-        description: '',
-        type: '',
+        description: '障がい者介護スタートアップ用ウェブサイト',
+        type: 'フリーランス (フルスタック)',
         icon: [
             {
                 name: 'typescript.svg'
@@ -94,29 +94,12 @@ export const jp = [
                 name: 'bootstrap.svg', 
             }
         ],
-        link: '',
-    },
-    {
-        name: 'Portfolio',
-        description: '',
-        type: '',
-        icon: [
-            {
-                name: 'typescript.svg'
-            },
-            {
-                name: 'nextjs.svg', 
-            },
-            {
-                name: 'tailwindcss.svg', 
-            }
-        ],
-        link: 'https://github.com/PhishWasHere/nextjs-portfolio',
+        link: 'https://www.ikhoneybee.com',
     },
     {
         name: 'The Hostile Bot',
-        description: '', 
-        type: '',
+        description: 'Discord用ボット 開発の一部で GPT-3 を使用 (現在開発中)', 
+        type: '個人プロジェクト (フルスタック)',
         icon:[
             {
                 name: 'typescript.svg'
@@ -138,8 +121,8 @@ export const jp = [
     },
     {
         name: 'BetterReads',
-        description: '',
-        type: '',
+        description: '本のレビューアプリ, 本の検索とレビュー記載が可能',
+        type: 'グループプロジェクト (バックエンド)',
         icon:[
             {
                 name: 'javascript.svg'
