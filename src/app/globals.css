@@ -3,21 +3,22 @@
 @tailwind utilities;
 
 :root {
-  /* --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
-
+  --background-end-rgb: 255, 255, 255;
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
-} */
+}
 
 body {
+  margin: 0;
+  overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -25,4 +26,74 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+/* background animation*/
+#bg { 
+  background: linear-gradient(-45deg, #7b5985, #443C68, #7f0847, #060047);
+  background-size: 500% 500%;
+  animation: gradient 13s ease infinite;
+  min-height: 100vh;
+  height: fit-content;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+@keyframes gradient { /* background animation*/
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+/*shadow overlay*/
+.shadow {
+  background-color: black;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* noise/static overlay*/
+#noise::before { 
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  content: '';
+  opacity: 0.1;
+  background: url('https://media.giphy.com/media/3o6vXRxrhj7Ov94Gbu/giphy.gif');
+  pointer-events: none;
+}
+
+/* on render animation */
+.fade-in-left {
+  animation: fadeInLeft 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeInLeft {
+  0% {
+      opacity: 0;
+      filter: blur(10px);
+      transform: translateX(100%);
+  }
+  100% {
+      opacity: 1;
+      filter: blur(0px);
+      transform: translateX(0%);
+  }
 }
