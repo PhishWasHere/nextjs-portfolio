@@ -85,7 +85,7 @@ export default function Contact({langParam}: {langParam: string}) {
 
         } catch (err) {
             const errMsg = getError(err);
-            console.error(errMsg);
+            console.error(errMsg, err);
             setLoading(false);
             router.push(`?${search}&error=true`, {scroll: false});
         }
