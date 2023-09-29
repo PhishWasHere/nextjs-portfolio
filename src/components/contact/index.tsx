@@ -1,14 +1,14 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link';
 import { en, jp } from './language'
 import axios from 'axios';
 import getError from '@/utils/get_error';
 import Loading from '@/components/common/loading'
 import { useRouter, useSearchParams } from 'next/navigation';
+import {nameVali, emailVali, msgVali} from '@/utils/form_validator';
 
 export default function Contact({langParam}: {langParam: string}) {
-    const regex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
     const router = useRouter();
     const searchParams = useSearchParams();
     const search = searchParams.toString();
@@ -28,47 +28,54 @@ export default function Contact({langParam}: {langParam: string}) {
         email: 'Email',
         message: 'Message',
     });
-    const [mailerRes, setMailerRes] = useState({
-        error: false,
-        success: false,
+    const [isDisabled, setIsDisabled] = useState({
+        name: true,
+        email: true,
+        message: true,
     });
-    const [isDisabled, setIsDisabled] = useState(false);
+
+    useEffect(() => { 
+        setIsDisabled({
+            name: !nameVali(formData.name),
+            email: !emailVali(formData.email),
+            message: !msgVali(formData.message),
+        });
+
+        return () => { // cleanup function, resets form data and placeholder when component unmounts
+            setIsDisabled({
+                name: true,
+                email: true,
+                message: true,
+            });
+        }
+    }, [formData]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         e.preventDefault();
+        const { name, value } = e.target;
         setFormData((prevData) => ({
           ...prevData,
-          [e.target.name]: e.target.value,
+          [name]: value,
         }));
-        if (!regex.test(formData.email) || !formData.email || !formData.name || !formData.message) { // if any of the fields are empty or email is invalid, disable send button
-            setIsDisabled(true);
-        } else { setIsDisabled(false); }        
     };
+    
+    const isSubmitDisabled = isDisabled.email || isDisabled.name || isDisabled.message;
 
     const handleSend = (async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-
+        
         try {
             setLoading(true); // set loading to true to display loading component
             const res = await axios.post('/api/send', { ...formData});
             
             if (!res.data.body.id) {
                 setLoading(false);
-                setMailerRes({
-                    error: true,
-                    success: false,
-                });
                 router.push(`?${search}&error=true`, {scroll: false}); // if error search param is true, display error component from app/page.tsx
                 return;
             }
 
-            setMailerRes({
-                error: false,
-                success: true,
-            });
-            router.push(`?${search}&success=true`, {scroll: false}); // if success search param is true, display success component from app/page.tsx
-
             setLoading(false);
+            router.push(`?${search}&success=true`, {scroll: false}); // if success search param is true, display success component from app/page.tsx
 
             setFormData({
                 name: '',
@@ -116,7 +123,7 @@ export default function Contact({langParam}: {langParam: string}) {
 
                 <form className='sm:w-4/6 border border-gray-200/60 p-3'>
                     <div className='grid text-lg'> 
-                        <label htmlFor="name" className='flex'>{language.name} {!formData.name? (<p className='text-error font-semibold text-2xl'>*</p>) : null}</label>
+                        <label htmlFor="name" className='flex'>{language.name} {isDisabled.name ? (<p className='text-error font-semibold text-2xl'>*</p>) : null}</label>
                         <input
                             className='bg-transparent border border-gray-200/60 text-lg text-white'
                             type="text"
@@ -129,7 +136,7 @@ export default function Contact({langParam}: {langParam: string}) {
                         />
                     </div>
                     <div className='grid mt-2'>
-                        <label htmlFor="email" className='flex'>{language.email}{!formData.email || !regex.test(formData.email) ? (<p className='text-error font-semibold text-2xl'>*</p>) : null}</label>
+                        <label htmlFor="email" className='flex'>{language.email}{isDisabled.email ? (<p className='text-error font-semibold text-2xl'>*</p>) : null}</label>
                         <input
                             className='bg-transparent border border-gray-200/60 text-lg text-white'
                             type="email"
@@ -142,7 +149,7 @@ export default function Contact({langParam}: {langParam: string}) {
                         />
                     </div>
                     <div className='grid mt-2 '>
-                        <label htmlFor="message" className='flex'>{language.message}{!formData.message ? (<p className='text-error font-semibold text-2xl'>*</p>) : null}</label>
+                        <label htmlFor="message" className='flex'>{language.message}{isDisabled.message ? (<p className='text-error font-semibold text-2xl'>*</p>) : null}</label>
                         <textarea
                             className='bg-transparent border border-gray-200/60 text-lg text-white'
                             id="message"
@@ -160,9 +167,9 @@ export default function Contact({langParam}: {langParam: string}) {
                         </div>
                     ) : ( 
                         <button type="submit" 
-                            disabled={!isDisabled} 
+                            disabled={isSubmitDisabled} 
                             onClick={(e) => handleSend(e)} 
-                            className={`flex mx-auto mt-3 px-2 py-1 transition duration-100 border border-gray-200/60 ${!isDisabled? 'hover:border-neon-blue hover:text-neon-blue' : 'hover:border-error hover:text-red-400'} `}
+                            className={`flex mx-auto mt-3 px-2 py-1 transition duration-100 border border-gray-200/60 ${isSubmitDisabled? 'hover:border-error hover:text-red-400' : 'hover:border-neon-blue hover:text-neon-blue'} `}
                             >
                             {language.send}
                         </button>
