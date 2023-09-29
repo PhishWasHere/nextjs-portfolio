@@ -6,6 +6,8 @@ import About from '@/components/about';
 import Contact from '@/components/contact';
 import Projects from '@/components/projects';
 
+import HelloWorld from '@/components/hello-world';
+
 import './style.css'
 
 import Status from '@/components/common/status-modal';
@@ -61,10 +63,10 @@ export default function Home({ searchParams }: {searchParams: {[key: string]: st
     showStatus = true;
     statusParam = false;
   }
-
+  
   return (
     <main id='bg' className='h-screen flex shadow font-extralight italic '>
-      <span id='fade-in' className='flex justify-center items-center h-screen font-medium font-sans not-italic text-2xl'>hello world<span id='blink' className='ml-1'>.</span></span>
+      <HelloWorld/>
       <section id='noise' className='w-full sm:border-[3rem] border-black flex flex-col relative'>
         <div className='border border-gray-200/60 h-full'>
 

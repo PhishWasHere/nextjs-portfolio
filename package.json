@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -18,6 +19,7 @@
     "eslint-config-next": "13.4.19",
     "install": "^0.13.0",
     "next": "13.4.19",
+    "next-sitemap": "^4.2.3",
     "nodemailer": "^6.9.5",
     "react": "18.2.0",
     "react-dom": "18.2.0",
