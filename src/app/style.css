@@ -1,0 +1,11 @@
+
+/* custom resize for name */
+#name-size {
+    display: block;
+}
+
+@media (max-width: 640px) {
+    #name-size {
+        display: flex;
+    }
+}

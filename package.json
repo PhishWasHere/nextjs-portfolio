@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "proxy": "",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -14,7 +15,6 @@
     "axios": "^1.5.0",
     "eslint": "8.49.0",
     "eslint-config-next": "13.4.19",
-    "install": "^0.13.0",
     "next": "13.4.19",
     "next-sitemap": "^4.2.3",
     "nodemailer": "^6.9.5",
