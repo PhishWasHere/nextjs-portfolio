@@ -66,7 +66,7 @@ export default function Contact({langParam}: {langParam: string}) {
         
         try {
             setLoading(true); // set loading to true to display loading component
-            const res = await axios.post('/api/send', { ...formData});
+            const res = await axios.post('https://portfolioapi12345-f8a28b9aaa11.herokuapp.com/api/v1/send', { ...formData});
             
             if (!res.data.body.id) {
                 setLoading(false);
