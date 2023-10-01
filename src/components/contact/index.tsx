@@ -13,6 +13,8 @@ export default function Contact({langParam}: {langParam: string}) {
     const searchParams = useSearchParams();
     const search = searchParams.toString();
 
+    const apiRoute = process.env.API || '/api/send';
+
     let language = en;
     if (langParam == 'jp') {
         language = jp
@@ -66,7 +68,7 @@ export default function Contact({langParam}: {langParam: string}) {
         
         try {
             setLoading(true); // set loading to true to display loading component
-            const res = await axios.post('/api/send', { ...formData});
+            const res = await axios.post(apiRoute, { ...formData});
             
             if (!res.data.body.id) {
                 setLoading(false);
