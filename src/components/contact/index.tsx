@@ -68,7 +68,7 @@ export default function Contact({langParam}: {langParam: string}) {
             setLoading(true); // set loading to true to display loading component
             const res = await axios.post('https://portfolioapi12345-f8a28b9aaa11.herokuapp.com/api/v1/send', { ...formData});
             
-            if (!res.data.body.id) {
+            if (res.status !== 200) {
                 setLoading(false);
                 router.push(`?${search}&error=true`, {scroll: false}); // if error search param is true, display error component from app/page.tsx
                 return;
