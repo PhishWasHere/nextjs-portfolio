@@ -12,6 +12,9 @@ export const en = [
             },
             {
                 name: 'bootstrap.svg', 
+            },
+            {
+                name: 'aws.svg'
             }
         ],
         link: 'https://www.ikhoneybee.com',
@@ -29,6 +32,9 @@ export const en = [
             },
             {
                 name: 'tailwindcss.svg', 
+            },
+            {
+                name: 'aws.svg'
             }
         ],
         link: 'https://github.com/PhishWasHere/nextjs-portfolio',
@@ -92,6 +98,9 @@ export const jp = [
             },
             {
                 name: 'bootstrap.svg', 
+            },
+            {
+                name: 'aws.svg'
             }
         ],
         link: 'https://www.ikhoneybee.com',
@@ -109,6 +118,9 @@ export const jp = [
             },
             {
                 name: 'tailwindcss.svg', 
+            },         
+            {
+                name: 'aws.svg'
             }
         ],
         link: 'https://github.com/PhishWasHere/nextjs-portfolio',

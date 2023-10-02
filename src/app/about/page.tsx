@@ -52,6 +52,10 @@ export default function Page({ searchParams }: {searchParams: {[key: string]: st
         {
             name: 'mysql',
             icon: 'mysql.svg',
+        },
+        {
+            name: 'aws',
+            icon: 'aws.svg',
         }
     ]
     return(
