@@ -36,7 +36,6 @@ export default function RootLayout({
 
                       <div className='sm:flex'>
                         <Sidebar/>
-
                         <section className='ml-auto transition sm:order-2'>
                           <div className=''>
                             {children}

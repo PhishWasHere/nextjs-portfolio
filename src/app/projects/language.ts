@@ -21,7 +21,7 @@ export const en = [
     },
     {
         name: 'Portfolio',
-        description: 'Portfolio website',
+        description: 'Portfolio source code',
         type: 'Personal project (full-stack)',
         icon: [
             {
@@ -107,7 +107,7 @@ export const jp = [
     },
     {
         name: 'Portfolio',
-        description: 'ポートフォリオ ウェブサイト',
+        description: 'ポートフォリオ ソースコード',
         type: '個人プロジェクト (フルスタック)',
         icon: [
             {
