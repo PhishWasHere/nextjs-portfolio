@@ -1,18 +1,18 @@
 export const en = [
     {
-        key: 'home',
+        key: '/',
         value: 'Home'
     },
     {
-        key: 'about',
+        key: '/about',
         value: 'About'
     },
     {
-        key: 'projects',
+        key: '/projects',
         value: 'Projects'
     },
     {
-        key: 'contact',
+        key: '/contact',
         value: 'Contact'
     },
     {
@@ -23,19 +23,19 @@ export const en = [
 
 export const jp = [
     {
-        key: 'home',
+        key: '/',
         value: 'ホーム'
     },
     {
-        key: 'about',
+        key: '/about',
         value: 'プロフィール'
     },
     {
-        key: 'projects',
+        key: '/projects',
         value: 'プロジェクト'
     },
     {
-        key: 'contact',
+        key: '/contact',
         value: 'コンタクト'
     },
     {

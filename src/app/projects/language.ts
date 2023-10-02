@@ -97,6 +97,23 @@ export const jp = [
         link: 'https://www.ikhoneybee.com',
     },
     {
+        name: 'Portfolio',
+        description: 'ポートフォリオ ウェブサイト',
+        type: '個人プロジェクト (フルスタック)',
+        icon: [
+            {
+                name: 'typescript.svg'
+            },
+            {
+                name: 'nextjs.svg', 
+            },
+            {
+                name: 'tailwindcss.svg', 
+            }
+        ],
+        link: 'https://github.com/PhishWasHere/nextjs-portfolio',
+    },
+    {
         name: 'The Hostile Bot',
         description: 'Discord用ボット 開発の一部で GPT-3 を使用 (現在開発中)', 
         type: '個人プロジェクト (フルスタック)',

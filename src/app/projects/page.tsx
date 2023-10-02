@@ -1,11 +1,12 @@
-
 import { en, jp } from './language'
 import Link from 'next/link';
 import Image from 'next/image';
 
 import './style.css'
 
-export default function Projects({langParam}: {langParam: string}) {
+export default function Page({ searchParams }: {searchParams: {[key: string]: string | string[] | undefined}} ) {
+    const langParam = (searchParams.lang || 'en') as string;
+    
     let language = en;
     if (langParam == 'jp') {
         language = jp

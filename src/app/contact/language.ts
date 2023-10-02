@@ -28,4 +28,3 @@ export const jp = {
     error: 'エラーが発生しました',
     success: '送信完了',
 }
-
