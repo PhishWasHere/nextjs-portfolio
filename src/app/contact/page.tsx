@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react'
+import { use, useEffect, useState } from 'react'
 import Link from 'next/link';
 import { en, jp } from './language'
 import axios from 'axios';
@@ -8,11 +8,12 @@ import Loading from '@/components/common/loading'
 import { useRouter, useSearchParams } from 'next/navigation';
 import {nameVali, emailVali, msgVali} from '@/utils/form_validator';
 
-export default function Contact({langParam}: {langParam: string}) {
+export default function Page() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const search = searchParams.toString();
-
+    const langParam = useSearchParams().get('lang') || 'en';
+    
     let language = en;
     if (langParam == 'jp') {
         language = jp
@@ -63,19 +64,18 @@ export default function Contact({langParam}: {langParam: string}) {
 
     const handleSend = (async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.preventDefault();
-        
         try {
-            setLoading(true); // set loading to true to display loading component
-            const res = await axios.post('/api/send', { ...formData});
+            setLoading(true); // set loading to true to render loading component
+            const res = await axios.post('https://portfolioapi12345-f8a28b9aaa11.herokuapp.com/api/send', { ...formData});
             
-            if (!res.data.body.id) {
+            if (res.status !== 200) {
                 setLoading(false);
-                router.push(`?${search}&error=true`, {scroll: false}); // if error search param is true, display error component from app/page.tsx
+                router.replace(`?lang=${langParam}&error=true`, undefined)// if error search param is true, render error component from app/page.tsx
                 return;
             }
 
             setLoading(false);
-            router.push(`?${search}&success=true`, {scroll: false}); // if success search param is true, display success component from app/page.tsx
+            router.replace(`?lang=${langParam}&success=true`, undefined)// if success search param is true, render error component from app/page.tsx
 
             setFormData({
                 name: '',
@@ -87,7 +87,7 @@ export default function Contact({langParam}: {langParam: string}) {
             const errMsg = getError(err);
             console.error(errMsg, err);
             setLoading(false);
-            router.push(`?${search}&error=true`, {scroll: false});
+            router.replace(`?lang=${langParam}&error=true`, undefined)
         }
     });
 
