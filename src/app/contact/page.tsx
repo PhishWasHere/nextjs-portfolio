@@ -66,11 +66,11 @@ export default function Page() {
         e.preventDefault();
         try {
             setLoading(true); // set loading to true to render loading component
-            const res = await axios.post('https://portfolioapi12345-f8a28b9aaa11.herokuapp.com/api/send', { ...formData});
+            const res = await axios.post('/api/send', { ...formData});
             
-            if (res.status !== 200) {
+            if (!res.data.body.id) {
                 setLoading(false);
-                router.replace(`?lang=${langParam}&error=true`, undefined)// if error search param is true, render error component from app/page.tsx
+                router.push(`?${search}&error=true`, {scroll: false}); // if error search param is true, display error component from app/page.tsx
                 return;
             }
 
