@@ -23,7 +23,7 @@ export default function RootLayout({
     <>
         <html lang="en" className=''>
           <body className={raleway.className}>    
-            <main id='bg' className='h-screen flex shadow font-extralight italic '>
+            <main id='bg' className='h-screen text-gray flex shadow font-extralight italic '>
               <HelloWorld/>
                 <section id='noise' className='w-full sm:border-[3rem] border-black flex flex-col relative'>
                   <div className='border border-gray-200/60 h-full'>

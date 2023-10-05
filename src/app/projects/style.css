@@ -5,6 +5,7 @@
     overflow: visible;
     transform: translateY(-50%);
 }
+
 #proj-wrapper::-webkit-scrollbar {
     display: none;
 }
@@ -14,6 +15,8 @@
     overflow: scroll; /* Make the wrapper scrollable */
     height: 70vh;
     max-height: 1000px;
+    scrollbar-width: none; /* Firefox hide scrollbar*/
+    -ms-overflow-style: none; /* Internet Explorer 11 */
 }
 
 #proj-content {
@@ -59,3 +62,4 @@
 .logo-fade:nth-child(5) {
   animation-delay: 800ms;  
 }
+
