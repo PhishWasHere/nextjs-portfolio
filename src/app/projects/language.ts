@@ -40,9 +40,9 @@ export const en = [
         link: 'https://github.com/PhishWasHere/nextjs-portfolio',
     },
     {
-        name: 'The Hostile Bot',
-        description: 'Discord bot partially powered by GPT-3 (currently in development).', 
-        type: 'Personal project (full-stack)',
+        name: 'Serialised',
+        description: 'Discord bot that checks if manga chapters are updated on MangaDex', 
+        type: 'Personal project (backend)',
         icon:[
             {
                 name: 'typescript.svg'
@@ -53,14 +53,8 @@ export const en = [
             {
                 name: 'express.svg'
             },
-            {
-                name: 'mongodb.svg'
-            },
-            {
-                name: 'nextjs.svg'
-            }
         ],
-        link: 'https://github.com/PhishWasHere/The-Hostile-Bot',
+        link: 'https://github.com/PhishWasHere/serialised',
     },
     {
         name: 'BetterReads',
@@ -126,9 +120,9 @@ export const jp = [
         link: 'https://github.com/PhishWasHere/nextjs-portfolio',
     },
     {
-        name: 'The Hostile Bot',
-        description: 'Discord用ボット 開発の一部で GPT-3 を使用 (現在開発中)', 
-        type: '個人プロジェクト (フルスタック)',
+        name: 'Serialised',
+        description: 'MangaDex で漫画のチャプターが更新されたかどうかを確認するDiscordボット', 
+        type: '個人プロジェクト (バックエンド)',
         icon:[
             {
                 name: 'typescript.svg'
@@ -139,14 +133,8 @@ export const jp = [
             {
                 name: 'express.svg'
             },
-            {
-                name: 'mongodb.svg'
-            },
-            {
-                name: 'nextjs.svg'
-            }
         ],
-        link: 'https://github.com/PhishWasHere/The-Hostile-Bot',
+        link: 'https://github.com/PhishWasHere/serialised',
     },
     {
         name: 'BetterReads',

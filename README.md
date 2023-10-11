@@ -67,4 +67,4 @@ This application is covered by the MIT license.
 
 ## Contact
 
-If you have any questions, you can contact me from [here](https://www.miran-yasunori.com/?location=contact)
+If you have any questions, you can contact me from [here](https://www.miran-yasunori.com/contact)
