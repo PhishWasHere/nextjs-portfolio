@@ -10,51 +10,55 @@ export default function Page({ searchParams }: {searchParams: {[key: string]: st
     }
     const skills = [
         {
-            name: 'html',
+            name: 'HTML',
             icon: 'html.svg',
         },
         {
-            name: 'javascript',
+            name: 'JavaScript',
             icon: 'javascript.svg',
         },
         {
-            name: 'typescript',
+            name: 'TypeScript',
             icon: 'typescript.svg',
         },
         {
-            name: 'css',
+            name: 'CSS',
             icon: 'css.svg',
         },
         {
-            name: 'tailwind.css',
+            name: 'tailwind',
             icon: 'tailwindcss.svg',
         },
         {
-            name: 'react',
+            name: 'React',
             icon: 'react.svg',
         },
         {
-            name: 'next.js',
+            name: 'NEXT',
             icon: 'nextjs.svg',
         },
         {
-            name: 'node.js',
+            name: 'Node',
             icon: 'nodejs.svg',
         },
         {
-            name: 'express.js',
+            name: 'Express',
             icon: 'express.svg',
         },
         {
-            name: 'mongodb',
+            name: 'MongoDB',
             icon: 'mongodb.svg',
         },
         {
-            name: 'mysql',
+            name: 'MySQL',
             icon: 'mysql.svg',
         },
         {
-            name: 'aws',
+            name: 'JWT',
+            icon: 'jwt.svg',
+        },
+        {
+            name: 'AWS',
             icon: 'aws.svg',
         }
     ]
