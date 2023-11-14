@@ -26,7 +26,7 @@ export default function Page({ searchParams }: {searchParams: {[key: string]: st
             icon: 'css.svg',
         },
         {
-            name: 'tailwind',
+            name: 'Tailwind',
             icon: 'tailwindcss.svg',
         },
         {
