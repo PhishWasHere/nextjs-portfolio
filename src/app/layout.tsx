@@ -11,7 +11,7 @@ const raleway = Raleway({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Miran Yasunori',
-  description: 'Portfolio page for Miran',
+  description: 'One Of The JavaScript Developers Of All Time | Full Stack Enthusiast | Monash Fullstack Bootcamp Graduate',
 }
 
 export default function RootLayout({
