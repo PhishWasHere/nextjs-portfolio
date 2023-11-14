@@ -14,10 +14,6 @@ export const en = [
     {
         key: '/contact',
         value: 'Contact'
-    },
-    {
-        key: 'source',
-        value: 'Source Code'
     }
 ]
 
@@ -37,9 +33,5 @@ export const jp = [
     {
         key: '/contact',
         value: 'コンタクト'
-    },
-    {
-        key: 'source',
-        value: 'ソースコード'
     }
 ]

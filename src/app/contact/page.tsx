@@ -66,7 +66,7 @@ export default function Page() {
         e.preventDefault();
         try {
             setLoading(true); // set loading to true to render loading component
-            const res = await axios.post('/api/send', { ...formData});
+            const res = await axios.post('/api/v1/send', { ...formData});
             
             if (!res.data.body.id) {
                 setLoading(false);
