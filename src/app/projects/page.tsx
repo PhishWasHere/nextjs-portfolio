@@ -13,7 +13,7 @@ export default function Page({ searchParams }: {searchParams: {[key: string]: st
     }
  
     return(
-        <section id='proj-container' className='p-4 ml-auto'>
+        <section id='proj-container' className='m-4 ml-auto'>
             <div id='proj-wrapper' className=''>
                 <div id='proj-content'>
 

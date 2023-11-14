@@ -55,15 +55,16 @@ body {
 	}
 }
 
-/*shadow overlay*/
+/* shadow causing bugs, overlaying strange white/grey shadow but only sometimes */
+/* shadow overlay */
 .shadow {
-  background-color: black;
+  /* background-color: black;
   opacity: 0.7;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
+  bottom: 0; */
 }
 
 

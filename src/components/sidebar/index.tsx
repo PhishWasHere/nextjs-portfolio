@@ -18,7 +18,7 @@ export default function Sidebar() {
                 {language.map((i) => (
                     <div key={i.key} className='mb-3'>
                         <Link
-                        className={`mr-3 m-1 sm:text-3xl hover:text-neon-blue transition duration-100 ${langParam === 'en'?  'text-2xl' : 'text-sm'} ${
+                        className={`mr-3 m-1 sm:text-3xl hover:text-neon-blue transition duration-100 ${langParam === 'en'?  'text-xl' : 'text-sm'} ${
                         path === i.key ? "text-neon-blue" : ""
                         }`}
                             href={
