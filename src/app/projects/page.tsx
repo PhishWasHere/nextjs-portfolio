@@ -18,7 +18,7 @@ export default function Page({ searchParams }: {searchParams: {[key: string]: st
                 <div id='proj-content'>
 
                 {language.map((i) => (
-                    <article key={i.name} className='sm:m-1 my-5 fade-in-left'>
+                    <article key={i.name} className='sm:m-1 my-5 mx-1 fade-in-left'>
                         <div className='grid md:flex md:flex-row-reverse'>
                             <h2 className='sm:text-5xl text-4xl text-end '>
                                 <Link href={i.link} className=' inline-block hover:text-neon-blue transition duration-100'> 

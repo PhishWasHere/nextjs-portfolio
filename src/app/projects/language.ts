@@ -41,7 +41,7 @@ export const en = [
     },
     {
         name: 'Serialised',
-        description: 'Discord bot that checks if manga chapters are updated on MangaDex', 
+        description: 'A bot that checks if a manga chapter has been updated on MangaDex and sends a notification to Discord', 
         type: 'Personal project (backend)',
         icon:[
             {
