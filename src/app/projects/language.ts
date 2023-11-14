@@ -112,7 +112,7 @@ export const jp = [
             },
             {
                 name: 'tailwindcss.svg', 
-            },
+            },        
             {
                 name: 'aws.svg'
             }

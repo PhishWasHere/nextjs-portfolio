@@ -68,9 +68,9 @@ export default function Page() {
             setLoading(true); // set loading to true to render loading component
             const res = await axios.post('/api/v1/send', { ...formData});
             
-            if (res.status !== 200) {
+            if (!res.data.body.id) {
                 setLoading(false);
-                router.replace(`?lang=${langParam}&error=true`, undefined)// if error search param is true, render error component from app/page.tsx
+                router.push(`?${search}&error=true`, {scroll: false}); // if error search param is true, display error component from app/page.tsx
                 return;
             }
 
