@@ -1,6 +1,17 @@
 'use client'
+import { useDemo } from '@/utils/context';
+import { useEffect } from 'react';
 
 export default function Page () {
+  const { isDemo, setIsDemo } = useDemo();
+
+  useEffect(() => {
+    setIsDemo(true);
+    return () => {
+      setIsDemo(false);
+    }
+  }, []);
+
   return (
     <main className="">
       <div  className=''>
