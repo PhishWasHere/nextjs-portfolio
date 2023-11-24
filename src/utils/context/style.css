@@ -1,0 +1,11 @@
+
+.custom-border {
+  width: 100%;
+  height: 100vh;
+}
+
+@media (min-width: 640px) {
+  .custom-border {
+    border: 3rem solid black;
+  }  
+}

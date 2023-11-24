@@ -3,29 +3,22 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
 }
 
 body {
   margin: 0;
+  font-weight: 100;
   overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 /* background animation*/
@@ -34,7 +27,7 @@ body {
   background-size: 500% 500%;
   animation: gradient 13s ease infinite;
   min-height: 100vh;
-  height: fit-content;
+  height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
@@ -68,7 +61,7 @@ body {
 }
 
 
-/* causing bugs, need to fix */
+
 #noise::before {  
   width: 100%;
   height: 100%;

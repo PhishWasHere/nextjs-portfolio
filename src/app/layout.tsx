@@ -23,8 +23,8 @@ export default function RootLayout({
   return (
     <>
         <html lang="en" className=''>
-          <body className={raleway.className}>    
-            <DemoProvider>
+          <body className={raleway.className}>
+             <DemoProvider>
               {children}
             </DemoProvider>
           </body>

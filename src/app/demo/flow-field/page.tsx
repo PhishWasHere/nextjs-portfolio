@@ -29,7 +29,6 @@ export default function Page() {
     }
  
     if(ctx) {
-
       let x = canvas?.clientWidth
       let y = canvas?.clientHeight
       effect = new Effect(x, y);
@@ -37,19 +36,19 @@ export default function Page() {
     }
   
     return () => {
+      effect.stopAnimation();
       setIsDemo(false);
     }
   }, []);
 
   return (
     <>
-    <canvas className="bg-black w-full h-full absolute -z-10" id='canvas' ref={canvasRef}>
-    </canvas>
-      <div  className=''>
-        <h1 className='text-4xl font-bold'>flow field</h1>
-      </div>
-    <button onClick={() => {console.log(effect)}}>click</button>
+      <canvas className="bg-black w-full h-full absolute -z-10" id='canvas' ref={canvasRef}>
+      </canvas>
+        <div  className=''>
+          <h1 className='text-4xl font-bold'>flow field</h1>
+        </div>
+      <button onClick={() => {effect.stopAnimation()}}>stop</button>
     </>
-    
   )
 }

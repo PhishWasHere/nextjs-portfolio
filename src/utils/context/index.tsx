@@ -5,6 +5,8 @@ import Socials from '@/components/home/socials';
 import Sidebar from '@/components/sidebar';
 import { createContext, useContext, useState } from 'react';
 
+import './style.css';
+
 // Context for demo
 export const Context = createContext<any>(null); 
 
@@ -20,10 +22,10 @@ export const DemoProvider = ({ children }: any) => {
   return (
     <Context.Provider value={{ isDemo, setIsDemo }}>
       { isDemo ? <>{children}</> : 
-      <main id='bg' className='h-screen text-gray flex shadow font-extralight italic '>
-        <HelloWorld/>
-        <section id='noise' className='w-full sm:border-[3rem] border-black flex flex-col relative'>
-          <div className='border border-gray-200/60 h-full'>
+      <main id='bg' className='h-screen text-gray flex shadow font-extralight italic'>
+        {/* <HelloWorld/> */}
+        <section id='noise' className='w-full custom-border flex flex-col relative '>
+          <div className='border p-3 border-gray-200/60 h-full'>
             <Status/>
             <div className='sm:mx-10 sm:my-8 mx-4 my-2'>
               <section className='flex flex-col font-thin'>
