@@ -22,7 +22,7 @@ export const DemoProvider = ({ children }: any) => {
   return (
     <Context.Provider value={{ isDemo, setIsDemo }}>
       { isDemo ? <>{children}</> : 
-      <main id='bg' className='h-screen text-gray flex shadow font-extralight italic'>
+      <main id='bg' className='h-screen text-gray flex shadow font-extralight italic m-0 p-0'>
         {/* <HelloWorld/> */}
         <section id='noise' className='w-full custom-border flex flex-col relative '>
           <div className='border p-3 border-gray-200/60 h-full'>

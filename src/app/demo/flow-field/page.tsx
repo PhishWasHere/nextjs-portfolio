@@ -1,7 +1,7 @@
 'use client'
 import { useDemo } from '@/utils/context';
 import { useEffect, useRef } from 'react';
-import { Effect, animate } from './index';
+import { Effect, animate } from './canvas';
 
 let canvas: HTMLElement | null;
 let ctx: CanvasRenderingContext2D | null; // canvas context
