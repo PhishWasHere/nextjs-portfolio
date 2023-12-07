@@ -1,12 +1,6 @@
-import './globals.css'
 import type { Metadata } from 'next'
 import { Raleway } from 'next/font/google'
-import { DemoProvider } from '@/utils/context'
-
-import Socials from '@/components/home/socials'
-import Sidebar from '@/components/sidebar'
-import Status from '@/components/common/status-modal'
-import HelloWorld from '@/components/hello-world'
+import './globals.css'
 
 const raleway = Raleway({ subsets: ['latin'] })
 
@@ -16,19 +10,13 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children
+  children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <>
-        <html lang="en" className=''>
-          <body className={raleway.className}>
-             <DemoProvider>
-              {children}
-            </DemoProvider>
-          </body>
-        </html>
-    </>
+    <html lang="en">
+      <body className={raleway.className}>{children}</body>
+    </html>
   )
 }
