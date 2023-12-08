@@ -4,6 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef, useEffect, useMemo } from 'react';
 //@ts-ignore
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; // no typescript definitions aaaaaaaa
+import { Effect } from './effect';
 
 
 export default function PlaneCanvas() {
@@ -21,35 +22,29 @@ export default function PlaneCanvas() {
       camera.position.set(3, 2, 7)
       orbit.update();
 
-      const planeGeo = new THREE.PlaneGeometry(15, 15, 50, 50);
-      const planeMat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
-      const plane = new THREE.Mesh(planeGeo, planeMat);
-      scene.add(plane);
-      plane.rotation.x = -Math.PI / 2;
-      
-      const light = new THREE.PointLight(0xffffff, 1, 100);
-      light.position.set(50, 50, 50);
-      scene.add(light);
-      
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      document.body.appendChild(renderer.domElement); // Use appendChild on document.body
+      const plane = new Effect();
+      scene.add(plane.init());
 
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      document.body.appendChild(renderer.domElement); 
+      
       const animate = () => {
         renderer.render(scene, camera);
-        for (let i = 0; i < planeGeo.attributes.position.count; i++) {
-          planeGeo.attributes.position.array[i] += 0.01 * (Math.random() * 2 - 1);
-        }
-        planeGeo.attributes.position.needsUpdate = true;
+        plane.update();
       };
-      
-      renderer.setAnimationLoop(animate); // Use setAnimationLoop instead of animate();
+      renderer.setAnimationLoop(animate); 
+
+      window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      });
     }
   }, []);
 
   return (
     <>
       <canvas id='canvas' ref={ref}>
-        {/* <Particles /> */}
       </canvas>
     </>
   )

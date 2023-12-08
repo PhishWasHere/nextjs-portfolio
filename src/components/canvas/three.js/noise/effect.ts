@@ -1,6 +1,7 @@
 'use client'
 import * as THREE from 'three';
 
+
 const vShader = `
   uniform float u_time;
   
@@ -101,11 +102,10 @@ const vShader = `
   varying vec3 vNormal;
   void main() {
     float noise = pnoise(position + u_time, vec3(10.0));
-    float displacement = float(5) * noise / float(10);
+    float displacement = float(3) * noise / float(10);
     vec3 newPosition = position + normal * displacement;
 
-    // this fixes the lighting regardless of rotation, idk what the rest of this shit does aaaaaa
-    vec3 normal = normalize(normalMatrix * normal);
+    // vec3 normal = normalize(normalMatrix * normal);
 
     vNormal = normal;
     vColor = aColor;
@@ -114,7 +114,7 @@ const vShader = `
   }
 `
 const fShader = `
-  uniform float u_resolution;
+  uniform vec2 u_resolution;
   uniform vec3 u_lightColor;
   uniform vec3 u_lightPosition;
 
@@ -124,12 +124,13 @@ const fShader = `
   varying vec3 vNormal;
 
   void main() {
+    vec2 st = gl_FragCoord.xy/u_resolution;
+    vec3 color = vec3(0.0, 0.0, 0.0);
+
     vec3 normal = normalize(vNormal);
     float nDotL = clamp(dot(normal, u_lightPosition), 0.0, 1.0);
     vec3 diffuse = u_lightColor * lightColor * nDotL;
-    gl_FragColor = vec4(diffuse, 1.0);
-    // vec2 st = gl_FragCoord.xy/u_resolution;
-    // gl_FragColor = vec4(1.0, 1.0, 1.0, 1.0);
+    gl_FragColor = vec4(mix(color, diffuse, 0.5), 1.0);
   }
 `
 export class Effect {
@@ -145,25 +146,26 @@ export class Effect {
 
   constructor(){
     this.uniforms = { 
-      u_resolution: { type: 'v2', value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+      u_resolution: { type: 'v2', value: new THREE.Vector2(window.innerWidth, window.innerHeight).multiplyScalar(window.devicePixelRatio) },
       u_time: { type: 'f', value: 0.0 },
-      u_lightColor: { type: 'c', value: new THREE.Color(0xffffff) },
+      u_lightColor: { type: 'c', value: new THREE.Color('#BC93FF') },
       u_lightPosition: { type: 'v3', value: new THREE.Vector3(5, 5, 5).normalize() },
     };
     this.geometry = null;
     this.material = null;
     this.mesh = null;
+
   }
 
   init() {
-    this.geometry = new THREE.IcosahedronGeometry(4, 30);
+    this.geometry = new THREE.IcosahedronGeometry(4, 32);
     this.material = new THREE.ShaderMaterial({
       uniforms: this.uniforms,
       wireframe: true,
       vertexShader: vShader,
       fragmentShader: fShader
     });
-    this.mesh = new THREE.Mesh(this.geometry, this.material);
+    this.mesh = new THREE.Mesh(this.geometry, this.material);    
     return this.mesh;
   }
 
@@ -173,5 +175,6 @@ export class Effect {
   
   update() {
     this.uniforms.u_time.value += 0.005;
+    this.mesh!.rotation.y += 0.001;
   }
 }
