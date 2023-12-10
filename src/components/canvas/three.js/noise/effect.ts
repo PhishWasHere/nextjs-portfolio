@@ -128,6 +128,8 @@ const fShader = `
     vec3 color = vec3(0.0, 0.0, 0.0);
 
     vec3 normal = normalize(vNormal);
+
+    // last 2 args for nDotL are ambiant light, and specular light
     float nDotL = clamp(dot(normal, u_lightPosition), 0.0, 1.0);
     vec3 diffuse = u_lightColor * lightColor * nDotL;
     gl_FragColor = vec4(mix(color, diffuse, 0.5), 1.0);
@@ -175,6 +177,6 @@ export class Effect {
   
   update() {
     this.uniforms.u_time.value += 0.005;
-    this.mesh!.rotation.y += 0.001;
+    // this.mesh!.rotation.y += 0.001;
   }
 }

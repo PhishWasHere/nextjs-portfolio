@@ -29,7 +29,7 @@ export default function ThreeCanvas() {
       camera.position.set(3, 2, 7)
       orbit.update();
       const ball = new Effect();
-      scene.add(ball.init()); 
+      scene.add(ball.init());
 
       // bloom and shaders
       renderer.outputColorSpace = THREE.SRGBColorSpace;
