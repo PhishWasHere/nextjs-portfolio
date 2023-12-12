@@ -1,6 +1,12 @@
 import type { Metadata } from 'next'
 import { Raleway } from 'next/font/google'
 import './globals.css'
+import config from '@/amplifyconfiguration.json';
+import { Amplify } from 'aws-amplify';
+
+Amplify.configure(config, {
+  ssr: true // required when using Amplify with Next.js
+});
 
 const raleway = Raleway({ subsets: ['latin'] })
 

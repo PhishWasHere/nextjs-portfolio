@@ -1,37 +1,41 @@
 'use client'
 import * as THREE from 'three';
+import * as dat from 'dat.gui';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useRef, useEffect, useMemo } from 'react';
 //@ts-ignore
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; // no typescript definitions aaaaaaaa
+import { Effect } from './effect';
+
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { UnrealBloomPass } from 'three/examples/jsm/Addons.js';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { OutputPass } from 'three/examples/jsm/Addons.js';
 
-import { Effect } from './effect';
 
-import { createAttractor, updateAttractor, aizawaAttractor } from '@/utils/attractor';
-
-export default function ThreeCanvas() {
+export default function TestCanvas() {
   const ref = useRef<HTMLCanvasElement>(null); // Add useRef for canvas element
   
   useEffect(() => {
     if (ref.current) {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-      const renderer = new THREE.WebGLRenderer({ canvas: ref.current });
+      const renderer = new THREE.WebGLRenderer({ canvas: ref.current }); // Use renderer instead of render
       const axes = new THREE.AxesHelper(5);
       const orbit = new OrbitControls(camera, renderer.domElement);
-      scene.background = new THREE.Color(0x333333);
+      scene.background = new THREE.Color('#111111');
 
       scene.add(axes);
-      camera.position.set(3, 2, 7)
-      orbit.update();
-      const ball = new Effect();
-      scene.add(ball.init());
+      camera.position.set(0, 0, 5)
+      camera.lookAt(300, 20, 100)
 
+      orbit.update();
+
+      const wave = new Effect();
+      scene.add(wave.init());
+      // wave.set(-3, -1, 4)
+      // wave.rotate(0, 0, 0)
+      
       // bloom and shaders
       renderer.outputColorSpace = THREE.SRGBColorSpace;
 
@@ -45,22 +49,20 @@ export default function ThreeCanvas() {
       composer.addPass(bloomPass);
       composer.addPass(outputPass);
       // bloom and shaders end
-       
+      
       renderer.setSize(window.innerWidth, window.innerHeight);
       composer.setSize(window.innerWidth, window.innerHeight);
       document.body.appendChild(renderer.domElement); 
       
       const animate = () => {
-        ball.update();
+        wave.update();
         composer.render();
         requestAnimationFrame(animate);
       };
-      // renderer.setAnimationLoop(animate);
       animate();
 
       window.addEventListener('resize', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
-        composer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
       });
@@ -74,4 +76,3 @@ export default function ThreeCanvas() {
     </>
   )
 }
-
