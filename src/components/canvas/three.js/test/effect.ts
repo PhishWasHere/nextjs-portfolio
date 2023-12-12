@@ -35,8 +35,6 @@ export class Effect {
     this.vertex = vertex;
     this.fragment = fragment;
 
-    this.init();
-    this.update();
   }
   
   init() {
@@ -78,18 +76,14 @@ export class Effect {
 
     this.mesh = new THREE.Points(this.geometry, this.material);
     this.mesh.rotation.set(0, 190, 0);
+
+    this.update();
+
     return this.mesh;
   }
 
   update(){
     this.uniforms.uTime.value += 0.005;
-  }
-
-  set(x: number, y: number, z: number){
-    this.mesh?.position.set(x, y, z);
-  }
-
-  rotate(x: number, y: number, z: number){
-    this.mesh?.rotation.set(x, y, z);
+    requestAnimationFrame(this.update.bind(this));
   }
 }

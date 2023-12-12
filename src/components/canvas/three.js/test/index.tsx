@@ -12,6 +12,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { UnrealBloomPass } from 'three/examples/jsm/Addons.js';
 import { OutputPass } from 'three/examples/jsm/Addons.js';
 
+import * as gui from 'dat.gui';
 
 export default function TestCanvas() {
   const ref = useRef<HTMLCanvasElement>(null); // Add useRef for canvas element
@@ -25,16 +26,27 @@ export default function TestCanvas() {
       const orbit = new OrbitControls(camera, renderer.domElement);
       scene.background = new THREE.Color('#111111');
 
-      scene.add(axes);
+      // scene.add(axes);
       camera.position.set(0, 0, 5)
       camera.lookAt(300, 20, 100)
 
       orbit.update();
 
-      const wave = new Effect();
-      scene.add(wave.init());
-      // wave.set(-3, -1, 4)
-      // wave.rotate(0, 0, 0)
+      const wave = new Effect().init();
+      wave.rotation.set(5.55, 0.6, 0.05);
+      wave.position.set(-7.04, -1.2, 4.65);
+      scene.add(wave);
+
+      // dat gui
+      // const gui = new dat.GUI();
+      // gui.add(wave.rotation, 'x', 0, Math.PI * 2, 0.01);
+      // gui.add(wave.rotation, 'y', 0, Math.PI * 2, 0.01);
+      // gui.add(wave.rotation, 'z', 0, Math.PI * 2, 0.01);
+
+      // gui.add(wave.position, 'x', -10, 10, 0.01);
+      // gui.add(wave.position, 'y', -10, 10, 0.01);
+      // gui.add(wave.position, 'z', -10, 10, 0.01);
+      // dat gui end
       
       // bloom and shaders
       renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -55,7 +67,6 @@ export default function TestCanvas() {
       document.body.appendChild(renderer.domElement); 
       
       const animate = () => {
-        wave.update();
         composer.render();
         requestAnimationFrame(animate);
       };
