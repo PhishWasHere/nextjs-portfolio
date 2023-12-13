@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker": "docker-compose up --build"
   },
   "dependencies": {
     "@aws-amplify/adapter-nextjs": "^1.0.6",

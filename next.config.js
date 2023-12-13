@@ -6,7 +6,7 @@ const nextConfig = {
       use: 'raw-loader',
     });
     return config;
-  }
+  },
 }
 
 module.exports = nextConfig

@@ -3,6 +3,7 @@ import { Raleway } from 'next/font/google'
 import './globals.css'
 import config from '@/amplifyconfiguration.json';
 import { Amplify } from 'aws-amplify';
+import { ContextProvider } from '@/utils/context';
 
 Amplify.configure(config, {
   ssr: true // required when using Amplify with Next.js
@@ -22,7 +23,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={raleway.className}>{children}</body>
+      <body className={raleway.className}>
+        <ContextProvider>
+          {children}
+        </ContextProvider>
+        </body>
     </html>
   )
 }

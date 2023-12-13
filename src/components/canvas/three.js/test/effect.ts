@@ -1,15 +1,14 @@
 import * as THREE from 'three';
 //@ts-ignore
-import vertex from './shaders/.vert';
+import vertex from './shaders/shader.vert';
 //@ts-ignore
-import fragment from './shaders/.frag';
+import fragment from './shaders/shader.frag';
 import * as dat from 'dat.gui';
 
 export class Effect {
   uniforms: {
     uResolution: { value: THREE.Vector2 };
     uTime: { value: number };
-    uResolution1: { value: THREE.Vector4 };
     uCameraPos: { value: THREE.Vector3 };
     uLightPos: { value: THREE.Vector3 };
   };
@@ -20,11 +19,9 @@ export class Effect {
   fragment: string;
 
   constructor(){
-    // super();
     this.uniforms = { 
       uResolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
       uTime: { value: 0.0 },
-      uResolution1: { value : new THREE.Vector4()},
       uCameraPos: { value: new THREE.Vector3() },
       uLightPos: { value: new THREE.Vector3(-5, 5, 5).normalize() },
     };
@@ -34,7 +31,6 @@ export class Effect {
 
     this.vertex = vertex;
     this.fragment = fragment;
-
   }
   
   init() {
@@ -50,7 +46,7 @@ export class Effect {
       fragmentShader: this.fragment,
       wireframe: false,
       transparent: true,
-      blending: THREE.NormalBlending,
+      // blending: THREE.NormalBlending,
       // side: THREE.DoubleSide,
       depthWrite: true,
       depthTest: true,
@@ -75,15 +71,27 @@ export class Effect {
     this.geometry.setAttribute('position', new THREE.BufferAttribute(pos, 3));
 
     this.mesh = new THREE.Points(this.geometry, this.material);
-    this.mesh.rotation.set(0, 190, 0);
-
-    this.update();
-
+    // this.mesh.rotation.set(0, 190, 0);
+    this.mesh.rotation.set(5.55, 0.6, 0.05);
+    this.mesh.position.set(-7.04, -1.2, 4.65);
     return this.mesh;
   }
 
   update(){
     this.uniforms.uTime.value += 0.005;
-    requestAnimationFrame(this.update.bind(this));
+    // requestAnimationFrame(this.update.bind(this));
+  }
+
+  rotation(x: number, y: number, z: number){
+    this.mesh?.rotation.set(x, y, z);
+  }
+
+  position(x: number, y: number, z: number){
+    this.mesh?.position.set(x, y, z);
+  }
+
+  updateWindow(width: number, height: number){
+    this.uniforms.uResolution.value.x = width;
+    this.uniforms.uResolution.value.y = height;
   }
 }

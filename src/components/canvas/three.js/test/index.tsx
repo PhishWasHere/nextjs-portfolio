@@ -23,19 +23,21 @@ export default function TestCanvas() {
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
       const renderer = new THREE.WebGLRenderer({ canvas: ref.current }); // Use renderer instead of render
       const axes = new THREE.AxesHelper(5);
-      const orbit = new OrbitControls(camera, renderer.domElement);
+      // const orbit = new OrbitControls(camera, renderer.domElement);
       scene.background = new THREE.Color('#111111');
 
       // scene.add(axes);
+      // neeed to set cam position somewhere or else the thing wont render
       camera.position.set(0, 0, 5)
-      camera.lookAt(300, 20, 100)
+      // camera.lookAt(300, 20, 100)
+      
 
-      orbit.update();
+      // orbit.update();
 
-      const wave = new Effect().init();
-      wave.rotation.set(5.55, 0.6, 0.05);
-      wave.position.set(-7.04, -1.2, 4.65);
-      scene.add(wave);
+      const wave = new Effect();
+      // wave.rotation(5.55, 0.6, 0.05);
+      // wave.position(-7.04, -1.2, 4.65);
+      scene.add(wave.init());
 
       // dat gui
       // const gui = new dat.GUI();
@@ -53,7 +55,7 @@ export default function TestCanvas() {
 
       const renderScene = new RenderPass(scene, camera);
 
-      const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.45, 1.0, 0.05);
+      const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 0.25, 0.5, 0.1);
       const outputPass = new OutputPass();
 
       const composer = new EffectComposer(renderer);
@@ -68,22 +70,31 @@ export default function TestCanvas() {
       
       const animate = () => {
         composer.render();
+        wave.update();
         requestAnimationFrame(animate);
       };
       animate();
-
+      
       window.addEventListener('resize', () => {
+        wave.updateWindow(window.innerWidth, window.innerHeight);
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
+        // wave.rotation.set(5.55, 0.6, 0.05);
+        // wave.position.set(-7.04, -1.2, 4.65);
       });
     }
+
+    return () => {
+      window.removeEventListener('resize', () => {});
+    };
   }, []);
 
   return (
     <>
-      <canvas id='canvas' ref={ref}>
-      </canvas>
+      <section className='fixed top-0 left-0 bottom-0 right-0'>
+        <canvas className='absolute w-full h-full top-0 left-0 -z-[99]' id='canvas' ref={ref}/>
+      </section>
     </>
   )
 }
