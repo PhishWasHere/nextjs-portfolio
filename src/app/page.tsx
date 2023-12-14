@@ -2,7 +2,7 @@
 import HomeCanvas from "@/components/canvas/home"
 import ThreeCanvas from "@/components/canvas/three.js/noise"
 import PlaneCanvas from "@/components/canvas/three.js/plane"
-import TestCanvas from "@/components/canvas/three.js/test"
+import ParticleCanvas from "@/components/canvas/three.js/test"
 
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
       {/* <HomeCanvas /> */}
       {/* <ThreeCanvas /> */}
       {/* <PlaneCanvas /> */}
-      <TestCanvas />
+      <ParticleCanvas />
     </main>
   )
 }

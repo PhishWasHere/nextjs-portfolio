@@ -46,8 +46,6 @@ export class Effect {
       fragmentShader: this.fragment,
       wireframe: false,
       transparent: true,
-      // blending: THREE.NormalBlending,
-      // side: THREE.DoubleSide,
       depthWrite: true,
       depthTest: true,
     });
@@ -71,27 +69,14 @@ export class Effect {
     this.geometry.setAttribute('position', new THREE.BufferAttribute(pos, 3));
 
     this.mesh = new THREE.Points(this.geometry, this.material);
-    // this.mesh.rotation.set(0, 190, 0);
-    this.mesh.rotation.set(5.55, 0.6, 0.05);
-    this.mesh.position.set(-7.04, -1.2, 4.65);
+    this.update();
     return this.mesh;
   }
 
   update(){
-    this.uniforms.uTime.value += 0.005;
-    // requestAnimationFrame(this.update.bind(this));
-  }
-
-  rotation(x: number, y: number, z: number){
-    this.mesh?.rotation.set(x, y, z);
-  }
-
-  position(x: number, y: number, z: number){
-    this.mesh?.position.set(x, y, z);
-  }
-
-  updateWindow(width: number, height: number){
-    this.uniforms.uResolution.value.x = width;
-    this.uniforms.uResolution.value.y = height;
+    setTimeout(() => {
+      this.uniforms.uTime.value += 0.005;
+      requestAnimationFrame(this.update.bind(this));
+    }, 1000 / 45)
   }
 }
