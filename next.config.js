@@ -1,4 +1,19 @@
 /** @type {import('next').NextConfig} */
+const withNextIntl = require('next-intl/plugin')(
+  './src/i18n.ts'
+);
+
+// module.exports = withNextIntl({
+//   reactStrictMode: true,
+//   webpack: (config, options) => {
+//     config.module.rules.push({
+//       test: /\.(vert|frag)$/i,
+//       use: 'raw-loader',
+//     });
+//     return config;
+//   },
+// }); 
+
 const nextConfig = {
   webpack: (config, options) => {
     config.module.rules.push({
@@ -8,7 +23,6 @@ const nextConfig = {
     return config;
   },
   reactStrictMode: false,
-  output: 'standalone'
 }
 
-module.exports = nextConfig
+module.exports = withNextIntl(nextConfig)

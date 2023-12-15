@@ -1,0 +1,90 @@
+{
+  "home" : {
+    "first": "Miran",
+    "first_alt": "",
+    "last": "Yasunori",
+    "last_alt": ""
+  },
+  
+  "about" : {
+    "title": "About Me",
+    "desc-line1": "I'm a half Australian half Japanese web developer based in Melbourne, with a passion for problem-solving.",
+    "desc-line2": "I love to create things that are both beautiful and functional.",
+    "desc-line3": "My graduation from the Monash Full-Stack Bootcamp has equipped me with essential skills in JavaScript, Node.js, React, SQL, and various JS-based frameworks and libraries.",
+    "desc-line4": "I'm currently looking for a role as a junior developer, where I can continue to learn and grow as a developer.",
+    "desc-line5": "Please feel free to contact me if you have any questions or would like to work together!",
+    "skills": "What I use"
+  },
+
+  "projects": {
+    "proj-1": {
+      "title": "Portfolio",
+      "desc": "Source code",
+      "type": "Personal project (full-stack)",
+      "tech": [
+        "typescript.svg",
+        "nextjs.svg",
+        "next-intl.svg",
+        "tailwindcss.svg",
+        "three.svg",
+        "aws.svg"
+      ],
+      "link": "https://github.com/PhishWasHere/nextjs-portfolio"
+    },
+
+    "proj-2": {
+      "title": "ikHoneybee",
+      "desc": "Website for a small NDIS startup",
+      "type": "Freelance (full-stack)",
+      "tech": [
+        "typescript.svg",
+        "nextjs.svg",
+        "bootstrap.svg",
+        "aws.svg"
+      ],
+      "link": "https://www.ikhoneybee.com"
+    },
+
+    "proj-3": {
+      "title": "Serialised",
+      "desc": "A bot that checks if a manga chapter has been updated on MangaDex and sends a notification to Discord",
+      "type": "Personal project (backend)",
+      "tech": [
+        "typescript.svg",
+        "nodejs.svg",
+        "express.svg"
+      ],
+      "link": "https://github.com/PhishWasHere/serialised"
+    },
+
+    "proj-4": {
+      "title": "BetterReads",
+      "desc": "Book review app, that lets users search for books and leave reviews.",
+      "type": "Group project (backend)",
+      "tech": [
+        "javascript.svg",
+        "nodejs.svg",
+        "express.svg",
+        "mysql.svg"
+      ],
+      "link": "https://github.com/TamaraDawg/BookReviewApp"
+    }
+  },
+
+  "contact": {
+    "title": "Want to get in touch?",
+    "desc": "Send me an email, and I'll get back to you as soon as I can.",
+    "subtitle": "Connect with me on ",
+    "link": "LinkedIn",
+
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Submit"
+    },
+
+    "error": "Something went wrong. Please try again later.",
+    "success": "Message sent!"
+  }
+}

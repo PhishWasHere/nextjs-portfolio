@@ -22,6 +22,8 @@ let pause: boolean = false;
 let wave: THREE.Points;
 let waveMat: THREE.ShaderMaterial;
 let waveGeo: THREE.BufferGeometry;
+let rotation: number[];
+let position: number[];
 
 export default function ParticleCanvas() {
   const ref = useRef<HTMLCanvasElement>(null); // Add useRef for canvas element
@@ -29,10 +31,15 @@ export default function ParticleCanvas() {
   useEffect(() => {
   // will probably not render this component on mobile for performance reasons
     if (window.innerWidth < 1024) {
-      count = 10000;
+      count = 5000;
+      rotation = [1, 0, 6.15];
+      position = [3.8, -0.17, 0.9];
     } else {
       count = 20000;
+      rotation = [1.35, 5.5, 0.9];
+      position = [1.5, -0.55, 2.15];
     }
+    // console.log(count)
   }, []);
   
   useEffect(() => {
@@ -40,15 +47,15 @@ export default function ParticleCanvas() {
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
       const renderer = new THREE.WebGLRenderer({ canvas: ref.current }); // Use renderer instead of render
-      const axes = new THREE.AxesHelper(5);
+      // const axes = new THREE.AxesHelper(5);
       // const orbit = new OrbitControls(camera, renderer.domElement);
       scene.background = new THREE.Color('#111111');
       
       // orbit.update();
 
-      scene.add(axes);
-      camera.rotation.set(1.35, 5.5, 0.9);
-      camera.position.set(1.5, -0.55, 2.15);
+      // scene.add(axes);
+      camera.rotation.set(rotation[0], rotation[1], rotation[2]);
+      camera.position.set(position[0], position[1], position[2]);
       
       // particle system
       const uniforms = { 

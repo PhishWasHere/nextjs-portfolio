@@ -1,0 +1,91 @@
+{
+  "home" : {
+    "first": "安則", 
+    "first_alt": "やすのり",
+    "last": "弥嵐",
+    "last_alt": "みらん"
+  },
+  
+  "about" : {
+    "title" : "プロフィール",
+    "desc-line1": "私はメルボルンに拠点を置く、オーストラリアと日本の半分の血を持つWeb開発者です。問題解決への熱情を持っています。",
+    "desc-line2": "私は美しく、機能的なものを作りたいと思っています。モンシューフルスタックブートキャンプからの卒業で、私にはJavaScript、Node.js、React、SQL、そして様々なJSベースのフレームワークとライブラリの基本的なスキルが付けられました。",
+    "desc-line3": "現在、私は初級開発者としての役割を探しています。ここで私は開発者として続けて学び、成長することができます。",
+    "desc-line4": "質問があるか、一緒に働きたいと思ったら、お気軽に私に連絡してください！",
+    "desc-line5": "(14年オーストラリアに住んでいることで私の日本語はちょっと怪しいので許してください。)",
+    "skills": "使用言語とツール"
+  },
+
+
+  "projects": {
+    "proj-1": {
+      "title": "Portfolio",
+      "desc": "ポートフォリオ ソースコード",
+      "type": "個人プロジェクト (フルスタック)",
+      "tech": [
+        "typescript.svg",
+        "nextjs.svg",
+        "next-intl.svg",
+        "tailwindcss.svg",
+        "three.svg",
+        "aws.svg"
+      ],
+      "link": "https://github.com/PhishWasHere/nextjs-portfolio"
+    },
+    
+    "proj-2": {
+      "title": "ikHoneybee",
+      "desc": "障がい者介護スタートアップ用ウェブサイト",
+      "type": "フリーランス (フルスタック)",
+      "tech": [
+        "typescript.svg",
+        "nextjs.svg",
+        "bootstrap.svg",
+        "aws.svg"
+      ],
+      "link": "https://www.ikhoneybee.com"
+    },
+
+    "proj-3": {
+      "title": "Serialised",
+      "desc": "MangaDex で漫画のチャプターが更新されたかどうかを確認するDiscordボット",
+      "type": "個人プロジェクト (バックエンド)",
+      "tech": [
+        "typescript.svg",
+        "nodejs.svg",
+        "express.svg"
+      ],
+      "link": "https://github.com/PhishWasHere/serialised"
+    },
+
+    "proj-4": {
+      "title": "BetterReads",
+      "desc": "本のレビューアプリ, 本の検索とレビュー記載が可能",
+      "type": "グループプロジェクト (バックエンド)",
+      "tech": [
+        "javascript.svg",
+        "nodejs.svg",
+        "express.svg",
+        "mysql.svg"
+      ],
+      "link": "https://github.com/TamaraDawg/BookReviewApp"
+    }
+  },
+
+  "contact": {
+    "title": "お問い合わせ",
+    "desc": "フォームよりご連絡ください。速やかな対応を心がけています。",
+    "subtitle": "で、繋がりましょう",
+    "link": "LinkedIn",
+
+    "form": {
+      "name": "お名前",
+      "email": "メールアドレス",
+      "message": "メッセージ",
+      "submit": "送信"
+    },
+
+    "error": "エラーが発生しました",
+    "success": "送信完了"
+  }
+}
