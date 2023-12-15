@@ -3,10 +3,10 @@ import {useTranslations} from 'next-intl';
 import ParticleCanvas from "@/components/canvas/three.js/particleBG"
 
 export default function Home() {
-  const test = useTranslations('home');
+  // const test = useTranslations('home');
   return (
     <main className="absolute">
-      {test('first')}
+      {/* {test('first')} */}
       <section className='fixed top-0 left-0 -z-50 pointer-events-none'>
         <ParticleCanvas />
       </section>

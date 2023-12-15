@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
-import NotFound from './not-found';
+
+// import NotFound from './not-found';
+import { notFound } from 'next/navigation';
 import { Raleway } from 'next/font/google'
 import './globals.css'
 import { ContextProvider } from '@/utils/context';
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({ children, params: {locale} }: { children: React.ReactNode, params: {locale: string} }) {
-  if (!locales.includes(locale as any)) return <NotFound/>;
+  if (!locales.includes(locale as any)) notFound();
 
   return (
     <html lang={locale}>
