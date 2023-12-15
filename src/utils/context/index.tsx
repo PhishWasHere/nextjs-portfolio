@@ -1,5 +1,6 @@
 'use client'
 import { createContext, useContext, useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export const Context = createContext<any>(null); 
 
@@ -8,19 +9,9 @@ export const useLanguage = () => {
 }
 
 export const ContextProvider = ({ children }: any) => {
-  const [language, setLanguage] = useState('en');
-
-  const checkLang = () => {
-    if (language === 'en' || language === 'jp') {
-      setLanguage(language);
-    } else {
-      setLanguage('en');
-      console.log('Language not supported, defaulting to English');
-    }
-  }
 
   return(
-    <Context.Provider value={{ language, setLanguage: checkLang }}>
+    <Context.Provider value={{ }}>
       {children}
     </Context.Provider>
   )

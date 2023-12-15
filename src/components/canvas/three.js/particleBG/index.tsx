@@ -155,7 +155,7 @@ export default function ParticleCanvas() {
 
   return (
     <>
-      <canvas className='' id='canvas' ref={ref}/>
+      <canvas className='absolute top-0 left-0 w-full h-full -z-50' id='canvas' ref={ref}/>
     </>
   )
 }
