@@ -15,8 +15,12 @@ import vertex from './shaders/shader.vert';
 //@ts-ignore
 import fragment from './shaders/shader.frag';
 
+type CanvasProps = {
+  onLoad: (isLoading: boolean) => void;
+}
+
 let count: number;
-let pause: boolean = false;
+let pause: boolean;
 
 // init wave variables here, so i can dispose of them later
 let wave: THREE.Points;
@@ -25,7 +29,7 @@ let waveGeo: THREE.BufferGeometry;
 let rotation: number[];
 let position: number[];
 
-export default function ParticleCanvas() {
+export default function ParticleCanvas({onLoad}: CanvasProps) {
   const ref = useRef<HTMLCanvasElement>(null); // Add useRef for canvas element
 
   useEffect(() => {
@@ -40,6 +44,7 @@ export default function ParticleCanvas() {
       position = [1.5, -0.55, 2.15];
     }
     // console.log(count)
+
   }, []);
   
   useEffect(() => {
@@ -124,6 +129,15 @@ export default function ParticleCanvas() {
       // stats.showPanel(0);
       // document.body.appendChild(stats.dom);
       
+      window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        composer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      });
+
+   
+      
       const animate = () => {
         // stats.begin();
         setTimeout(() => {
@@ -135,14 +149,11 @@ export default function ParticleCanvas() {
         // stats.end();
       };
       animate();
-      
-      window.addEventListener('resize', () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        composer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-      });
     }
+    
+    // sends loading state to parent
+    onLoad(false);
+    //
 
     return () => {
       window.removeEventListener('resize', () => {});
@@ -151,7 +162,7 @@ export default function ParticleCanvas() {
       waveGeo.dispose();
       waveMat.dispose();
     };
-  }, []);
+  }, [onLoad]);
 
   return (
     <>

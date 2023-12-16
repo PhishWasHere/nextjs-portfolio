@@ -10,7 +10,8 @@ void main() {
   alpha = pow(alpha, 0.5);
   //
   
-  // gl_FragColor = vec4(0.24, 0.78, 0.84, 1.0);
+  // gl_FragColor = vec4(0.5, 0.058, 0.8, alpha);
+  // gl_FragColor = vec4(0.24, 0.78, 0.74, alpha);
   gl_FragColor = vec4(0.9, 0.9, 0.9, alpha);
 
 }

@@ -106,12 +106,12 @@ float snoise(vec3 v)
 }
 
 void main() {
-  // vec4 cameraPos = modelViewMatrix * vec4( position.xyz, 1.0 );
+  vec4 cameraPos = modelViewMatrix * vec4( position.xyz, 1.0 );
 
   float noise = snoise( vec3( position.x * 0.1, position.y * 0.1, position.z * 0.01 ) + uTime * 0.1 ) * 0.5 + 0.5;
 
   vec3 newPosition = position * noise;
 
-  gl_PointSize = 1.5; // * ( 10.0 / -cameraPos.z );
+  gl_PointSize = 0.5 * ( 12.0 / -cameraPos.z );
   gl_Position = projectionMatrix * modelViewMatrix * vec4(newPosition, 1.0); 
 }
