@@ -31,7 +31,9 @@ export default function RootLayout({ children, params: {locale} }: { children: R
     <html lang={locale}>
       <body className={`${raleway.className} m-0 p-0`}>
         <NextIntlClientProvider locale={locale} messages={messages} >
+        {/* <ContextProvider> */}
           {children}
+        {/* </ContextProvider> */}
         </NextIntlClientProvider >
       </body>
     </html>

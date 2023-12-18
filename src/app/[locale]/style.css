@@ -1,0 +1,13 @@
+#section {
+  /* height: 80vh; */
+  /* scroll-snap-align: start; */
+  /* overflow: hidden; */
+  opacity: 0;
+}
+
+#container section {
+  /* height: 100%; */
+  /* overflow: hidden; */
+  opacity: 0;
+  /* scroll-snap-align: center; */
+}

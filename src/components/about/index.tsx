@@ -85,8 +85,8 @@ export default function About() {
         <ul className="flex flex-wrap">
           {skills.map((i) => (
             <li key={i.name} className='flex mx-1'>
-              <Image src={`${i.icon}`} className='ml-1.5 relative' alt={i.name} width={30} height={30}/>
-              <p className='my-auto'>{i.name}</p>
+              {/* <Image src={`${i.icon}`} className='ml-1.5 relative' alt={i.name} width={30} height={30}/>
+              <p className='my-auto'>{i.name}</p> */}
             </li>
           ))}
         </ul>

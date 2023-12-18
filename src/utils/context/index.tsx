@@ -8,10 +8,15 @@ export const useLanguage = () => {
   return useContext(Context);
 }
 
-export const ContextProvider = ({ children }: any) => {
+export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
+  const [language, setLanguage] = useState('en');
+
+  if (language !== 'en' && language !== 'jp') {
+    setLanguage('en');
+  }
 
   return(
-    <Context.Provider value={{ }}>
+    <Context.Provider value={[language, setLanguage]}>
       {children}
     </Context.Provider>
   )
