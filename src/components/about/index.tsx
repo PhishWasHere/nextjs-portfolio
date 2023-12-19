@@ -78,11 +78,11 @@ export default function About() {
         </p>
       </section>
 
-      <section className='nt-1'>
+      <section className='mt-1'>
         <h3 id='' className=''>
           {t('skills')}
         </h3>
-        <ul className="flex flex-wrap">
+        <ul className="">
           {skills.map((i) => (
             <li key={i.name} className='flex mx-1'>
               {/* <Image src={`${i.icon}`} className='ml-1.5 relative' alt={i.name} width={30} height={30}/>

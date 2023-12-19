@@ -28,16 +28,20 @@ export default function Projects() {
   }, [path]);
 
   return (
-    <article className=' m-2 p-2 rounded bg-red-800'>
-     {language.map((i) => (
-        <div key={i.title}>
-          <h1>{i.title}</h1>
-          <p>{i.desc}</p>
-          <p>{i.type}</p>
-          <p>{i.tech}</p>
-          <p>{i.link}</p>
-        </div>
-      ))}
+    <article className=' m-2 p-2 rounded bg-red-800 flex flex-col'>
+      <div className=' ml-auto justify-end'>
+
+      {language.map((i) => (
+          <div key={i.title}>
+            <h1>{i.title}</h1>
+            <p>{i.desc}</p>
+            <p>{i.type}</p>
+            <p>{i.tech}</p>
+            <p>{i.link}</p>
+          </div>
+        ))}
+                
+      </div>
     </article>
   )
 }

@@ -1,6 +1,4 @@
 'use client'
-// add bg to the "components" with a opacity that increases with scroll
-// add animation triggers, so all animations dont play at once
 import './style.css'
 
 import { useEffect, useState, useRef } from 'react';
@@ -21,28 +19,22 @@ import Contact from '@/components/contact';
 
 let sections: any[];
 let wrap: (index: number) => number;
-let animating = false;
+let animating = false; // useing useState for this breaks things for some reason
 let currentIndex = -1;
 export default function Home() {
   const [isLoading, setIsloading] = useState(true);
   const t = useTranslations('home');
+  const scroll = useRef(0);
 
   useEffect(() => {
     // need to set isLoading to false here too
-    // console.clear();
     setIsloading(false);
     sections = gsap.utils.toArray('.section');
     wrap = gsap.utils.wrap(0, sections.length);
 
-    () => {
-      sections.forEach((section: any, index: number) => {
-        gsap.set(section, { zIndex: 0, autoAlpha: 0, opacity: 0 });
-      });
-    }
   }, [isLoading]);
 
   useGSAP(() => {
-
     const clear = (tl: gsap.core.Timeline, i: number) => {
       sections.forEach((section: gsap.TweenTarget, index: number) => {
         if (index !== i) {
@@ -86,26 +78,59 @@ export default function Home() {
       });
 
       clear(tl, i);
-      tl.fromTo(sections[i], {}, { zIndex: 2, autoAlpha: 1, opacity: 1 }, 0);
+      tl.fromTo(sections[i], {}, { zIndex: 2, autoAlpha: 1, opacity: 1, position: 'fixed', marginLeft: 'auto' }, 0);
     }
 
-    Observer.create({
+    const observer = Observer.create({
       type: 'wheel, touch',
       preventDefault: true,
-      onUp: () => {
-        console.log('down');
-        if (animating) return;
+      onUp: () => {        
+        if (animating || currentIndex === 0 ) {
+          document.addEventListener('wheel', handleScroll);
+          sections.forEach((section) => {
+            gsap.to(section, { zIndex: -1, autoAlpha: 0, opacity: 0 });
+          })
+          // observer.disable();
+          return;
+        }
+
         goPrev(currentIndex - 1);
       },
       onDown: () => {
-        if (animating) return;
+        if (animating || currentIndex >= 2 ) return;
         goNext(currentIndex + 1);
-        console.log(currentIndex);
       }
     })
+    observer.disable();
+
+    const handleScroll = (e: WheelEvent) => {
+      animating = true;
+      if (e.deltaY < 0 && scroll.current < 0) {
+        scroll.current += 1;
+      } else if (e.deltaY > 0 && scroll.current > -40) {
+        scroll.current -= 1;
+      } else {
+        document.removeEventListener('wheel', handleScroll);
+        observer.enable();
+      }
+
+      requestAnimationFrame(() => {
+        if (scroll.current > -40 && scroll.current < 0) {
+          const fontSize = gsap.utils.mapRange(-40, 0, 2.75, 3.25, scroll.current);
+          const opacity = gsap.utils.mapRange(-40, 0, -0.5, 1, scroll.current); 
+          
+          gsap.to('#h1-name', { y: `${scroll.current}vh`, fontSize: `${gsap.utils.clamp(2.75, 3.25, fontSize)}rem`, ease: 'power2.out' }).then(() => {animating = false;});
+          if (!document.getElementById('h2-alt')) return;
+          gsap.to('#h2-alt', { y: `${scroll.current}vh`, fontSize: `${gsap.utils.clamp(0.75, 1.25, fontSize)}rem`, opacity: opacity, ease: 'power2.out' }).then(() => {animating = false;});
+        }
+      });
+    };
+
+    document.addEventListener('wheel', handleScroll);
 
     return () => {
-      // remove stuff later
+      document.removeEventListener('wheel', handleScroll);
+      observer.kill();
     }
   }, []);
   
@@ -130,20 +155,22 @@ export default function Home() {
           }
         </section>
         
-        <section id='wrapper'>
+        <section id='wrapper' className='overflow-auto' >
+          <div className='relative'>
+            <div className='absolute flex mr-2 right-0 ' style={{direction: "rtl"}}>
+              <section className='section opacity-0 fixed top-[35vh] text-end'>
+                <About />
+              </section>
 
-          <section className='section opacity-0'>
-            <About />
-          </section>
+              <section className='section opacity-0 fixed top-[35vh] '>
+                <Projects />
+              </section>  
 
-          <section className='section opacity-0'>
-            <Projects />
-          </section>  
-
-          <section className='section opacity-0'>
-            <Contact />
-          </section>
-
+              <section className='section opacity-0 fixed top-[35vh] text-end'>
+                <Contact />
+              </section>
+            </div>
+          </div>
         </section>
 
         <ParticleCanvas onLoad={(isLoading) => setIsloading(isLoading)}/>
