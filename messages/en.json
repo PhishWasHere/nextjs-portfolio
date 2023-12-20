@@ -7,6 +7,13 @@
     "title": "Hi im",
     "subtitle": "A Full-stack web developer"
   },
+
+  "nav" : {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
   
   "about" : {
     "title": "About Me",
