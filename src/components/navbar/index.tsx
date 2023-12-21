@@ -26,16 +26,16 @@ export default function Navbar({navHidden}: any) {
   useEffect(() => {
     if (window.innerWidth < 1024) {
       vars.about = {
-        hidden: { opacity: 0, y: '-25vh' , transition: { duration: 1.25 } },
-        visible: { opacity: 1, y: '-50vh', transition: { duration: 1.25 } }
+        hidden: { opacity: 0, y: '50vh' , transition: { duration: 1.25 } },
+        visible: { opacity: 1, y: '5vh', transition: { duration: 1.25 } }
       }
       vars.projects = {
-        hidden: { opacity: 0, y: '-25vh', transition: { duration: 1.25 } },
-        visible: { opacity: 1, y:'-50vh', transition: { duration: 1.25 } }
+        hidden: { opacity: 0, y: '50vh', transition: { duration: 1.25 } },
+        visible: { opacity: 1, y:'5vh', transition: { duration: 1.25 } }
       }
       vars.contact = {
-        hidden: { opacity: 0, y: '-25vh' , transition: { duration: 1.25 } },
-        visible: { opacity: 1, y: '-50vh', transition: { duration: 1.25 } }
+        hidden: { opacity: 0, y: '50vh' , transition: { duration: 1.25 } },
+        visible: { opacity: 1, y: '5vh', transition: { duration: 1.25 } }
       }
     } else {
       // vars position for larger screens
@@ -47,7 +47,7 @@ export default function Navbar({navHidden}: any) {
   return (
     <>
     {navHidden ? (null) : (
-      <nav className="flex justify-center ">
+      <nav className="">
         <motion.div variants={vars.about} animate={controls} initial={'hidden'}>
           <Link href='/about' className="mx-1" onClick={() => console.log(0)}>
             {t('about')}

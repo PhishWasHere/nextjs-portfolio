@@ -31,15 +31,15 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
 
   const vars = {
     h1: {
-      hidden: { opacity: 1, y: '0vh', fontSize: '3.25rem', transition: { duration: 1 }, ease: cubicBezier },
-      visible: { opacity: 1, y: '-45vh', fontSize: '2.75rem', transition: { duration: 1 }, ease: cubicBezier },
+      hidden: { opacity: 1, y: '50vh', fontSize: '3.25rem', transition: { duration: 1 }, ease: cubicBezier },
+      visible: { opacity: 1, y: '5vh', fontSize: '2.75rem', transition: { duration: 1 }, ease: cubicBezier },
     },
     h2: {
-      hidden: { opacity: 1, y: '0vh', fontSize: '1.25rem', transition: { duration: 1 }, ease: cubicBezier },
-      visible: { opacity: 0, y: '-50vh', fontSize: '1rem', transition: { duration: 1 }, ease: cubicBezier },
+      hidden: { opacity: 1, y: '50vh', fontSize: '1.25rem', transition: { duration: 1 }, ease: cubicBezier },
+      visible: { opacity: 0, y: '0vh', fontSize: '1rem', transition: { duration: 1 }, ease: cubicBezier },
     },
     h3: {
-      hidden: { opacity: 1, transition: { duration: 1 } },
+      hidden: {  opacity: 1, y: '50vh', fontSize: '1.25rem', transition: { duration: 1 } },
       visible: { opacity: 0, transition: { duration: 1 } },
     }
   }; 
@@ -64,20 +64,20 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
     {isLoading ? (
       <Loading />
     ) : (
-      <main className="shadow font-extralight italic">
-        <section className='grid grid-rows-1 justify-center mt-[50vh]'>
-          <motion.h3 variants={vars.h3} initial={'hidden'} animate={controls} className='mb-[-1rem] text-[1.5rem] not-italic titles'>
+      <main className="font-extralight italic">
+        <section className='font-extralight italic'> 
+          <motion.h3 variants={vars.h3} initial={'hidden'} animate={controls} className=' not-italic '>
             {t('title')}
           </motion.h3>
 
-          <motion.h1 variants={vars.h1} initial={'hidden'} animate={controls} id='h1-name' className='text-[3.25rem]'>
-            <button onClick={() => revert()} className='font-extralight italic' disabled={isDisabled}>
+          <motion.h1 variants={vars.h1} initial={'hidden'} animate={controls} className=''>
+            <button onClick={() => revert()} className='' disabled={isDisabled}>
               {t('first')} {t('last')}
             </button>
           </motion.h1>
 
           { t('first_alt') && t('last_alt') ? (
-            <motion.h2 variants={vars.h2} initial={'hidden'} animate={controls} id='h2-alt' className='text-[1.25rem] '>
+            <motion.h2 variants={vars.h2} initial={'hidden'} animate={controls}  className=''>
               {t('first_alt')} {t('last_alt')}
             </motion.h2>
             ) : (
@@ -85,7 +85,7 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
             )
           }
 
-          <motion.h3 variants={vars.h3} initial={'hidden'} animate={controls} className='mb-[-1rem] text-[1.5rem] not-italic titles'>
+          <motion.h3 variants={vars.h3} initial={'hidden'} animate={controls} className='not-italic'>
             {t('subtitle')}
           </motion.h3>
 

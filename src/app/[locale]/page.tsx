@@ -1,5 +1,4 @@
 'use client'
-import './style.css'
 // need to double check language messages
 
 import React, { useEffect, useState, useRef } from 'react';
