@@ -47,21 +47,21 @@ export default function Navbar({navHidden}: any) {
   return (
     <>
     {navHidden ? (null) : (
-      <nav className="">
+      <nav className="flex text-xl justify-center -mt-6 italic font-extralight">
         <motion.div variants={vars.about} animate={controls} initial={'hidden'}>
-          <Link href='/about' className="mx-1" onClick={() => console.log(0)}>
+          <Link href='/about' className="mx-1">
             {t('about')}
           </Link>
         </motion.div>
 
         <motion.div variants={vars.projects} animate={controls} initial={'hidden'}>
-          <Link href='/projects' className="mx-1" onClick={() => console.log(1)}>
+          <Link href='/projects' className="mx-1">
             {t('projects')}
           </Link>
         </motion.div>
 
         <motion.div variants={vars.contact} animate={controls} initial={'hidden'}>
-          <Link href='/contact' className="mx-1" onClick={() => console.log(2)}>
+          <Link href='/contact' className="mx-1">
             {t('contact')}
           </Link>
         </motion.div>

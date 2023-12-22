@@ -15,6 +15,7 @@ const config: Config = {
       },
     },
   },
+  mode: 'jit',
   plugins: [],
 }
 export default config

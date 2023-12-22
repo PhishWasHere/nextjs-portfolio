@@ -9,7 +9,7 @@ export const english = [
       "nextjs.svg",
       "next-intl.svg",
       "tailwindcss.svg",
-      "three.svg",
+      "threejs.svg",
       "aws.svg"
     ],
     link: "https://github.com/PhishWasHere/nextjs-portfolio"
@@ -64,7 +64,7 @@ export const japanese = [
       "nextjs.svg",
       "next-intl.svg",
       "tailwindcss.svg",
-      "three.svg",
+      "threejs.svg",
       "aws.svg"
     ],
     link: "https://github.com/PhishWasHere/nextjs-portfolio"
@@ -107,4 +107,4 @@ export const japanese = [
     ],
     link: "https://github.com/TamaraDawg/BookReviewApp"
   }
-]
+] 
