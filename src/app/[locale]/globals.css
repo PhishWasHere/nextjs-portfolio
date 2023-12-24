@@ -37,17 +37,19 @@
   z-index: 1000;
 }
 
+/* custom pointers stalker */
 #pointer-follow {
   position: absolute;
   width: 17px;
   height: 17px;
-  background: rgba(138, 138, 138, 0.504);
+  /* background: rgba(138, 138, 138, 0.5); */
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   pointer-events: none;
   z-index: 999;
   margin-top: -6px;
   margin-left: -6px;
-  transition: 0.2s cubic-bezier(1,1.13,.01,1.24);
+  transition: 0.1s cubic-bezier(1,1.13,.01,1.24);
 }
 
 

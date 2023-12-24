@@ -1,0 +1,31 @@
+
+.link {
+  margin: 0, 0.25rem, 0, 0.25rem;
+  cursor: none;
+}
+
+.link:hover {
+  background-color: rgb(100 116 139 0.5);
+}
+
+/* i conditionally applying css broke the animation, so bruteforce it is */
+#a, #b, #c {
+  display: inline-block;
+  position: relative;
+}
+ 
+#a::after, #b::after, #c::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff; 
+  transition: width .3s;
+}
+
+#a:hover::after, #b:hover::after, #c:hover::after {
+  width: 100%;
+  transition: width .3s;
+}

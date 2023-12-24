@@ -1,7 +1,6 @@
 'use client'
 
 // might make everything into a component since css styles are breaking if applied to this component directly
-import './index.css'
 import { createContext, useContext, useState, useEffect } from 'react';
 import ParticleCanvas from "@/components/canvas/three.js/particleBG"
 import Loading from '../../app/[locale]/loading';
@@ -23,12 +22,17 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
   }, [isLoading]);
   
   useEffect(() => {
-    if (pointer) {
-      const mouseMove = (e: MouseEvent) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-      }
-
+    if (!pointer) return; 
+    // not sure why, but i need to use the mouseMove function to get the pointer to follow the cursor
+      // if i use something like a cb func on the eventListener that calls animate(e), the thing breaks and idk why
+    const mouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    }
+    if (window.matchMedia("(pointer: coarse)").matches) {
+      pointer.style.display = 'none';
+      pointerFollow.style.display = 'none';
+    } else {
       const animate = () => {
         posX += (mouseX - posX); 
         posY += (mouseY - posY);
@@ -38,10 +42,11 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
         pointerFollow.style.top = `${posY}px`;
         requestAnimationFrame(animate);
       }
-
+ 
       document.addEventListener('mousemove', mouseMove)
       animate();
     }
+
     return () => {
       document.removeEventListener('mousemove', (e) => {
         const x = e.clientX;

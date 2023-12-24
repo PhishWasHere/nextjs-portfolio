@@ -1,6 +1,6 @@
 'use client'
 import './index.css';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { Link } from '@/navigation'
 import { motion, useAnimation, cubicBezier } from 'framer-motion';
 import { useTranslations } from 'next-intl';
@@ -20,11 +20,13 @@ let vars = {
   }
 }
 
+let pointerFollow: any;
 export default function Navbar({navHidden}: any) {
   const t = useTranslations('nav');
   const controls = useAnimation();
 
   useEffect(() => {
+    pointerFollow = document.getElementById('pointer-follow');
     if (window.innerWidth < 1024) {
       vars.about = {
         hidden: { opacity: 0, y: '50vh' , transition: { duration: 1.25 } },
@@ -45,51 +47,46 @@ export default function Navbar({navHidden}: any) {
     controls.start('visible')
   }, [navHidden]);
 
-  const transitions = {
-    duration: 1,
-    repeat: Infinity,
-    repeatType: 'reverse' as const,
-    repeatDelay: 1.5,
+  const onHover = () => {
+    if (!pointerFollow) return;
+    pointerFollow.style.height = `40px`;
+    pointerFollow.style.width = `40px`;
+    pointerFollow.style.margin = '-18px 0 0 -18px'
+    pointerFollow.style.transition = `0.1s cubic-bezier(1,1.13,.01,1.24)`;
   }
 
-  const about:string = t('about');
-  const aboutArr = [...about];
-  const projects:string = t('projects');
-  const projectsArr = [...projects];
-  const contact:string = t('contact');
-  const contactArr = [...contact];
-    
+  const onLeave = () => {
+    if (!pointerFollow) return;
+    pointerFollow.style.height = `17px`;
+    pointerFollow.style.width = `17px`;
+    pointerFollow.style.margin = '-6px 0 0 -6px'
+    pointerFollow.style.transition = `0.1s cubic-bezier(1,1.13,.01,1.24)`;
+  }
 
   return (
     <>
     {navHidden ? (null) : (
-      <nav className="flex text-xl justify-center -mt-6 italic font-extralight">
-        <motion.div variants={vars.about} animate={controls} initial={'hidden'}>
-          <Link href='/about' className="mx-1">
-            {aboutArr.map((char, index) => (
-              <motion.span 
-                key={index} 
-                animate={{ rotateX: [0, 180, 0] }}
-                transition={{...transitions, delay: index * 0.3}}
-                >
-                {char}
-              </motion.span>
-            ))}
-          </Link>
-        </motion.div>
+      <motion.nav variants={vars.about} animate={controls} initial={'hidden'} className="link flex text-xl justify-center -mt-6 italic font-extralight">
 
-        <motion.div variants={vars.projects} animate={controls} initial={'hidden'}>
-          <Link href='/projects' className="mx-1">
+        <div>
+          <Link href='/about' id='a' onMouseEnter={() => onHover()} onMouseLeave={() => onLeave()} className='link mx-1'>
+            {t('about')}
+          </Link>
+        </div>
+
+
+        <div>
+          <Link href='/projects' id='b' onMouseEnter={() => onHover()} onMouseLeave={() => onLeave()} className='link mx-1'>
             {t('projects')}
           </Link>
-        </motion.div>
+        </div>
 
-        <motion.div variants={vars.contact} animate={controls} initial={'hidden'}>
-          <Link href='/contact' className="mx-1">
+        <div>
+          <Link href='/contact' id='c' onMouseEnter={() => onHover()} onMouseLeave={() => onLeave()} className='link mx-1'>
             {t('contact')}
           </Link>
-        </motion.div>
-      </nav>
+        </div>
+      </motion.nav>
     )}
     </>
   )
