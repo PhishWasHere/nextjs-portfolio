@@ -82,15 +82,15 @@
 
   "contact": {
     "title": "Want to get in touch?",
-    "desc": "Send me an email, and I'll get back to you as soon as I can.",
-    "subtitle": "Connect with me on ",
+    "desc": "Send me a message, and I'll get back to you as soon as I can.",
+    "connect": "Connect with me on: ",
     "link": "LinkedIn",
 
     "form": {
       "name": "Name",
       "email": "Email",
       "message": "Message",
-      "submit": "Submit"
+      "send": "Send"
     },
 
     "error": "Something went wrong. Please try again later.",

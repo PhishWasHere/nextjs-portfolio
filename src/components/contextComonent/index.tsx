@@ -5,8 +5,9 @@
 import { useEffect, useState } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { motion, useAnimation, cubicBezier } from 'framer-motion';
-import Navbar from '@/components/navbar'; 
+import Navbar from '@/components/navbar';
 
 export default function ContextComponent() {
   const t = useTranslations('home');
@@ -46,10 +47,10 @@ export default function ContextComponent() {
   }
 
   const revert = () => {
+    router.push('/');
     controls.start("hidden");
     setIsDisabled(true);
     setNavHidden(true);
-    router.push('/');
     // console.log('navHidden', navHidden);
   }
 

@@ -1,0 +1,10 @@
+
+.formInput input, .formInput textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-width: 1px;
+  border-color: rgb(229 231 235 / 0.6);
+  border-radius: 0.25rem;
+  color: 'white';
+  font-size: 1rem;
+  line-height: 1.5rem;
+}

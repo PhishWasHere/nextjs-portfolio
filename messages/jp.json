@@ -84,14 +84,14 @@
   "contact": {
     "title": "お問い合わせ",
     "desc": "フォームよりご連絡ください。速やかな対応を心がけています。",
-    "subtitle": "で、繋がりましょう",
+    "connect": "で、繋がりましょう",
     "link": "LinkedIn",
 
     "form": {
       "name": "お名前",
       "email": "メールアドレス",
       "message": "メッセージ",
-      "submit": "送信"
+      "send": "送信"
     },
 
     "error": "エラーが発生しました",

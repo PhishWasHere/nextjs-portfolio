@@ -17,25 +17,24 @@ export default function ProjectPage() {
 
   return (
     <PageWrapper>
-      <article className='h-[70vh] flex m-2 p-2 rounded mt-[10vh] italic font-extralight bg-black bg-opacity-50 '>
+      <article className='h-[70vh] flex'>
         <section className='overflow-auto'>
           {projects.map((i) => (
             <article key={i.title} className='my-3'>
-              <h3 className='not-italic'>
+              <h3 className=''>
                 {i.title}
               </h3>
-              <h4>
+              <h4 className='not-italic text-base'>
                 {i.type}
               </h4>
-              <p>
+              <p className='not-italic text-base'>
                 {i.desc}
               </p>
               <div className='flex'>
                 {i.tech.map((j) => (
                   <Image width={35} height={35} src={`/${j}`} key={`${j}`} alt={`${j}`} className='mx-1'/>
                 ))}
-
-                </div>
+              </div>
               <Link href={i.link}>
                 link
               </Link>

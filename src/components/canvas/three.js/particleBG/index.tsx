@@ -1,8 +1,9 @@
 'use client'
+
 import * as THREE from 'three';
 import GUI from '@/utils/gui';
 import Stats from 'stats.js';
-import React, { useRef, useEffect, useLayoutEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useFrame, Canvas } from '@react-three/fiber';
 //@ts-ignore
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'; // no typescript definitions aaaaaaaa
@@ -32,11 +33,10 @@ let position: number[];
 
 export default React.memo(function ParticleCanvas({onLoad}: CanvasProps) {
   const ref = useRef<HTMLCanvasElement>(null); // Add useRef for canvas element
-
   useEffect(() => {
-  // will probably not render this component on mobile for performance reasons
+    // will probably not render this component on mobile for performance reasons
     if (window.innerWidth < 1024) {
-      count = 5000;
+      count = 4000;
       rotation = [1, 0, 6.15];
       position = [3.8, -0.17, 0.9];
     } else {
@@ -44,11 +44,10 @@ export default React.memo(function ParticleCanvas({onLoad}: CanvasProps) {
       rotation = [1.35, 5.5, 0.9];
       position = [1.5, -0.55, 2.15];
     }
-    // console.log(count)
   }, []);
   
   useEffect(() => {
-    if (!ref.current) return ;
+    if (!ref.current) return;
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ canvas: ref.current }); // Use renderer instead of render

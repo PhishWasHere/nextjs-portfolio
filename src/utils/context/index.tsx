@@ -1,7 +1,7 @@
 'use client'
 
 // might make everything into a component since css styles are breaking if applied to this component directly
-
+import './index.css'
 import { createContext, useContext, useState, useEffect } from 'react';
 import ParticleCanvas from "@/components/canvas/three.js/particleBG"
 import Loading from '../../app/[locale]/loading';
@@ -9,31 +9,65 @@ import ContextComponent from '@/components/contextComonent';
 
 export const Context = createContext<any>(null); 
 
-export const usePathState = () => {
-  return useContext(Context);
-}
+let pointer: any;
+let pointerFollow: any;
+let mouseX = 0, mouseY = 0, posX = 0, posY = 0;
 
 export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
-  const [pathChange, setPathChange] = useState(false);
-
   const [isLoading, setIsloading] = useState(true);
-
   useEffect(() => {
     // need to set isLoading to false here too
+    pointer = document.getElementById('pointer');
+    pointerFollow = document.getElementById('pointer-follow');
     setIsloading(false);
   }, [isLoading]);
+  
+  useEffect(() => {
+    if (pointer) {
+      const mouseMove = (e: MouseEvent) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      }
+
+      const animate = () => {
+        posX += (mouseX - posX); 
+        posY += (mouseY - posY);
+        pointer.style.left = `${mouseX}px`;
+        pointer.style.top = `${mouseY}px`;
+        pointerFollow.style.left = `${posX}px`;
+        pointerFollow.style.top = `${posY}px`;
+        requestAnimationFrame(animate);
+      }
+
+      document.addEventListener('mousemove', mouseMove)
+      animate();
+    }
+    return () => {
+      document.removeEventListener('mousemove', (e) => {
+        const x = e.clientX;
+        const y = e.clientY;
+        pointer.style.left = `${x}px`;
+        pointer.style.top = `${y}px`;
+        pointerFollow.style.left = `${x}px`;
+        pointerFollow.style.top = `${y}px`;
+      })
+    }
+  },[pointer])
 
   return(
-    <Context.Provider value={[pathChange, setPathChange]}>
+    <Context.Provider value={[]}>
     {isLoading ? (
       <Loading />
     ) : (
       <main className="">
-          <ContextComponent />
+        <span id='pointer' style={{}} aria-description='custom cursor'></span>
+        <span id='pointer-follow' style={{}} aria-description='sphere graphic following cursor'></span>
 
-          <section className='overflow-auto' >
-            {children}
-          </section>
+        <ContextComponent />
+
+        <section className='overflow-auto m-2 p-2 rounded mt-[10vh] italic font-light bg-black bg-opacity-50 text-lg' >
+          {children}
+        </section>
         
         <ParticleCanvas onLoad={(isLoading) => setIsloading(isLoading)}/>
       </main>

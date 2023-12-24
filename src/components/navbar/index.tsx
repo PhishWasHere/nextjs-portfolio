@@ -1,4 +1,5 @@
 'use client'
+import './index.css';
 import { useEffect, useState } from 'react';
 import { Link } from '@/navigation'
 import { motion, useAnimation, cubicBezier } from 'framer-motion';
@@ -43,14 +44,37 @@ export default function Navbar({navHidden}: any) {
 
     controls.start('visible')
   }, [navHidden]);
-  
+
+  const transitions = {
+    duration: 1,
+    repeat: Infinity,
+    repeatType: 'reverse' as const,
+    repeatDelay: 1.5,
+  }
+
+  const about:string = t('about');
+  const aboutArr = [...about];
+  const projects:string = t('projects');
+  const projectsArr = [...projects];
+  const contact:string = t('contact');
+  const contactArr = [...contact];
+    
+
   return (
     <>
     {navHidden ? (null) : (
       <nav className="flex text-xl justify-center -mt-6 italic font-extralight">
         <motion.div variants={vars.about} animate={controls} initial={'hidden'}>
           <Link href='/about' className="mx-1">
-            {t('about')}
+            {aboutArr.map((char, index) => (
+              <motion.span 
+                key={index} 
+                animate={{ rotateX: [0, 180, 0] }}
+                transition={{...transitions, delay: index * 0.3}}
+                >
+                {char}
+              </motion.span>
+            ))}
           </Link>
         </motion.div>
 

@@ -9,6 +9,7 @@ export const english = [
       "nextjs.svg",
       "next-intl.svg",
       "tailwindcss.svg",
+      'framer.svg',
       "threejs.svg",
       "aws.svg"
     ],
@@ -64,6 +65,7 @@ export const japanese = [
       "nextjs.svg",
       "next-intl.svg",
       "tailwindcss.svg",
+      'framer.svg',
       "threejs.svg",
       "aws.svg"
     ],

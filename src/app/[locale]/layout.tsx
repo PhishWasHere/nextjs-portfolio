@@ -7,7 +7,6 @@ import './globals.css'
 import { ContextProvider } from '@/utils/context';
 import {NextIntlClientProvider, useMessages} from 'next-intl';
 
-
 import config from '@/amplifyconfiguration.json';
 import { Amplify } from 'aws-amplify';
 

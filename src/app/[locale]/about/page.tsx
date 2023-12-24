@@ -8,13 +8,9 @@ import { PageWrapper } from '@/utils/wrapper';
 
 import { motion } from 'framer-motion';
 
-import { usePathState } from '@/utils/context';
 
 export default function AboutPage() {
   const t = useTranslations('about');
-
-  useEffect(() => {    
-  }, [])
 
   const skills = [
     {
@@ -36,6 +32,10 @@ export default function AboutPage() {
     {
       name: 'Tailwind',
       icon: 'tailwindcss.svg',
+    },
+    {
+      name: 'Framer-Motion',
+      icon: 'framer.svg'
     },
     {
       name: 'THREE',
@@ -76,12 +76,12 @@ export default function AboutPage() {
   ]
   return (
     <PageWrapper>
-      <article className='m-2 p-2 rounded mt-[10vh] italic font-extralight bg-black bg-opacity-50 '>
+      <article className=''>
         <section>
-          <h3 className='text-lg font-light'>
+          <h3 className=''>
             {t('title')}
           </h3>
-          <p className='not-italic'>
+          <p className='not-italic text-base'>
             {t('desc-line1')} <br />
             {t('desc-line2')} <br />
             {t('desc-line3')} <br />
@@ -91,14 +91,14 @@ export default function AboutPage() {
         </section>
 
         <section className='mt-3'>
-          <h3 className='text-lg'>
+          <h3 className=''>
             {t('skills')}
           </h3>
-          <ul className="not-italic font-light">
+          <ul className="not-italic font-light flex flex-wrap mt-2 text-base">
             {skills.map((i) => (
               <li key={i.name} className='flex mx-1'>
-                {/* <Image src={`${i.icon}`} className='ml-1.5 relative' alt={i.name} width={30} height={30}/>
-                <p className='my-auto'>{i.name}</p> */}
+                <Image src={`/${i.icon}`} className='m-1 relative' alt={i.name} width={30} height={30}/>
+                <p className='my-auto'>{i.name}</p>
               </li>
             ))}
           </ul>
