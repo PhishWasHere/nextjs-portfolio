@@ -149,7 +149,7 @@ export default React.memo(function ParticleCanvas({onLoad}: CanvasProps) {
     };
     const animationId = requestAnimationFrame(animate);
     
-    // sends loading state to parent    
+    // sends loading state to parent
     onLoad(false);
     //
 
@@ -157,7 +157,6 @@ export default React.memo(function ParticleCanvas({onLoad}: CanvasProps) {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', () => {});
       document.body.removeChild(renderer.domElement);
-      // dispose of all objects
       composer.dispose();
       renderer.dispose();
       wave.remove();

@@ -29,13 +29,13 @@ export const metadata: Metadata = {
   description: 'One Of The JavaScript Developers Of All Time | Full Stack Enthusiast | Monash Fullstack Bootcamp Graduate',
 }
 
-export default function RootLayout({ children, params: {locale} }: { children: React.ReactNode, params: {locale: string} }) {
+export default function AppLayout({ children, params: {locale} }: { children: React.ReactNode, params: {locale: string} }) {
   if (!locales.includes(locale as any)) notFound();
   const messages = useMessages();
   const font = fonts[locale as keyof typeof fonts];
   return (
     <html lang={locale}>
-      <body className={`${font.className} m-0 p-0`}>
+      <body className={font.className}>
         <NextIntlClientProvider locale={locale} messages={messages} >
           <ContextProvider>
             {children}

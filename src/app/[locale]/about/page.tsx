@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import {useTranslations } from 'next-intl';
 
 import { useRef, useEffect } from "react";
-import { PageWrapper } from '@/utils/wrapper';
+import { PageWrapper } from '@/utils/pageWrapper';
 
 import { motion } from 'framer-motion';
 
@@ -46,8 +46,12 @@ export default function AboutPage() {
       icon: 'react.svg',
     },
     {
-      name: 'NEXT',
+      name: 'Next',
       icon: 'nextjs.svg',
+    },
+    {
+      name: 'next-intl',
+      icon: 'next-intl.svg'
     },
     {
       name: 'Node',
@@ -76,7 +80,7 @@ export default function AboutPage() {
   ]
   return (
     <PageWrapper>
-      <article className=''>
+      <article className=' max-h-[70vh] overflow-scroll'>
         <section>
           <h3 className=''>
             {t('title')}

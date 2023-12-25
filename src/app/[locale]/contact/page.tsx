@@ -3,7 +3,7 @@
   // add error and success callbacks
 import './index.css'
 import { useState, useEffect } from 'react'
-import { PageWrapper } from '@/utils/wrapper'
+import { PageWrapper } from '@/utils/pageWrapper'
 import { useTranslations } from "next-intl"
 import { nameVali, emailVali, msgVali } from '@/utils/formVali'
 
@@ -53,7 +53,7 @@ export default function Page() {
 
   return (
     <PageWrapper>
-      <section className=''>
+      <section className='max-h-[70vh]'>
         <h3>{t('title')}</h3>
         <p className='text-base not-italic'>{t('desc')}</p>
 
