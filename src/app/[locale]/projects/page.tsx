@@ -18,7 +18,7 @@ export default function ProjectPage() {
   return (
     <PageWrapper>
       <article className='max-h-[70vh] flex justify-end text-right'>
-        <section className='overflow-auto '>
+        <section className=''>
           {projects.map((i) => (
             <article key={i.title} className='my-3 mr-3'>
               <h3 className=''>

@@ -20,6 +20,7 @@ let vars = {
 }
 
 let pointerFollow: any;
+let pointer: any;
 export default function Navbar({navHidden}: any) {
   const t = useTranslations('nav');
   const controls = useAnimation();
@@ -27,34 +28,7 @@ export default function Navbar({navHidden}: any) {
 
   useEffect(() => {
     pointerFollow = document.getElementById('pointer-follow');
-    if (window.innerWidth < 1024) {
-      vars.about = {
-        hidden: { opacity: 0, y: '50vh' , transition: { duration: 1.25 } },
-        visible: { opacity: 1, y: '5vh', transition: { duration: 1.25 } }
-      }
-      vars.projects = {
-        hidden: { opacity: 0, y: '50vh', transition: { duration: 1.25 } },
-        visible: { opacity: 1, y:'5vh', transition: { duration: 1.25 } }
-      }
-      vars.contact = {
-        hidden: { opacity: 0, y: '50vh' , transition: { duration: 1.25 } },
-        visible: { opacity: 1, y: '5vh', transition: { duration: 1.25 } }
-      }
-    } else {
-      vars.about = {
-        hidden: { opacity: 0, y: '50vh' , transition: { duration: 1.25 } },
-        visible: { opacity: 1, y: '1.5vh', transition: { duration: 1.25 } }
-      }
-      vars.projects = {
-        hidden: { opacity: 0, y: '50vh', transition: { duration: 1.25 } },
-        visible: { opacity: 1, y:'1.5vh', transition: { duration: 1.25 } }
-      }
-      vars.contact = {
-        hidden: { opacity: 0, y: '50vh' , transition: { duration: 1.25 } },
-        visible: { opacity: 1, y: '1.5vh', transition: { duration: 1.25 } }
-      }
-    }
-
+    pointer = document.getElementById('pointer');
     controls.start('visible')
   }, [navHidden]);
 
@@ -64,6 +38,9 @@ export default function Navbar({navHidden}: any) {
     pointerFollow.style.width = `40px`;
     pointerFollow.style.margin = '-18px 0 0 -18px'
     pointerFollow.style.transition = `0.1s cubic-bezier(1,1.13,.01,1.24)`;
+
+    pointer.style.opacity = `0`;
+    pointer.style.transition = `0.1s cubic-bezier(1,1.13,.01,1.24)`;
   }
 
   const onLeave = () => {
@@ -72,6 +49,9 @@ export default function Navbar({navHidden}: any) {
     pointerFollow.style.width = `17px`;
     pointerFollow.style.margin = '-6px 0 0 -6px'
     pointerFollow.style.transition = `0.1s cubic-bezier(1,1.13,.01,1.24)`;
+
+    pointer.style.opacity = `1`;
+    pointer.style.transition = `0.0s`;
   }
 
   return (
@@ -81,7 +61,7 @@ export default function Navbar({navHidden}: any) {
         variants={vars.about} 
         animate={controls} 
         initial={'hidden'} 
-        className="link flex text-xl justify-center xl:mt-2 lg:mt-2 -mt-6 italic font-extralight lg:mr-5"
+        className="link flex text-xl justify-center-mt-6 italic font-extralight lg:mr-5"
       >
 
         <div>

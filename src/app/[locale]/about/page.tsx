@@ -50,7 +50,7 @@ export default function AboutPage() {
       icon: 'nextjs.svg',
     },
     {
-      name: 'next-intl',
+      name: 'Next-intl',
       icon: 'next-intl.svg'
     },
     {
@@ -80,17 +80,19 @@ export default function AboutPage() {
   ]
   return (
     <PageWrapper>
-      <article className=' max-h-[70vh] overflow-scroll'>
+      <article className=' max-h-[70vh] overflow-auto'>
         <section>
           <h3 className=''>
             {t('title')}
           </h3>
-          <p className='not-italic text-base'>
+          <p className='not-italic text-base mt-2'>
             {t('desc-line1')} <br />
             {t('desc-line2')} <br />
             {t('desc-line3')} <br />
             {t('desc-line4')} <br />
-            {t('desc-line5')} <br />
+          </p>
+          <p className='mt-1 not-italic text-base'>
+            {t('desc-line5')}
           </p>
         </section>
 
@@ -102,7 +104,7 @@ export default function AboutPage() {
             {skills.map((i) => (
               <li key={i.name} className='flex mx-1'>
                 <Image src={`/${i.icon}`} className='m-1 relative' alt={i.name} width={30} height={30}/>
-                <p className='my-auto'>{i.name}</p>
+                <p className='my-auto text-sm'>{i.name}</p>
               </li>
             ))}
           </ul>

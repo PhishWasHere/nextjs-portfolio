@@ -35,7 +35,7 @@ export default React.memo(function ParticleCanvas({onLoad}: CanvasProps) {
   const ref = useRef<HTMLCanvasElement>(null); // Add useRef for canvas element
   useEffect(() => {
     // will probably not render this component on mobile for performance reasons
-    if (window.innerWidth < 1024) {
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
       count = 4000;
       rotation = [1, 0, 6.15];
       position = [3.8, -0.17, 0.9];
