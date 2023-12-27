@@ -18,3 +18,39 @@
   width: 100%;
   transition: width .3s;
 }
+
+#about {
+  display: inline-block;
+  position: relative;
+}
+
+#about::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  animation: about-ani 2s infinite ease-in-out;
+}
+
+#about:hover::after {
+  width: 100%;
+  animation: about-ani 2s ease-in-out;
+}
+
+@keyframes about-ani {
+  0% {
+    left: 0;
+    width: 0;
+  }
+  50%{
+    left: 0;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 0;
+  }
+}

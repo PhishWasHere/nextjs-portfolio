@@ -5,7 +5,8 @@
     "last": "Yasunori",
     "last_alt": "",
     "title": "Hi im",
-    "subtitle": "A Full-stack web developer"
+    "subtitle": "A Full-stack web developer",
+    "button": "Learn more"
   },
 
   "nav" : {
@@ -83,7 +84,7 @@
   "contact": {
     "title": "Want to get in touch?",
     "desc": "Send me a message, and I'll get back to you as soon as I can.",
-    "connect": "Connect with me on: ",
+    "connect": "Connect with me on ",
     "link": "LinkedIn",
 
     "form": {
@@ -93,7 +94,7 @@
       "send": "Send"
     },
 
-    "error": "Something went wrong. Please try again later.",
+    "error": "Something went wrong.",
     "success": "Message sent!"
   }
 }

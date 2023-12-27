@@ -5,7 +5,8 @@
     "last": "弥嵐",
     "last_alt": "みらん",
     "title": "Hi im",
-    "subtitle": "A Full-stack web developer"
+    "subtitle": "A Full-stack web developer",
+    "button": "Learn more"
   },
 
   "nav" : {
@@ -21,7 +22,7 @@
     "desc-line2": "私は美しく、機能的なものを作りたいと思っています。モンシューフルスタックブートキャンプからの卒業で、私にはJavaScript、Node.js、React、SQL、そして様々なJSベースのフレームワークとライブラリの基本的なスキルが付けられました。",
     "desc-line3": "現在、私は初級開発者としての役割を探しています。ここで私は開発者として続けて学び、成長することができます。",
     "desc-line4": "質問があるか、一緒に働きたいと思ったら、お気軽に私に連絡してください！",
-    "desc-line5": "(14年オーストラリアに住んでいることで私の日本語はちょっと怪しいので許してください。)",
+    "desc-line5": "(英語がメインなので、日本語が怪しかったら許してください。)",
     "skills": "使用言語とツール"
   },
 
@@ -84,8 +85,8 @@
   "contact": {
     "title": "お問い合わせ",
     "desc": "フォームよりご連絡ください。速やかな対応を心がけています。",
-    "connect": "で、繋がりましょう",
-    "link": "LinkedIn",
+    "connect": "で、繋がりましょう。",
+    "link": "LinkedIn ",
 
     "form": {
       "name": "お名前",

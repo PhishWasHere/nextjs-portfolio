@@ -1,21 +1,18 @@
 'use client'
 
 import './index.css';
-import { createContext, useContext, useState, useEffect, Suspense, lazy, useRef } from 'react';
+import { createContext, useState, useEffect, Suspense } from 'react';
 import { usePathname } from '@/navigation';
 
-import ParticleCanvas from '@/components/canvas/three.js/particleBG';
+import ParticleCanvas from '@/components/canvas';
 import ContextComponent from '@/components/contextComonent';
 
-// kinda need lazy loading to work, but it breaks the cursor aaaaaaa
-// const ParticleCanvas = lazy(() => import("@/components/canvas/three.js/particleBG"));
-
-import Loading from '../../app/[locale]/loading';
+import Loading from '@/app/[locale]/loading';
 
 export const Context = createContext<any>(null); 
 
-let pointer: any;
-let pointerFollow: any;
+let pointer: HTMLElement | null;
+let pointerFollow: HTMLElement | null;
 let mouseX = 0, mouseY = 0, posX = 0, posY = 0;
 
 export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
@@ -38,10 +35,10 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
   }, [path]);
   
   useEffect(() => {
-    if (!pointer) return; 
+    if (!pointer || !pointerFollow) return; 
     
     // not sure why, but i need to use the mouseMove function to get the pointer to follow the cursor
-      // if i use something like a cb func on the eventListener that calls animate(e), the thing breaks and idk why
+      // if i use something like a cb func on the eventListener that calls animate(e), the thing breaks
     const mouseMove = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
@@ -55,10 +52,10 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
       const animate = () => {
         posX += (mouseX - posX); 
         posY += (mouseY - posY);
-        pointer.style.left = `${mouseX}px`;
-        pointer.style.top = `${mouseY}px`;
-        pointerFollow.style.left = `${posX}px`;
-        pointerFollow.style.top = `${posY}px`;
+        pointer!.style.left = `${mouseX}px`;
+        pointer!.style.top = `${mouseY}px`;
+        pointerFollow!.style.left = `${posX}px`;
+        pointerFollow!.style.top = `${posY}px`;
         requestAnimationFrame(animate);
       }
  
@@ -74,7 +71,7 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
 
   return(
     <>
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<Loading/>}>
     {isLoading ? (null) : (
       <Context.Provider value={[]}>
         <main>

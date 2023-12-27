@@ -3,10 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-  /* cursor: none; */
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  cursor: none;
 }
 
 ::-webkit-scrollbar {
@@ -42,7 +42,6 @@
   position: absolute;
   width: 17px;
   height: 17px;
-  /* background: rgba(138, 138, 138, 0.5); */
   background: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   pointer-events: none;
@@ -50,15 +49,6 @@
   margin-top: -6px;
   margin-left: -6px;
   transition: 0.1s cubic-bezier(1,1.13,.01,1.24);
-}
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
 }
 
 body {

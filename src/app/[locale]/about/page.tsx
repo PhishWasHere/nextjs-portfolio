@@ -1,13 +1,8 @@
 'use client'
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import {useTranslations } from 'next-intl';
 
-import { useRef, useEffect } from "react";
 import { PageWrapper } from '@/utils/pageWrapper';
-
-import { motion } from 'framer-motion';
-
 
 export default function AboutPage() {
   const t = useTranslations('about');

@@ -8,3 +8,24 @@
   font-size: 1rem;
   line-height: 1.5rem;
 }
+
+#loader {
+  margin: 0.2rem;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  display: block;
+  border-top: 3px solid #FFF;
+  border-right: 3px solid transparent;
+  box-sizing: border-box;
+  animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 

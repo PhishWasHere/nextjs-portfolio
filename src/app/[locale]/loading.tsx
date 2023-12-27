@@ -19,12 +19,12 @@ export default function Loading() {
               delay: index * 0.3,
               repeat: Infinity,
               repeatType: 'reverse' as const,
-              repeatDelay: 1.5,
+              repeatDelay: 2,
             }}
             >
             {char}
           </motion.span>
-        ))}...
+        ))}
       </motion.section>
     </PageWrapper>
   );

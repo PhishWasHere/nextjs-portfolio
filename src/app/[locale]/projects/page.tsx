@@ -1,19 +1,35 @@
 'use client'
 import Image from 'next/image';
-import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations, useLocale } from 'next-intl';
 import { Link } from '@/navigation';
+import { enter, leave } from '@/utils/pointerStyles';
+import { useEffect } from 'react';
 
-import { useRef, useEffect } from "react";
 import { PageWrapper } from '@/utils/pageWrapper';
 
 import { english, japanese } from './languages';
 
+let pointer: HTMLElement | null;
+let pointerFollow: HTMLElement | null;
 export default function ProjectPage() {
   const t = useTranslations('projects');
   const locale = useLocale();
   let projects = ( locale ) === 'jp' ? japanese : english;
 
+  useEffect(() => {
+    pointer = document.getElementById('pointer');
+    pointerFollow = document.getElementById('pointer-follow');    
+  }, []);
+
+  const onEnter = () => {
+    if (!pointer || !pointerFollow) return;
+    enter({pointer, pointerFollow, size:'small'})
+  }
+  
+  const onLeave = () => {
+    if (!pointer || !pointerFollow) return;
+    leave({pointer, pointerFollow})
+  }
 
   return (
     <PageWrapper>
@@ -35,7 +51,7 @@ export default function ProjectPage() {
                   <Image width={35} height={35} src={`/${j}`} key={`${j}`} alt={`${j}`} className='mx-1'/>
                 ))}
               </div>
-              <Link href={i.link} className='text-base'>
+              <Link href={i.link} className='text-base cursor-none' onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()}>
                 link
               </Link>
             </article>
