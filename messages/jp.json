@@ -1,12 +1,17 @@
 {
+  "404" : {
+    "desc": "404 - ページが見つかりませんでした",
+    "button": "安全な場所に連れて行って"
+  },
+
   "home" : {
     "first": "安則", 
     "first_alt": "やすのり",
     "last": "弥嵐",
     "last_alt": "みらん",
-    "title": "Hi im",
-    "subtitle": "A Full-stack web developer",
-    "button": "Learn more"
+    "title": "Hi I'm,", 
+    "subtitle": "フルスタックのWeb開発者です",
+    "button": "詳細はこちら"
   },
 
   "nav" : {
@@ -18,16 +23,17 @@
   
   "about" : {
     "title" : "プロフィール",
-    "desc-line1": "私はメルボルンに拠点を置く、オーストラリアと日本の半分の血を持つWeb開発者です。問題解決への熱情を持っています。",
-    "desc-line2": "私は美しく、機能的なものを作りたいと思っています。モンシューフルスタックブートキャンプからの卒業で、私にはJavaScript、Node.js、React、SQL、そして様々なJSベースのフレームワークとライブラリの基本的なスキルが付けられました。",
-    "desc-line3": "現在、私は初級開発者としての役割を探しています。ここで私は開発者として続けて学び、成長することができます。",
-    "desc-line4": "質問があるか、一緒に働きたいと思ったら、お気軽に私に連絡してください！",
-    "desc-line5": "(英語がメインなので、日本語が怪しかったら許してください。)",
+    "desc-line1": "メルボルンを拠点とする、問題解決に情熱を燃やす日本人ハーフのウェブ開発者です。",
+    "desc-line2": "美しく機能的なものを作るのが好きです。",
+    "desc-line3": "モナッシュ大学のフルスタック・ブートキャンプを修了したことで、JavaScript、Node.js、React、SQLなど、様々なJSベースのフレームワークやライブラリの必須スキルを身につけることができました。",
+    "desc-line4": "現在、開発者として学び成長し続けられるジュニア開発者としての仕事を探しています。ご質問やお問い合わせは、お気軽にご連絡ください！",
+    "desc-line5": "(母国語は英語なので、間違った日本語を使ったらすみません)",
     "skills": "使用言語とツール"
   },
 
 
   "projects": {
+    "NOTE": "All project text is in /projects/languages/index.tsx",
     "proj-1": {
       "title": "Portfolio",
       "desc": "ポートフォリオ ソースコード",
@@ -67,8 +73,21 @@
       ],
       "link": "https://github.com/PhishWasHere/serialised"
     },
-
+   
     "proj-4": {
+      "title": "",
+      "desc": "",
+      "type": "",
+      "tech": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "link": ""
+    },
+
+    "proj-5": {
       "title": "BetterReads",
       "desc": "本のレビューアプリ, 本の検索とレビュー記載が可能",
       "type": "グループプロジェクト (バックエンド)",

@@ -36,9 +36,25 @@ export const english = [
     tech: [
       "typescript.svg",
       "nodejs.svg",
-      "express.svg"
+      "express.svg",
+      "rest.svg"
     ],
     link: "https://github.com/PhishWasHere/serialised"
+  },
+
+  {
+    title: "CreateReactAppProject",
+    desc: "Graduation project for Monash Bootcamp made with MERN. This project allowed me to graduate with a final score of 95.8%",
+    type: "Graduation Project (full-stack)",
+    tech: [
+      "react.svg",
+      "tailwindcss.svg",
+      "express.svg",
+      "mongodb.svg",
+      "gql.svg",
+      "jwt.svg"
+    ],
+    link: "https://github.com/PhishWasHere/CreateReactAppProject"
   },
 
   {
@@ -49,6 +65,7 @@ export const english = [
       "javascript.svg",
       "nodejs.svg",
       "express.svg",
+      "rest.svg",
       "mysql.svg"
     ],
     link: "https://github.com/TamaraDawg/BookReviewApp"
@@ -92,11 +109,27 @@ export const japanese = [
     tech: [
       "typescript.svg",
       "nodejs.svg",
-      "express.svg"
+      "express.svg",
+      "rest.svg"
     ],
     link: "https://github.com/PhishWasHere/serialised"
   },
 
+  {
+    title: "CreateReactAppProject",
+    desc: "もナッシュ大学ブートキャンプ最終プロジェクトーMERNスタック。 このプロジェクトを含み、最終スコア95.8%でコースを修了",
+    type: "コース‘修了プロジェクトt (フルスタック)",
+    tech: [
+      "react.svg",
+      "tailwindcss.svg",
+      "express.svg",
+      "mongodb.svg",
+      "gql.svg",
+      "jwt.svg"
+    ],
+    link: "https://github.com/PhishWasHere/CreateReactAppProject"
+  },
+  
   {
     title: "BetterReads",
     desc: "本のレビューアプリ, 本の検索とレビュー記載が可能",
@@ -105,6 +138,7 @@ export const japanese = [
       "javascript.svg",
       "nodejs.svg",
       "express.svg",
+      "rest.svg",
       "mysql.svg"
     ],
     link: "https://github.com/TamaraDawg/BookReviewApp"

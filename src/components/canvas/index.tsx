@@ -156,7 +156,6 @@ export default React.memo(function ParticleCanvas({onLoad}: CanvasProps) {
     return () => {
       cancelAnimationFrame(animationId);
       window.removeEventListener('resize', () => {});
-      document.body.removeChild(renderer.domElement);
       composer.dispose();
       renderer.dispose();
       wave.remove();

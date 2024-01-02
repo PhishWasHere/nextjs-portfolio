@@ -13,6 +13,11 @@ const nextConfig = {
     return config;
   },
   reactStrictMode: false,
+  env: {
+    EMAIL_SEND: process.env.EMAIL_SEND,
+    EMAIL_PASS: process.env.EMAIL_PASS,
+    EMAIL_USER: process.env.EMAIL_USER
+  }
 }
 
 module.exports = withNextIntl(nextConfig)

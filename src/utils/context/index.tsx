@@ -2,14 +2,13 @@
 
 import './index.css';
 import { createContext, useState, useEffect, Suspense } from 'react';
-import { usePathname } from '@/navigation';
-
+import { Link, usePathname } from '@/navigation';
 import ParticleCanvas from '@/components/canvas';
 import ContextComponent from '@/components/contextComonent';
 
-import Loading from '@/app/[locale]/loading';
+import Loading from '@/components/loading';
 
-export const Context = createContext<any>(null); 
+export const Context = createContext<any>(null);
 
 let pointer: HTMLElement | null;
 let pointerFollow: HTMLElement | null;
@@ -19,7 +18,9 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
   const [isLoading, setIsloading] = useState(true);
   const [onHome, setOnHome] = useState(true);
   const path = usePathname();
+
   useEffect(() => {
+    console.clear();
     // need to set isLoading to false here too
     pointer = document.getElementById('pointer');
     pointerFollow = document.getElementById('pointer-follow');    
@@ -35,7 +36,7 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
   }, [path]);
   
   useEffect(() => {
-    if (!pointer || !pointerFollow) return; 
+    if (!pointer || !pointerFollow) return;
     
     // not sure why, but i need to use the mouseMove function to get the pointer to follow the cursor
       // if i use something like a cb func on the eventListener that calls animate(e), the thing breaks
@@ -52,10 +53,11 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
       const animate = () => {
         posX += (mouseX - posX); 
         posY += (mouseY - posY);
-        pointer!.style.left = `${mouseX}px`;
-        pointer!.style.top = `${mouseY}px`;
-        pointerFollow!.style.left = `${posX}px`;
-        pointerFollow!.style.top = `${posY}px`;
+        if (!pointer || !pointerFollow) return;
+        pointer.style.left = `${mouseX}px`;
+        pointer.style.top = `${mouseY}px`;
+        pointerFollow.style.left = `${posX}px`;
+        pointerFollow.style.top = `${posY}px`;
         requestAnimationFrame(animate);
       }
  
@@ -71,7 +73,7 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
 
   return(
     <>
-    <Suspense fallback={<Loading/>}>
+    {/* <Suspense fallback={<Loading/>}> */}
     {isLoading ? (null) : (
       <Context.Provider value={[]}>
         <main>
@@ -80,9 +82,9 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
 
           <ContextComponent />
 
-          <section className='margin-t'>
-            <div id={``} className={`italic font-light text-lg ${onHome? 'home' : 'child'}`}>
-              {children}
+          <section id='main-section' className='margin-t'>
+            <div className={`italic font-light text-lg ${onHome? 'home' : 'child'}`}>
+                {children}
             </div>
           </section>
 
@@ -90,7 +92,7 @@ export const ContextProvider = ({ children }: {children: React.ReactNode}) => {
         </main>
       </Context.Provider>
       )}
-    </Suspense>
+    {/* </Suspense> */}
     </>
   )
-}   
+}

@@ -15,10 +15,13 @@
 
 # production
 /build
+/public/sitemap.xml
+/public/robots.txt
 
 # misc
 .DS_Store
 *.pem
+/git-files*
 
 # debug
 npm-debug.log*

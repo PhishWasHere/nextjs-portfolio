@@ -34,20 +34,20 @@ export default function Navbar({navHidden}: any) {
       <nav className="link flex text-xl justify-center-mt-6 italic font-extralight lg:mr-5">
 
         <div>
-          <Link href='/about' id='a' onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()} className={`mx-1.5 link  ${path ==='/about' ? 'line' : 'remove-line' }`}>
+          <Link href='/about' onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()} className={`mx-1.5 link under-line  ${path ==='/about' ? 'line' : 'remove-line' }`}>
             {t('about')}
           </Link>
         </div>
 
 
         <div>
-          <Link href='/projects' id='b' onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()} className={`mx-1.5 link ${path ==='/projects' ? 'line' : 'remove-line' }`}>
+          <Link href='/projects'  onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()} className={`mx-1.5 link under-line ${path ==='/projects' ? 'line' : 'remove-line' }`}>
             {t('projects')}
           </Link>
         </div>
 
         <div>
-          <Link href='/contact' id='c' onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()} className={`mx-1.5 link ${path ==='/contact' ? 'line' : 'remove-line' }`}>
+          <Link href='/contact' onMouseEnter={() => onEnter()} onMouseLeave={() => onLeave()} className={`mx-1.5 link under-line ${path ==='/contact' ? 'line' : 'remove-line' }`}>
             {t('contact')}
           </Link>
         </div>

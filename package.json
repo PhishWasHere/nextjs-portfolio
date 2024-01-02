@@ -10,35 +10,35 @@
     "docker": "docker-compose up --build"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.4",
     "@aws-amplify/adapter-nextjs": "^1.0.6",
-    "aws-amplify": "^6.0.6",
-    "stats-js": "^1.0.1",
-    "three": "^0.159.0",
     "@react-three/drei": "^9.90.0",
     "@react-three/fiber": "^8.15.12",
+    "aws-amplify": "^6.0.6",
     "axios": "^1.6.2",
     "dat.gui": "^0.7.9",
     "framer-motion": "^10.16.16",
-    "next-sitemap": "^4.2.3",
-
-    "next-intl": "^3.3.2"
+    "next": "13.5.6",
+    "next-intl": "^3.3.2",
+    "nodemailer": "^6.9.7",
+    "react": "^18",
+    "react-dom": "^18",
+    "stats-js": "^1.0.1",
+    "three": "^0.159.0"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/dat.gui": "^0.7.12",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.14",
+    "@types/p5": "^1.7.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/three": "^0.159.0",
     "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "3.3.7",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "@types/dat.gui": "^0.7.12",
-    "@types/p5": "^1.7.4",
-    "@types/three": "^0.159.0",
-    "raw-loader": "^4.0.2"
+    "postcss": "^8",
+    "raw-loader": "^4.0.2",
+    "tailwindcss": "3.3.7",
+    "typescript": "^5"
   }
 }
