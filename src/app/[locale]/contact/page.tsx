@@ -62,7 +62,6 @@ export default function Page() {
       setStatus({loading:true, success:false, error:false});
 
       const res = await axios.post('/api/contact', formData);
-      console.log(res.data.body.error);
       
       if (res.data.body.error === true) {
         return setStatus({loading:false, success:false, error:true});
