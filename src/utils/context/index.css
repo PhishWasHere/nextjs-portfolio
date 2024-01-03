@@ -1,0 +1,50 @@
+
+.home {
+  background-color: rgb(0 0 0 /00%) !important;
+}
+
+.child {
+  overflow: auto;
+  max-height: 70vh;
+  margin: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  background-color: rgb(0 0 0 /30%);
+  font-weight: 300;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+@media (min-width: 1024px) {
+  .child {
+    margin-top: -5vh;
+    margin-left: auto;
+    width: 50vw;
+    background-color: rgb(0 0 0 / 00%);
+  }
+}
+
+.margin-t {
+  margin-top: 10vh;
+}
+
+.cookie-container {
+  display: absolute;
+  position: fixed;
+  text-align: center;
+  width: 70%;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (min-width: 1024px) {
+  .cookie-container {
+    width: 50%;
+  }
+}
+
+.cookie-button {
+  margin-left: 0.50rem;
+  margin-right: 0.50rem;
+}

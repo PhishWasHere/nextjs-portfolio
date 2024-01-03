@@ -5,5 +5,6 @@ COPY tsconfig.json ./
 RUN npm install
 COPY . .
 RUN npm run build 
-EXPOSE 3000
+ENV HOST=0.0.0.0 PORT=3030 NODE_ENV=production
+EXPOSE 3030
 CMD ["npm", "run", "start"]

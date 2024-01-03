@@ -1,0 +1,119 @@
+{
+  "404" : {
+    "desc": "404 - Page not found",
+    "button": "Take me somewhere safe"
+  },
+
+  "home" : {
+    "first": "Miran",
+    "first_alt": "",
+    "last": "Yasunori",
+    "last_alt": "",
+    "title": "Hi I'm,",
+    "subtitle": "A Full-stack web developer",
+    "button": "Learn more"
+  },
+
+  "nav" : {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  
+  "about" : {
+    "title": "About Me",
+    "desc-line1": "I'm a web developer based in Melbourne, with a passion for problem-solving.",
+    "desc-line2": "I love to create things that are both beautiful and functional.",
+    "desc-line3": "My graduation from the Monash Full-Stack Bootcamp has equipped me with essential skills in JavaScript, Node.js, React, SQL, and various JS-based frameworks and libraries.",
+    "desc-line4": "I'm currently looking for a role as a junior developer, where I can continue to learn and grow as a developer.",
+    "desc-line5": "Please feel free to contact me if you have any questions or would like to work together!",
+    "skills": "What I use"
+  },
+
+  "projects": {
+    "NOTE": "All project text is in /projects/languages/index.tsx",
+    "proj-1": {
+      "title": "Portfolio",
+      "desc": "Take a look at the code for this website!",
+      "type": "Personal project (full-stack)",
+      "tech": [
+        "typescript.svg",
+        "nextjs.svg",
+        "next-intl.svg",
+        "tailwindcss.svg",
+        "three.svg",
+        "aws.svg"
+      ],
+      "link": "https://github.com/PhishWasHere/nextjs-portfolio"
+    },
+
+    "proj-2": {
+      "title": "ikHoneybee",
+      "desc": "Website for a small NDIS startup",
+      "type": "Freelance (full-stack)",
+      "tech": [
+        "typescript.svg",
+        "nextjs.svg",
+        "bootstrap.svg",
+        "aws.svg"
+      ],
+      "link": "https://www.ikhoneybee.com"
+    },
+
+    "proj-3": {
+      "title": "Serialised",
+      "desc": "A bot that checks if a manga chapter has been updated on MangaDex and sends a notification to Discord",
+      "type": "Personal project (backend)",
+      "tech": [
+        "typescript.svg",
+        "nodejs.svg",
+        "express.svg"
+      ],
+      "link": "https://github.com/PhishWasHere/serialised"
+    },
+
+    "proj-4": {
+      "title": "CreateReactAppProject",
+      "desc": "Graduation project for Monash Bootcamp made with the MERN stack. This project allowed me to graduate with a final score of 95.8%",
+      "type": "Graduation Project (full-stack)",
+      "tech": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "link": ""
+    },
+
+    "proj-5": {
+      "title": "BetterReads",
+      "desc": "Book review app, that lets users search for books and leave reviews.",
+      "type": "Group project (backend)",
+      "tech": [
+        "javascript.svg",
+        "nodejs.svg",
+        "express.svg",
+        "mysql.svg"
+      ],
+      "link": "https://github.com/TamaraDawg/BookReviewApp"
+    }
+  },
+
+  "contact": {
+    "title": "Want to get in touch?",
+    "desc": "Send me a message, and I'll get back to you as soon as I can.",
+    "connect": "Connect with me on ",
+    "link": "LinkedIn",
+
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "send": "Send"
+    },
+
+    "error": "Something went wrong",
+    "success": "Message sent"
+  }
+}

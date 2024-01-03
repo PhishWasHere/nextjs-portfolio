@@ -1,0 +1,120 @@
+{
+  "404" : {
+    "desc": "404 - ページが見つかりませんでした",
+    "button": "安全な場所に連れて行って"
+  },
+
+  "home" : {
+    "first": "安則", 
+    "first_alt": "やすのり",
+    "last": "弥嵐",
+    "last_alt": "みらん",
+    "title": "Hi I'm,", 
+    "subtitle": "フルスタックのWeb開発者です",
+    "button": "詳細はこちら"
+  },
+
+  "nav" : {
+    "home": "ホーム",
+    "about": "アバウト",
+    "projects": "プロジェクト",
+    "contact": "コンタクト"
+  },
+  
+  "about" : {
+    "title" : "プロフィール",
+    "desc-line1": "メルボルンを拠点とする、問題解決に情熱を燃やす日本人ハーフのウェブ開発者です。",
+    "desc-line2": "美しく機能的なものを作るのが好きです。",
+    "desc-line3": "モナッシュ大学のフルスタック・ブートキャンプを修了したことで、JavaScript、Node.js、React、SQLなど、様々なJSベースのフレームワークやライブラリの必須スキルを身につけることができました。",
+    "desc-line4": "現在、開発者として学び成長し続けられるジュニア開発者としての仕事を探しています。ご質問やお問い合わせは、お気軽にご連絡ください！",
+    "desc-line5": "(母国語は英語なので、間違った日本語を使ったらすみません)",
+    "skills": "使用言語とツール"
+  },
+
+
+  "projects": {
+    "NOTE": "All project text is in /projects/languages/index.tsx",
+    "proj-1": {
+      "title": "Portfolio",
+      "desc": "ポートフォリオ ソースコード",
+      "type": "個人プロジェクト (フルスタック)",
+      "tech": [
+        "typescript.svg",
+        "nextjs.svg",
+        "next-intl.svg",
+        "tailwindcss.svg",
+        "three.svg",
+        "aws.svg"
+      ],
+      "link": "https://github.com/PhishWasHere/nextjs-portfolio"
+    },
+    
+    "proj-2": {
+      "title": "ikHoneybee",
+      "desc": "障がい者介護スタートアップ用ウェブサイト",
+      "type": "フリーランス (フルスタック)",
+      "tech": [
+        "typescript.svg",
+        "nextjs.svg",
+        "bootstrap.svg",
+        "aws.svg"
+      ],
+      "link": "https://www.ikhoneybee.com"
+    },
+
+    "proj-3": {
+      "title": "Serialised",
+      "desc": "MangaDex で漫画のチャプターが更新されたかどうかを確認するDiscordボット",
+      "type": "個人プロジェクト (バックエンド)",
+      "tech": [
+        "typescript.svg",
+        "nodejs.svg",
+        "express.svg"
+      ],
+      "link": "https://github.com/PhishWasHere/serialised"
+    },
+   
+    "proj-4": {
+      "title": "",
+      "desc": "",
+      "type": "",
+      "tech": [
+        "",
+        "",
+        "",
+        ""
+      ],
+      "link": ""
+    },
+
+    "proj-5": {
+      "title": "BetterReads",
+      "desc": "本のレビューアプリ, 本の検索とレビュー記載が可能",
+      "type": "グループプロジェクト (バックエンド)",
+      "tech": [
+        "javascript.svg",
+        "nodejs.svg",
+        "express.svg",
+        "mysql.svg"
+      ],
+      "link": "https://github.com/TamaraDawg/BookReviewApp"
+    }
+  },
+
+  "contact": {
+    "title": "お問い合わせ",
+    "desc": "フォームよりご連絡ください。速やかな対応を心がけています。",
+    "connect": "で、繋がりましょう。",
+    "link": "LinkedIn ",
+
+    "form": {
+      "name": "お名前",
+      "email": "メールアドレス",
+      "message": "メッセージ",
+      "send": "送信"
+    },
+
+    "error": "エラーが発生しました",
+    "success": "送信完了"
+  }
+}

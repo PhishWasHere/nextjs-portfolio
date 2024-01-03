@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  cursor: none;
+}
+
+::-webkit-scrollbar {
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 2rem;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f120;
+  border-radius: 2rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 2rem;
+}
+
+/* custom pointer  */
+#pointer {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: rgb(255, 255, 255);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+/* custom pointers stalker */
+#pointer-follow {
+  position: absolute;
+  width: 17px;
+  height: 17px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999;
+  margin-top: -6px;
+  margin-left: -6px;
+  transition: 0.1s cubic-bezier(1,1.13,.01,1.24);
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* animated line */
+.animate-line {
+  display: inline-block;
+  position: relative;
+}
+
+.animate-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  animation: animate-line-ani 2s infinite ease-in-out;
+}
+
+.animate-line:hover::after {
+  width: 100%;
+  animation: animate-line-ani 2s ease-in-out;
+}
+
+@keyframes animate-line-ani {
+  0% {
+    left: 0;
+    width: 0;
+  }
+  50%{
+    left: 0;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 0;
+  }
+}
+/* animated line end */
+
+/* cursor none on clickable elements */
+.link {
+  margin: 0, 0.25rem, 0, 0.25rem;
+  cursor: none;
+}
+/* cursor none end */
+
+/* line on hover */
+.under-line{
+  display: inline-block;
+  position: relative;
+}
+ 
+.under-line::after{
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff; 
+  transition: width .3s;
+}
+
+.under-line:hover::after{
+  width: 100%;
+  transition: width .3s;
+}
+/* line on hover end */

@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.yarn/install-state.gz
 
 # testing
 /coverage
@@ -14,10 +15,13 @@
 
 # production
 /build
+/public/sitemap.xml
+/public/robots.txt
 
 # misc
 .DS_Store
 *.pem
+/git-files*
 
 # debug
 npm-debug.log*
@@ -34,7 +38,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-amplify/
 #amplify-do-not-edit-begin
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -56,3 +59,4 @@ amplifytools.xcconfig
 .secret-*
 **.sample
 #amplify-do-not-edit-end
+amplify

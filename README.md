@@ -1,6 +1,6 @@
 ## Portfolio
 
-A portfolio page made with [Next.js](https://nextjs.org), [TypeScript](https://www.typescriptlang.org/), CSS, [Tailwind](https://tailwindcss.com/)
+A portfolio page made with [Next.js](https://nextjs.org), [Next-intl](https://next-intl-docs.vercel.app/) [TypeScript](https://www.typescriptlang.org/), CSS, [Tailwind](https://tailwindcss.com/), [THREE.js](https://threejs.org/), [FramerMotion](https://www.framer.com/motion/)
 </br> *Inspired by [Keita Yamada](https://p5aholic.me/)*
 
 <details>
@@ -11,7 +11,7 @@ A portfolio page made with [Next.js](https://nextjs.org), [TypeScript](https://w
     <li><a href="#setup">Setup</a></li>
     <li><a href="#start">Start</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li> 
+    <li><a href="#contact">Contact</a></li>  
 </details>
 
 _______
@@ -19,7 +19,7 @@ _______
 ## Getting Started
 
 Here is an example of how to setup this project locally.
-</br>I avoided using client components to maintain SSR. If your not too fussed with that, feel free to move the components around to use the NEXT Router.
+</br>If any of the code is usefull, feel free to use it.
 
 ## Installation
 
@@ -32,7 +32,6 @@ After cloning the repo make sure you install all dependencies.
   ```
 
 ## Setup
-
 Once all dependencies are installed, find the ***.env.local.example*** and update the following fields;
 
   ```sh
